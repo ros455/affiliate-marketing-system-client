@@ -9,7 +9,7 @@
 .registration_block {
 display: flex;
 flex-direction: column;
-width: 50%;
+width: 30%;
 }
 
 .input_wraper{
@@ -27,7 +27,6 @@ width: 50%;
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    // color: var(--color-text-title);
     span{
         color: red;
     }

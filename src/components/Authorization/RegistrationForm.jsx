@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../style/LoginForm.scss";
 const RegistrationForm = () => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
 
   const handleRegistration = () => {};
 
@@ -32,6 +31,19 @@ const RegistrationForm = () => {
             />
           </div>
           <div className="input_wraper-item">
+            <label htmlFor="name">
+              Name <span>*</span>
+            </label>
+            <input
+              id="name"
+              type="text"
+              placeholder="mail@simmmple.com"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+          </div>
+          <div className="input_wraper-item">
             <label htmlFor="password">
               Password<span>*</span>
             </label>
@@ -52,15 +64,6 @@ const RegistrationForm = () => {
           >
             Registration
           </button>{" "}
-        </div>
-        <div className="not_regist">
-          <p onClick={() => handleRegistration(email, password)}>
-            Not registered yet?{" "}
-            <Link to={"/Login"}>
-              {" "}
-              <span>Create an Account </span>{" "}
-            </Link>{" "}
-          </p>
         </div>
       </div>
     </div>

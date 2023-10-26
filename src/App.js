@@ -1,14 +1,38 @@
+import { useEffect } from 'react';
 import './App.css';
-import RegistrationForm from './components/RegistrationForm';
+import RegistrationForm from './components/Authorization/RegistrationForm';
+import LoginForm from './components/Authorization/LoginForm';
 import { Route, Routes } from "react-router-dom";
 import MainPage from './components/MainPage';
+import AdminPanel from './components/Admin/AdminPanel';
+import PartnerPanel from './components/Partner/PartnerPanel';
+import { useSelector } from "react-redux";
+import { currentUser } from "./store/auth";
+import { useNavigate } from "react-router-dom";
+import FirstRequest from './components/FirstRequest';
 import './style/style-null.css';
+import './style/LoginForm.scss';
+import './style/admin.scss'
 function App() {
+  const user = useSelector(currentUser);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(user && user.isAdmin) {
+      navigate('/admin-panel')
+    } else if (user && user.isPartner) {
+      navigate('/partner-panel')
+    }
+  },[user])
+  console.log('user',user);
   return (
     <div className="App">
+      <FirstRequest/>
       <Routes>
-        <Route path='/' element={<MainPage/>}/>
-        <Route path='/registration' element={<RegistrationForm/>}/>
+        {!user && <Route path='/' element={<LoginForm/>}/>}
+        {!user && <Route path='/registration' element={<RegistrationForm/>}/>}
+        {user && user.isAdmin && <Route path='/admin-panel' element={<AdminPanel/>}/>}
+        {user && user.isPartner && <Route path='/partner-panel' element={<PartnerPanel/>}/>}
+        
       </Routes>
     </div>
   );
