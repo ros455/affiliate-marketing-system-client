@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Ernings from '../template/Ernings'; 
 import BalanceSalesCom from '../template/BalanceSalesCom';
-import DashboardPrtner from './DashboardPrtner';
+import DashboardPrtnerList from './DashboardPrtnerList';
 import WeeklyChart from '../template/WeeklyChart';
 // import PartnerMini from './PartnerMini';
 // import TiketsMini from './TiketsMini';
-const DashboardWrap = () => {
+const DashboardWrap = ({hendlerOpenListOfPartner}) => {
     return (
         <div className='admin_content_wrap'>
             <h2>Main Dashboard</h2>
@@ -31,9 +31,9 @@ const DashboardWrap = () => {
                 isSales = {false}
             />
             </div>
-            <div style={{display:'flex'}}>
-                <div style={{width: '60%'}}>
-                <DashboardPrtner/>
+            <div className='dasboard_user_list_and_chart_wrap'>
+                <div className='dasboard_user_list'>
+                <DashboardPrtnerList hendlerOpenListOfPartner={hendlerOpenListOfPartner}/>
                 </div>
                 <div style={{width:'40%'}}>
             <WeeklyChart/>

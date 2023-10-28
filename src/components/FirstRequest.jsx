@@ -1,14 +1,21 @@
 import React, {useEffect} from 'react';
 import { useDispatch } from 'react-redux'
-import { fetchAuthMe, fetchIsAdmin } from '../store/auth';
-const FirstRequest = () => {
+import { fetchAuthMe, fetchAllUsers } from '../store/auth';
+import { AUTH_TOKEN } from '../utils/Token';
+const FirstRequest = ({user}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(window.localStorage.getItem('A-M-S-token')) {
+        if(AUTH_TOKEN) {
             dispatch(fetchAuthMe());
         }
     },[])
+
+    useEffect(() => {
+        if(user?.isAdmin) {
+            dispatch(fetchAllUsers());
+        }
+    },[user])
 };
 
 export default FirstRequest;

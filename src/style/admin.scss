@@ -27,9 +27,6 @@
      align-items: center;
      justify-content: space-around;
      padding: 0 10%;
-     p{
-         color: var(--color-admin-text-second);
-     }
      
  }
  
@@ -59,9 +56,6 @@
      gap: 10px;
      h2{
          color: var(--color-admin-title);
-     }
-     p{
-         color: --color-admin-text-second;
      }
  }
  
@@ -98,31 +92,13 @@
      border-radius:  0 15px 15px 0 ;
  }
  
- .switch-active-admin{
-     background: var(--color-prime);
-     p{
-         color: var(--color-btn);
-     }
-     &:hover{
-         background: var(--color-btn-hover);
-     }
- }
- 
- .switch-non-active-admin{
-     background: transparent;
-     border: 1px solid var(--color-bg-second);
-     p{
-         color: var(--color-text-title);
-     }
- }
- 
  .input_wraper-admin{
      display: flex;
      flex-direction: column;
      gap: 20px;
  }
  
- .button_singin-admin{
+ .button_approve-admin{
      width: 100%;
  }
  
@@ -146,40 +122,6 @@
      
  }
  
- .input-checkbox-admin{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     p{
-         color: var(--color-admin-title);
-         text-align: end;
-         width: 50%;
-     }
-     .forgot_pasword-link-admin{
-             color: var(--color-admin-second);
-         }
- }
- 
- .item-checkbox-admin{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     width: 50%;
-     input{
-         display: none;
-     }
-     label{
-         min-width: 24px;
-         height: 24px;
-         border: 1px solid var(--color-bg-second);
-         border-radius: 5px;
-         cursor: pointer;
-     }
-     p{
-         width: 100%;
-     }
- }
- 
  
  .checked-admin{
          background: var(--color-admin-prime);
@@ -193,7 +135,7 @@
      }
  }
  
- .button_singin-admin{
+ .button_approve-admin{
      height: 50px;
      background: var(--color-admin-prime);
      border-radius: 15px;
@@ -201,23 +143,7 @@
          background: var(--color-admin-prime--hover);
      }
  }
- 
- .not_regist-admin{
-     display: flex;
-     justify-content: space-between;
-     width: 100%;
-     p{
-         color: var(--color-admin-text-second);
-         
-         span{
-             color: var(--color-prime);
-             margin-left: 10px;
-             &:hover{
-                 color: var(--color-btn-hover);
-             }
-         }
-     }
- }
+
  
  .right_block-admin{
      flex: 0 1 50%;
@@ -420,12 +346,6 @@
      height: 25px;
      transition: all 0.2s ease-in-out;
      cursor: pointer;
-     &:hover{
-         // background: #d8d8fb;
-         p{
-             color: var(--color-admin-prime--hover);
-         }
-     }
  
  }
  
@@ -694,23 +614,6 @@
      padding: 5px 0px;
      justify-content: space-between;
      border-bottom: 1px solid black;
- }
- 
- .coin_list-item-current{
-     display: flex;
-     // gap: 10;
-     justify-content: space-between;
-     p{
-         margin: 5px 10px;
-         
-     }
-     .del_item{
-         cursor: pointer;
-         transition: all 0.5s ease-in-out;
-         &:hover{
-             color: red;
-         }
-     }
  }
  
  .select_header{

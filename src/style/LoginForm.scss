@@ -18,14 +18,14 @@ width: 30%;
     gap: 20px;
 }
 
-.button_singin{
+.button_approve{
     width: 100%;
 }
 
 .input_wraper-item{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    // width: 100%;
     gap: 10px;
     span{
         color: red;
@@ -37,12 +37,13 @@ width: 30%;
         padding: 10px;
         border: 1px solid #6D47D7;
         color: black;
+        width: 100%;
     }
     
 }
     
 
-.button_singin{
+.button_approve{
     height: 50px;
     background: #6D47D7;
     border-radius: 15px;
@@ -56,4 +57,18 @@ width: 30%;
 
 .registration_button_wrap {
     margin: 10px 0px;
+}
+
+.password_toggle_icon {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.password_input_container {
+    position: relative;
+    width: 100%;
 }

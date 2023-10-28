@@ -12,7 +12,11 @@ import { useNavigate } from "react-router-dom";
 import FirstRequest from './components/FirstRequest';
 import './style/style-null.css';
 import './style/LoginForm.scss';
-import './style/admin.scss'
+import './style/admin.scss';
+import './style/profile.scss';
+import './style/ListOfPartner.scss';
+import './style/Dasnoard.scss';
+import './style/WeeklyChart.scss';
 function App() {
   const user = useSelector(currentUser);
   const navigate = useNavigate();
@@ -23,16 +27,15 @@ function App() {
       navigate('/partner-panel')
     }
   },[user])
-  console.log('user',user);
+
   return (
     <div className="App">
-      <FirstRequest/>
+      <FirstRequest user={user}/>
       <Routes>
         {!user && <Route path='/' element={<LoginForm/>}/>}
         {!user && <Route path='/registration' element={<RegistrationForm/>}/>}
         {user && user.isAdmin && <Route path='/admin-panel' element={<AdminPanel/>}/>}
         {user && user.isPartner && <Route path='/partner-panel' element={<PartnerPanel/>}/>}
-        
       </Routes>
     </div>
   );

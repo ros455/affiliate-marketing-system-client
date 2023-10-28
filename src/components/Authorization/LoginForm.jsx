@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth, currentUser } from '../../store/auth';
 import { useNavigate } from "react-router-dom";
+import InputPassword from '../template/InputPassword';
 const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,21 +16,12 @@ const LoginForm = () => {
             email,
             password: password
           }));
-
-          console.log('data',data);
-      
-          if (data.payload.message === 'User disabled') {
-            alert('Вас заблоковано, зверніться до менеджера');
-          }
-      
-          if (data.payload.message === 'User not found' || data.payload.message === 'Password not found') {
-            alert('Невірний логін чи пароль');
-          }
       
           if ('token' in data.payload) {
             window.localStorage.setItem('A-M-S-token', data.payload.token);
-            // navigate('/');
-            // window.location.reload();
+            window.location.reload();
+          } else {
+            alert(data.payload.message);
           }
     };
 
@@ -59,19 +51,20 @@ const LoginForm = () => {
               <label htmlFor="password">
                 Password<span>*</span>
               </label>
-              <input
+              {/* <input
                 id="password"
                 type="password"
                 placeholder="Min. 8 characters"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleKeyDown}
-              />
+              /> */}
+              <InputPassword password={password} setPassword={setPassword} handleKeyDown={handleKeyDown}/>
             </div>
           </div>
           <div className="registration_button_wrap">
             <button
-              className="button_singin"
+              className="button_approve"
               onClick={() => handleLogin(email, password)}
             >
               Sign in

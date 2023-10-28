@@ -1,9 +1,9 @@
 import React from 'react';
-
+import EditUserProfileData from '../template/EditUserProfileData';
 const Profile = () => {
     return (
         <div>
-            Profile
+            <EditUserProfileData updateDataUrl='update-user-data'/>
         </div>
     );
 };

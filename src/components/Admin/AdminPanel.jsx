@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DashboardWrap from './DashboardWrap';
 import ListOfPartner from './ListOfPartner';
 import AdvancedStatistics from './AdvancedStatistics';
 import RewardSettings from './RewardSettings';
 import Profile from './Profile';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { allUsers } from '../../store/auth';
 import { AiFillHome } from 'react-icons/ai';
 import { GiSettingsKnobs } from 'react-icons/gi';
 import { BiLogOut, BiSolidBarChartAlt2 } from 'react-icons/bi';
@@ -15,6 +18,8 @@ const AdminPanel = () => {
     const [isAdvancedStatistics, setIsAdvancedStatistics] = useState(false)
     const [isRewardSettings, setIsRewardSettings] = useState(false)
     const [isProfile, setIsProfile] = useState(false)
+
+    const navigate = useNavigate();
 
     const hendlerOpenDashboadr = () => {
         setIsDashboadr(true)
@@ -53,8 +58,11 @@ const AdminPanel = () => {
     }
 
     const logoutAdministration = () => {
-        // dispatch(logout({accessToken: user.accessToken}));
-        // navigate('/');
+        window.localStorage.removeItem('A-M-S-token');
+        navigate('/');
+        setTimeout(() => {
+            window.location.reload();
+        },1000)
     }
 
     return (
@@ -88,7 +96,7 @@ const AdminPanel = () => {
                 <div className='admin_panel_content-wraper'>
                     <div className='title_body'>
                         {isDashboadr && 
-                        <DashboardWrap/>
+                        <DashboardWrap hendlerOpenListOfPartner={hendlerOpenListOfPartner}/>
                         }
                         {isListOfPartner && 
                             <ListOfPartner/>

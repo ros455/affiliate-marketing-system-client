@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PartnerDashboard from './PartnerDashboard';
 import ProfitAndBonuses from './ProfitAndBonuses';
 import Conversions from './Conversions';
@@ -16,6 +17,8 @@ const PartnerPanel = () => {
     const [isConversions, setIsConversions] = useState(false)
     const [isReferralProgram, setIsReferralProgram] = useState(false)
     const [isProfile, setIsProfile] = useState(false)
+
+    const navigate = useNavigate();
 
     const hendlerOpenDashboadr = () => {
         setIsDashboadr(true)
@@ -53,9 +56,12 @@ const PartnerPanel = () => {
         setIsProfile(true)
     }
 
-    const logoutAdministration = () => {
-        // dispatch(logout({accessToken: user.accessToken}));
-        // navigate('/');
+    const handleLogoutPartner = () => {
+        window.localStorage.removeItem('A-M-S-token');
+        navigate('/');
+        setTimeout(() => {
+            window.location.reload();
+        },1000)
     }
 
     return (
@@ -82,7 +88,7 @@ const PartnerPanel = () => {
                             onClick={hendlerOpenProfile}
                             className={`nav_list-item ${isProfile ? 'nav_list-item-active' : ''} `}
                             ><BsFillPersonFill/>Profile</li>
-                            <li className='nav_list-item' onClick={logoutAdministration}><BiLogOut/>Log Out</li>
+                            <li className='nav_list-item' onClick={handleLogoutPartner}><BiLogOut/>Log Out</li>
                         </ul>
                     </nav>
                 </aside>

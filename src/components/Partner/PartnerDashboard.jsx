@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Ernings from '../template/Ernings'; 
 import BalanceSalesCom from '../template/BalanceSalesCom';
-// import DashboardPrtner from './DashboardPrtner';
 import WeeklyChart from '../template/WeeklyChart';
 
 const PartnerDashboard = () => {
@@ -32,7 +31,6 @@ const PartnerDashboard = () => {
             </div>
             <div style={{display:'flex'}}>
                 <div style={{width: '60%'}}>
-                {/* <DashboardPrtner/> */}
                 </div>
                 <div style={{width:'40%'}}>
             <WeeklyChart/>

@@ -1,0 +1,40 @@
+.dashboard_partner_list_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dashboard_partner_list_three_dot_block {
+    padding: 5px 10px;
+    margin: 0px;
+    background-color: #F4F7FE;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.dashboard_partner_list_three_dot_icon {
+    font-size: 22px;
+    color: #4318FF;
+    font-weight: 600;
+    margin: 0px;
+    padding: 0px;
+}
+
+.dashboard_partner_list_title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.dasboard_user_list_and_chart_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dasboard_user_list {
+    width: 55%;
+}
+
+.dasboard_chartt {
+    width: 40%;
+}
