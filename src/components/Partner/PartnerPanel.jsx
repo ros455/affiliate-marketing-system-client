@@ -95,7 +95,7 @@ const PartnerPanel = () => {
                 <div className='admin_panel_content-wraper'>
                     <div className='title_body'>
                         {isDashboadr && 
-                        <PartnerDashboard/>
+                        <PartnerDashboard hendlerOpenConversions={hendlerOpenConversions}/>
                         }
                         {isProfitAndBonuses && 
                             <ProfitAndBonuses/>

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { allUsers } from '../../store/auth';
 import {BsThreeDots} from 'react-icons/bs';
-const DashboardPrtnerList = ({hendlerOpenListOfPartner}) => {
+const AllPrtnerList = ({hendlerOpenListOfPartner}) => {
     const [allUsersState, setAllUsersState] = useState([]);
     const allUser = useSelector(allUsers);
 
     useEffect(() => {
         if(allUser) {
-            setAllUsersState(allUser.slice(0,5))
+            setAllUsersState(allUser)
         }
     },[allUser])
 
@@ -45,4 +45,4 @@ const DashboardPrtnerList = ({hendlerOpenListOfPartner}) => {
     );
 };
 
-export default DashboardPrtnerList;
+export default AllPrtnerList;

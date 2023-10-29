@@ -1,11 +1,11 @@
-.dashboard_partner_list_header {
+.dashboard_list_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.dashboard_partner_list_three_dot_block {
+.dashboard_list_three_dot_block {
     padding: 5px 10px;
     margin: 0px;
     background-color: #F4F7FE;
@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.dashboard_partner_list_three_dot_icon {
+.dashboard_list_three_dot_icon {
     font-size: 22px;
     color: #4318FF;
     font-weight: 600;
@@ -21,7 +21,7 @@
     padding: 0px;
 }
 
-.dashboard_partner_list_title {
+.dashboard_list_title {
     font-size: 18px;
     font-weight: 600;
 }
@@ -37,4 +37,20 @@
 
 .dasboard_chartt {
     width: 40%;
+}
+
+.dashboard_input_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+    input{
+        height: 50px;
+        border-radius: 15px;
+        background: transparent;
+        padding: 10px;
+        background: #F4F7FE;
+        color: black;
+        width: 100%;
+    }
 }

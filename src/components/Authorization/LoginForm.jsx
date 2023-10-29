@@ -51,14 +51,6 @@ const LoginForm = () => {
               <label htmlFor="password">
                 Password<span>*</span>
               </label>
-              {/* <input
-                id="password"
-                type="password"
-                placeholder="Min. 8 characters"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onKeyDown={handleKeyDown}
-              /> */}
               <InputPassword password={password} setPassword={setPassword} handleKeyDown={handleKeyDown}/>
             </div>
           </div>
@@ -71,7 +63,7 @@ const LoginForm = () => {
             </button>{" "}
           </div>
           <div className="not_regist">
-            <p onClick={() => handleLogin(email, password)}>
+            <p>
               Not registered yet?{" "}
               <Link to={"/registration"}>
                 {" "}

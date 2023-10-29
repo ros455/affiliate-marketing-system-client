@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
+import {BsThreeDots} from 'react-icons/bs';
 import { allUsers } from '../../store/auth';
 const ListOfPartner_List = () => {
+    const [partnerName, setPartnerName] = useState('');
     const allUser = useSelector(allUsers);
 
     console.log('allUser',allUser);
     return (
-        <div>
-            <div className='list_of_partner_title'>Partners</div>
-            <div className='list_of_partner_table_title'>
-                <div className='list_of_partner_table_title_item'>Name</div>
-                <div className='list_of_partner_table_title_item'>Conversion</div>
-                <div className='list_of_partner_table_title_item'>Transitions</div>
-                <div className='list_of_partner_table_title_item'>Sales</div>
+        <div className='admin_panel_items derection_wraper' >
+            <div className='dashboard_list_header'>
+            <h3 className='dashboard_list_title'>Partner</h3>
+            <div className='dashboard_input_wrap'>
+                <input placeholder='Search partner'/>
             </div>
-            {allUser && allUser.map((user) => (
-            <div className='list_of_partner_table_title' key={user._id}>
-            <div className='list_of_partner_table_data_item'>{user.name}</div>
-            <div className='list_of_partner_table_data_item'>2</div>
-            <div className='list_of_partner_table_data_item'>3</div>
-            <div className='list_of_partner_table_data_item'>4</div>
             </div>
-            ))}
+            <div className='derection_table_wrap'>
+                <div className='table_header'>
+                    <p className='colum colum_name'>Name</p>
+                    <p className='colum '>Conversion</p>
+                    <p className='colum '>Transitions</p>
+                    <p className='colum '>Sales</p>
+                </div>
+                <div className='table_body'>
+                    {!!allUser.length && allUser.map((user) => (
+                    <div className='table_info_item' key={user._id}> 
+                        <p className='colum row colum_name'>{user.name}</p>
+                        <p className='colum row colum_progres'>2</p>
+                        <p className='colum row colum_quantity'>3</p>
+                        <p className='colum row colum_data'>4</p>
+                    </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };

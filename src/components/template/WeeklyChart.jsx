@@ -48,7 +48,7 @@ const WeeklyChart = () => {
             </div>
             <div className='weekly_chart_date_main_block'>
                 {deteArray.map((date) => (
-                    <div className='weekly_chart_date_item'>
+                    <div className='weekly_chart_date_item' key={date}>
                         {date}
                     </div>
                 ))}

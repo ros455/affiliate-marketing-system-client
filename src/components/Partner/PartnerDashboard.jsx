@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Ernings from '../template/Ernings'; 
 import BalanceSalesCom from '../template/BalanceSalesCom';
 import WeeklyChart from '../template/WeeklyChart';
-
-const PartnerDashboard = () => {
+import DashboardConversionList from './DashboardConversionList';
+const PartnerDashboard = ({hendlerOpenConversions}) => {
     return (
         <div className='admin_content_wrap'>
             <h2>Main Dashboard</h2>
@@ -29,8 +29,16 @@ const PartnerDashboard = () => {
                 isSales = {false}
             />
             </div>
-            <div style={{display:'flex'}}>
+            {/* <div style={{display:'flex'}}>
                 <div style={{width: '60%'}}>
+                </div>
+                <div style={{width:'40%'}}>
+            <WeeklyChart/>
+                </div>
+            </div> */}
+            <div className='dasboard_user_list_and_chart_wrap'>
+                <div className='dasboard_user_list'>
+                <DashboardConversionList hendlerOpenConversions={hendlerOpenConversions}/>
                 </div>
                 <div style={{width:'40%'}}>
             <WeeklyChart/>
