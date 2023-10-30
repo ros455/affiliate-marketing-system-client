@@ -54,3 +54,33 @@
         width: 100%;
     }
 }
+
+.dashboard_pagination_wrap {
+
+} 
+
+.dashboard_pagination_block {
+}
+
+.dashboard_pagination_buttons_block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.dashboard_pagination_button_item {
+    background: #F4F7FE;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #4318FF;
+}
+
+.pagination_current_page {
+    font-weight: 600;
+    color: #4318FF;
+}
