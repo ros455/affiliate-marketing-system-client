@@ -1,3 +1,5 @@
+@import './template.scss';
+
 .dashboard_list_header {
     display: flex;
     justify-content: space-between;
@@ -8,14 +10,14 @@
 .dashboard_list_three_dot_block {
     padding: 5px 10px;
     margin: 0px;
-    background-color: #F4F7FE;
+    background-color: $white_color;
     border-radius: 12px;
     cursor: pointer;
 }
 
 .dashboard_list_three_dot_icon {
     font-size: 22px;
-    color: #4318FF;
+    color: $main_color;
     font-weight: 600;
     margin: 0px;
     padding: 0px;
@@ -49,8 +51,8 @@
         border-radius: 15px;
         background: transparent;
         padding: 10px;
-        background: #F4F7FE;
-        color: black;
+        background: $white_color;
+        color: $black_color;
         width: 100%;
     }
 }
@@ -69,7 +71,7 @@
 }
 
 .dashboard_pagination_button_item {
-    background: #F4F7FE;
+    background: $white_color;
     padding: 10px;
     border-radius: 12px;
     margin: 0px 10px;
@@ -77,10 +79,10 @@
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    color: #4318FF;
+    color: $main_color;
 }
 
 .pagination_current_page {
     font-weight: 600;
-    color: #4318FF;
+    color: $main_color;
 }

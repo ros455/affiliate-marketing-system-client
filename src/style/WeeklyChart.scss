@@ -1,5 +1,7 @@
+@import './template.scss';
+
 .weekly_chart_wrap {
-    background: #fff;
+    background: $white_color;
     border-radius: 20px;
     padding: 20px 30px;
     height: 100%;
@@ -49,7 +51,7 @@
 
 .weekly_chart_item {
     width: 30%;
-    background: linear-gradient(to top, #ffffff 0%, #5831ff 100%);
+    background: linear-gradient(to top, $white_color 0%, $main_color 100%);
     border-radius: 10px;
 }
 
