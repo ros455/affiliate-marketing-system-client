@@ -1,0 +1,33 @@
+@import "./template.scss";
+.user_one_text {
+  color: $midBlueColor;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 171.429%;
+}
+.user_one_erning_sales_info_wrap {
+  margin-bottom: 43px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  gap: 20px;
+}
+
+.user_one_title_wrapp {
+  margin-bottom: 29px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user_one_title {
+  color: $deep_blue_color;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 123.529%;
+  letter-spacing: -0.68px;
+}
+
+.user_one_btn_back {
+  background-color: transparent;
+}
