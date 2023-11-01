@@ -17,6 +17,8 @@ import "./style/profile.scss";
 import "./style/ListOfPartner.scss";
 import "./style/Dasnoard.scss";
 import "./style/WeeklyChart.scss";
+import "./style/StatisticChart.scss";
+import "./style/UserOne.scss";
 function App() {
   const user = useSelector(currentUser);
   const navigate = useNavigate();
