@@ -3,7 +3,7 @@ import { MdCalendarMonth } from "react-icons/md";
 import StatisticChartItem from "./StatisticChartItem";
 
 const StatisticChart = () => {
-  const chartArray = [
+  const chartArrayDays = [
     { procent: "40%", date: "01" },
     { procent: "60%", date: "02" },
     { procent: "100%", date: "03" },
@@ -36,15 +36,41 @@ const StatisticChart = () => {
     { procent: "50%", date: "30" },
     { procent: "40%", date: "31" },
   ];
+  const chartArrayMonth = [
+    { procent: "40%", date: "01" },
+    { procent: "60%", date: "02" },
+    { procent: "100%", date: "03" },
+    { procent: "800%", date: "04" },
+    { procent: "90%", date: "05" },
+    { procent: "30%", date: "06" },
+    { procent: "50%", date: "07" },
+    { procent: "90%", date: "08" },
+    { procent: "30%", date: "09" },
+    { procent: "50%", date: "10" },
+    { procent: "40%", date: "11" },
+    { procent: "0%", date: "12" },
+  ];
 
   const [activeActionsButton, setActiveActionsButton] = useState("transitions");
   const [activeStatisticDate, setActiveStatisticDate] = useState("day");
+  const [hoveredItem, setHoveredItem] = useState(null);
 
   const handleStatisticActions = (buttonName) => {
     setActiveActionsButton(buttonName);
   };
   const handleStatisticDate = (buttonName) => {
     setActiveStatisticDate(buttonName);
+  };
+
+  const currentDate = () => {
+    if (activeStatisticDate === "day") {
+      return chartArrayDays;
+    }
+    if (activeStatisticDate === "month") {
+      return chartArrayMonth;
+    }
+
+    return chartArrayDays;
   };
 
   return (
@@ -60,7 +86,7 @@ const StatisticChart = () => {
             type="button"
             onClick={() => handleStatisticActions("transitions")}
           >
-            Transitions            
+            Transitions
           </button>
           <button
             className={`statistic_chart_actions_btn ${
@@ -71,7 +97,7 @@ const StatisticChart = () => {
             type="button"
             onClick={() => handleStatisticActions("sales")}
           >
-            Sales           
+            Sales
           </button>
           <button
             className={`statistic_chart_actions_btn ${
@@ -82,7 +108,7 @@ const StatisticChart = () => {
             type="button"
             onClick={() => handleStatisticActions("conversions")}
           >
-            Conversions           
+            Conversions
           </button>
         </div>
         <div className="statistic_chart_date_wrapp">
@@ -132,9 +158,17 @@ const StatisticChart = () => {
           <p className="statistic_chart_main_block_text">100</p>
           <p className="statistic_chart_main_block_text">0</p>
         </div>
-        <div className="statistic_chart_main_block">
-          {chartArray.map((chart, idx) => (
-            <StatisticChartItem chart={chart} key={idx} />
+        <div
+          className="statistic_chart_main_block"
+          onMouseLeave={() => setHoveredItem(null)}
+        >
+          {currentDate().map((chart, idx) => (
+            <StatisticChartItem
+              chart={chart}
+              key={idx}
+              isHovered={hoveredItem === idx}
+              onMouseEnter={() => setHoveredItem(idx)}
+            />
           ))}
         </div>
       </div>

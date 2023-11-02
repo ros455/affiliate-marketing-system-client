@@ -1,7 +1,5 @@
-@import "./template.scss";
-
 .weekly_chart_wrap {
-  background: $white_second_color;
+  background: #fff;
   border-radius: 20px;
   padding: 20px 30px;
   height: 100%;
@@ -51,11 +49,11 @@
 
 .weekly_chart_item {
   width: 30%;
-  background: linear-gradient(to top, $white_color 0%, $main_color 100%);
+  background: linear-gradient(to top, #f4f7fe 0%, #4318ff 100%);
   border-radius: 10px;
 }
 
 .weekly_chart_main_block {
   display: flex;
   justify-content: space-between;
-}
+}/*# sourceMappingURL=WeeklyChart.css.map */

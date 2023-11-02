@@ -1,10 +1,8 @@
-@import "./template.scss";
-
 .statistic_chart {
   padding: 30px;
   max-width: 1154px;
   border-radius: 20px;
-  background: $white_second_color;
+  background: #fff;
 }
 
 .statistic_chart_wrapp {
@@ -19,6 +17,7 @@
   display: flex;
   gap: 15px;
 }
+
 .statistic_chart_date_wrapp {
   display: flex;
   gap: 11px;
@@ -31,7 +30,7 @@
   align-items: center;
   border-radius: 20px;
   background: rgba(119, 119, 119, 0.5);
-  color: $white_second_color;
+  color: #fff;
   font-size: 14px;
   font-weight: 700;
   line-height: 171.429%;
@@ -39,9 +38,9 @@
 }
 
 .statistic_chart_actions_btn_active {
-  background: $white_second_color;
-  color: $deep_blue_color;
-  border: 1px solid $deep_blue_color;
+  background: #fff;
+  color: #2b3674;
+  border: 1px solid #2b3674;
 }
 
 .statistic_chart_date_btn {
@@ -52,54 +51,55 @@
   align-items: center;
   border-radius: 20px;
   background: rgba(119, 119, 119, 0.5);
-  color: $white_second_color;
+  color: #fff;
   font-size: 14px;
   font-weight: 700;
   line-height: 171.429%;
   letter-spacing: -0.28px;
-  .statistic_chart_date_btn_icon {
-    width: 24px;
-    height: 24px;
-  }
+}
+.statistic_chart_date_btn .statistic_chart_date_btn_icon {
+  width: 24px;
+  height: 24px;
 }
 
 .statistic_chart_date_btn_active {
-  background: $white_second_color;
-  color: $deep_blue_color;
-  border: 1px solid $deep_blue_color;
+  background: #fff;
+  color: #2b3674;
+  border: 1px solid #2b3674;
 }
 
 .statistic_chart_visitors {
   margin-bottom: 59px;
-  color: $deep_blue_color;
+  color: #2b3674;
   font-size: 34px;
   font-weight: 700;
   line-height: 123.529%;
   letter-spacing: -0.68px;
-  span {
-    color: $light_blue_color;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 171.429%;
-    letter-spacing: -0.28px;
-  }
 }
+.statistic_chart_visitors span {
+  color: #a3aed0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 171.429%;
+  letter-spacing: -0.28px;
+}
+
 .statistic_chart_main_block_wrapp {
   display: flex;
   gap: 12px;
   align-items: center;
 }
+
 .statistic_chart_main_block {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  &:hover {
-    .statistic_chart_item:not(.active) {
-      opacity: 0.5;
-    }
-  }
 }
+.statistic_chart_main_block:hover .statistic_chart_item:not(.active) {
+  opacity: 0.5;
+}
+
 .statistic_chart_main_block_text_wrapp {
   height: 135px;
   display: flex;
@@ -108,8 +108,9 @@
   align-items: center;
   transform: translateY(-20px);
 }
+
 .statistic_chart_main_block_text {
-  color: $light_blue_gray_color;
+  color: #b0bbd5;
   font-size: 12px;
   font-weight: 700;
   line-height: 166.667%;
@@ -123,37 +124,33 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  border-top: 1px dotted $light_blue_gray_color;
+  border-top: 1px dotted #b0bbd5;
   position: relative;
-  &:after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 2px;
-    left: 0;
-    bottom: 40px;
-    border-bottom: 1px dotted $light_blue_gray_color;
-  }
+}
+.statistic_chart_item_block:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 40px;
+  border-bottom: 1px dotted #b0bbd5;
 }
 
 .statistic_chart_item {
   position: relative;
   cursor: pointer;
   width: 30%;
-  background: linear-gradient(to top, $white_color 0%, $main_color 100%);
+  background: linear-gradient(to top, #f4f7fe 0%, #4318ff 100%);
   border-radius: 50px 50px 0 0;
 }
 
 .statistic_chart_item.active {
   opacity: 1;
-  .statistic_chart_item_amount {
-    opacity: 1;
-  }
-  background: linear-gradient(
-    270deg,
-    #4318ff 5.56%,
-    rgba(67, 24, 255, 0.28) 100%
-  );
+  background: linear-gradient(270deg, #4318ff 5.56%, rgba(67, 24, 255, 0.28) 100%);
+}
+.statistic_chart_item.active .statistic_chart_item_amount {
+  opacity: 1;
 }
 
 .statistic_chart_main_block {
@@ -167,7 +164,7 @@
   position: absolute;
   top: -20px;
   left: -10px;
-  color: $purple_color;
+  color: #4920ff;
   font-size: 19px;
   font-weight: 500;
   line-height: 105.263%;
@@ -176,10 +173,10 @@
 
 .statistic_chart_item_value {
   margin-top: 21px;
-  color: $light_blue_gray_color;
+  color: #b0bbd5;
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: 166.667%;
   letter-spacing: -0.24px;
-}
+}/*# sourceMappingURL=StatisticChart.css.map */

@@ -31,15 +31,14 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  // text-align: left;
   width: 100%;
   max-width: 400px;
   gap: 10px;
   color: var(--color-admin-text-title);
   cursor: pointer;
-  &:hover {
-    color: var(--color-prime);
-  }
+}
+.back_home_login-admin:hover {
+  color: var(--color-prime);
 }
 
 .svg-login-admin {
@@ -50,9 +49,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  h2 {
-    color: var(--color-admin-title);
-  }
+}
+.title_singin-admin h2 {
+  color: var(--color-admin-title);
 }
 
 .singin_wrap-admin {
@@ -68,7 +67,6 @@
   width: 100%;
   max-width: 400px;
   height: 50px;
-  // border-radius: 15px;
 }
 
 .switch_item-admin {
@@ -82,6 +80,7 @@
 .switch_item-left-admin {
   border-radius: 15px 0 0 15px;
 }
+
 .switch_item-right-admin {
   border-radius: 0 15px 15px 0;
 }
@@ -102,17 +101,17 @@
   width: 100%;
   gap: 10px;
   color: var(--color-admin-title);
-  span {
-    color: var(--color-admin-second);
-  }
-  input {
-    height: 50px;
-    border-radius: 15px;
-    background: transparent;
-    padding: 10px;
-    border: 1px solid var(--color-bg-second);
-    color: var(--color-admin-text-prime);
-  }
+}
+.input_wraper-item-admin span {
+  color: var(--color-admin-second);
+}
+.input_wraper-item-admin input {
+  height: 50px;
+  border-radius: 15px;
+  background: transparent;
+  padding: 10px;
+  border: 1px solid var(--color-bg-second);
+  color: var(--color-admin-text-prime);
 }
 
 .checked-admin {
@@ -122,31 +121,30 @@
 
 .forgot_pasword-link-admin {
   cursor: pointer;
-  &:hover {
-    color: var(--color-admin-text-prime);
-  }
+}
+.forgot_pasword-link-admin:hover {
+  color: var(--color-admin-text-prime);
 }
 
 .button_approve-admin {
   height: 50px;
   background: var(--color-admin-prime);
   border-radius: 15px;
-  &:hover {
-    background: var(--color-admin-prime--hover);
-  }
+}
+.button_approve-admin:hover {
+  background: var(--color-admin-prime--hover);
 }
 
 .right_block-admin {
   flex: 0 1 50%;
-  img {
-    border-radius: 0 0 0 200px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
 }
-
-// admin panel
+.right_block-admin img {
+  border-radius: 0 0 0 200px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 .admin_panel_wraper {
   position: fixed;
@@ -164,7 +162,6 @@
 .admin_panel {
   display: flex;
   flex-direction: row;
-  // height: 100%;
 }
 
 .admin_panel_aside-menu {
@@ -177,9 +174,9 @@
   font-weight: 700;
   padding: 50px;
   color: var(--color-admin-title);
-  span {
-    color: var(--color-admin-title);
-  }
+}
+.logo_admin span {
+  color: var(--color-admin-title);
 }
 
 .admin_panel_nav-bar {
@@ -200,27 +197,26 @@
   gap: 10px;
   cursor: pointer;
   color: var(--color-admin-text-second);
-  svg {
-    // color: var(--color-admin-text-second);
-    fill: var(--color-admin-text-second);
-  }
+}
+.nav_list-item svg {
+  fill: var(--color-admin-text-second);
 }
 
 .nav_list-item-active {
   position: relative;
   color: var(--color-admin-title);
-  svg {
-    fill: var(--color-admin-prime);
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 5px;
-    height: 100%;
-    background: var(--color-admin-prime);
-    border-radius: 10px;
-  }
+}
+.nav_list-item-active svg {
+  fill: var(--color-admin-prime);
+}
+.nav_list-item-active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--color-admin-prime);
+  border-radius: 10px;
 }
 
 .admin_panel_content-wraper {
@@ -235,9 +231,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  h2 {
-    margin-bottom: 10px;
-  }
+}
+.admin_content_wrap h2 {
+  margin-bottom: 10px;
 }
 
 .erning_sales_info_wrap {
@@ -263,7 +259,6 @@
 
 .ernings_wraper-item {
   display: flex;
-  // justify-content: space-around;
   width: 100%;
   align-items: center;
   padding: 29px 17px;
@@ -291,6 +286,7 @@
 .curent_percent_profit {
   color: #05cd99;
 }
+
 .curent_percent_loss {
   color: var(--color-admin-error);
 }
@@ -325,15 +321,6 @@
   text-align: center;
 }
 
-// .table_info_item {
-//   display: flex;
-//   width: 100%;
-//   border-radius: 15px;
-//   height: 25px;
-//   transition: all 0.2s ease-in-out;
-//   cursor: pointer;
-// }
-
 .derection_table_info_item {
   display: grid;
   justify-items: center;
@@ -357,7 +344,6 @@
 }
 
 .colum {
-  // flex: 0 1 25%;
   width: 25%;
   color: var(--color-admin-text-second);
 }
@@ -408,19 +394,19 @@
 .add_user_button {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  &:hover {
-    background: var(--color-admin-text-second);
-    .add_user-item {
-      color: #fff;
-    }
-  }
+}
+.add_user_button:hover {
+  background: var(--color-admin-text-second);
+}
+.add_user_button:hover .add_user-item {
+  color: #fff;
 }
 
 .active_btn_user {
   background: var(--color-admin-prime--hover);
-  .add_user-item {
-    color: #fff;
-  }
+}
+.active_btn_user .add_user-item {
+  color: #fff;
 }
 
 .btn-save {
@@ -448,11 +434,11 @@
   width: 100%;
   max-width: 500px;
   gap: 10px;
-  input {
-    height: 50px;
-    border-radius: 15px;
-    padding: 5px 10px;
-  }
+}
+.add_user-input input {
+  height: 50px;
+  border-radius: 15px;
+  padding: 5px 10px;
 }
 
 .filter_wrap {
@@ -464,9 +450,9 @@
 
 .filter-item {
   cursor: pointer;
-  &:hover {
-    color: var(--color-admin-prime--hover);
-  }
+}
+.filter-item:hover {
+  color: var(--color-admin-prime--hover);
 }
 
 .blog_wrap {
@@ -484,17 +470,17 @@
 
 .add_text_item {
   margin-bottom: 50px;
-  span {
-    color: var(--color-admin-text-prime);
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--color-admin-text-prime);
-  }
+}
+.add_text_item span {
+  color: var(--color-admin-text-prime);
+}
+.add_text_item h1,
+.add_text_item h2,
+.add_text_item h3,
+.add_text_item h4,
+.add_text_item h5,
+.add_text_item h6 {
+  color: var(--color-admin-text-prime);
 }
 
 .add_title_item {
@@ -503,18 +489,19 @@
   gap: 10px;
   margin-bottom: 50px;
   color: var(--color-admin-text-prime);
-  input {
-    height: 50px;
-    background: transparent;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
+}
+.add_title_item input {
+  height: 50px;
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 
 .img_post_item_wrap {
   width: 200px;
   height: 200px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .post_item_wrap {
@@ -574,22 +561,20 @@
   background: transparent;
   border: 1px solid #ccc;
   color: var(--color-admin-text-second);
-  &:hover {
-    color: var(--color-admin-text-prime);
-  }
+}
+.btn_tabs:hover {
+  color: var(--color-admin-text-prime);
 }
 
 .btn_tabs-active {
   border: 1px solid var(--color-admin-prime);
   color: var(--color-admin-prime);
-  &:hover {
-    border: 1px solid var(--color-admin-prime);
-    color: var(--color-admin-prime);
-    background: transparent;
-  }
 }
-
-// settings
+.btn_tabs-active:hover {
+  border: 1px solid var(--color-admin-prime);
+  color: var(--color-admin-prime);
+  background: transparent;
+}
 
 .coin_wrap {
   gap: 20px;
@@ -598,6 +583,7 @@
   align-items: flex-start;
   justify-content: space-between;
 }
+
 .add_coin {
   height: 100%;
   width: 30%;
@@ -611,9 +597,9 @@
   flex-direction: column;
   gap: 10px;
   width: 70%;
-  h5 {
-    margin-bottom: 10px;
-  }
+}
+.coin_list h5 {
+  margin-bottom: 10px;
 }
 
 .coin_list-item-new {
@@ -623,10 +609,8 @@
   border-bottom: 1px solid black;
 }
 
-.select_header {
-  svg {
-    transition: all 0.5s ease-in-out;
-  }
+.select_header svg {
+  transition: all 0.5s ease-in-out;
 }
 
 .open_svg {
@@ -673,7 +657,6 @@
 }
 
 .option_select {
-  // display: flex;
   flex-direction: column;
   gap: 5px;
   padding: 10px 5px;
@@ -681,8 +664,6 @@
   max-height: 400px;
   overflow-y: auto;
 }
-
-// setting additional_page
 
 .content_additional_page_edit {
   display: flex;
@@ -712,10 +693,10 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  input {
-    border: 1px solid #ccc;
-    max-width: 500px;
-    height: 40px;
-    padding: 0 10px;
-  }
 }
+.input_wrap input {
+  border: 1px solid #ccc;
+  max-width: 500px;
+  height: 40px;
+  padding: 0 10px;
+}/*# sourceMappingURL=admin.css.map */
