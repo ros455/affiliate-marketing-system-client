@@ -19,6 +19,7 @@ import "./style/Dasnoard.scss";
 import "./style/WeeklyChart.scss";
 import "./style/StatisticChart.scss";
 import "./style/UserOne.scss";
+import "./style/RewardSettings.scss";
 function App() {
   const user = useSelector(currentUser);
   const navigate = useNavigate();

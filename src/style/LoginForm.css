@@ -1,0 +1,71 @@
+.registration_wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration_block {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.input_wraper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button_approve {
+  width: 100%;
+}
+
+.input_wraper-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.input_wraper-item span {
+  color: rgb(255, 0, 0);
+}
+.input_wraper-item input {
+  height: 50px;
+  border-radius: 15px;
+  background: transparent;
+  padding: 10px;
+  background: #fff;
+  color: #000;
+  width: 100%;
+}
+
+.button_approve {
+  height: 50px;
+  background: #6D47D7;
+  border-radius: 15px;
+  color: white;
+  font-weight: 600;
+}
+
+.not_regist {
+  margin-top: 10px;
+}
+
+.registration_button_wrap {
+  margin: 10px 0px;
+}
+
+.password_toggle_icon {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.password_input_container {
+  position: relative;
+  width: 100%;
+}/*# sourceMappingURL=LoginForm.css.map */

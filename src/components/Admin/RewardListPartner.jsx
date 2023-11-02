@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useEffect, useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import axios from "axios";
 import { AUTH_TOKEN } from "../../utils/Token";
 import { BASE_URL } from "../../http/BaseUrl";
-import UserOne from "../Admin/UserOne";
-const ListOfPartner_List = () => {
-  const [partnerName, setPartnerName] = useState("");
+import { TbEdit } from "react-icons/tb";
+
+const RewardListPartner = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleCurrentPage, setVisibleCurrentPage] = useState(1);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
 
-  const [activeUser, setActiveUser] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [editId, setEditId] = useState(null);
+
+  const [userRewardValues, setUserRewardValues] = useState({});
+  console.log(userRewardValues);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +26,11 @@ const ListOfPartner_List = () => {
           headers: { authorization: AUTH_TOKEN },
         });
         if (response.data.length) {
+          const initialUserRewardValues = {};
+          response.data.forEach((user) => {
+            initialUserRewardValues[user._id] = "0"; // Додати початкове значення rewardValue для кожного користувача
+          });
+          setUserRewardValues(initialUserRewardValues);
           setAllUsers(response.data);
           setVisibleCurrentPage(currentPage);
         } else {
@@ -44,21 +49,29 @@ const ListOfPartner_List = () => {
       clearTimeout(timeoutId);
     };
   }, [currentPage, searchTerm]);
-  console.log("allUsers", allUsers);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     setPage(1); // Reset to the first page on search
   };
 
-  const handlerActiveUser = (user) => {
-    setActiveUser(true);
-    setCurrentUser(user);
+  const handleEnterKey = (e) => {
+    if (e.key === "Enter") {
+      setEditId(null);
+    }
   };
 
-  return activeUser ? (
-    <UserOne setActiveUser={setActiveUser} currentUser={currentUser} />
-  ) : (
+  const handleUpdateAndSubmit = (userId) => {
+    setEditId(null);
+  };
+
+  const handleChangeValues = (userId, newValue) => {
+    const updatedRewardValues = { ...userRewardValues };
+    updatedRewardValues[userId] = newValue;
+    setUserRewardValues(updatedRewardValues);
+  };
+
+  return (
     <div className="admin_panel_items derection_wraper">
       <div className="dashboard_list_header">
         <h3 className="dashboard_list_title">Partner</h3>
@@ -75,21 +88,48 @@ const ListOfPartner_List = () => {
           <p className="colum ">Conversion</p>
           <p className="colum ">Transitions</p>
           <p className="colum ">Sales</p>
-          <p className="colum ">Reward</p>
+          <p className="colum ">Reward %</p>
         </div>
         <div className="table_body">
           {!!allUsers.length &&
             allUsers.map((user) => (
-              <div
-                className="table_info_item"
-                key={user._id}
-                onClick={() => handlerActiveUser(user)}
-              >
+              <div className="table_info_item" key={user._id}>
                 <p className="colum row colum_name">{user.name}</p>
                 <p className="colum row colum_progres">2</p>
                 <p className="colum row colum_quantity">3</p>
                 <p className="colum row colum_data">4</p>
-                <p className="colum row colum_reward">4$</p>
+                {editId === user._id ? (
+                  <div className="reward_input_edit_wrapp">
+                    <input
+                      className="reward_input_edit"
+                      value={userRewardValues[user._id]}
+                      type="text"
+                      onChange={(e) =>
+                        handleChangeValues(user._id, e.target.value)
+                      }
+                      onKeyDown={(e) => handleEnterKey(e, user._id)}
+                      placeholder={`2%`}
+                    />
+                    <button
+                      className="reward_btn_edit_submit"
+                      type="submit"
+                      onClick={() => handleUpdateAndSubmit(user._id)}
+                    >
+                      ok
+                    </button>
+                  </div>
+                ) : (
+                  <div className="colum row colum_reward reward_table_btn_wrapp">
+                    <p>{userRewardValues[user._id]}</p>
+                    <button
+                      className="reward_btn_edit"
+                      type="button"
+                      onClick={() => setEditId(user._id)}
+                    >
+                      <TbEdit className="reward_btn_edit_icon" />
+                    </button>
+                  </div>
+                )}
               </div>
             ))}
         </div>
@@ -118,4 +158,4 @@ const ListOfPartner_List = () => {
   );
 };
 
-export default ListOfPartner_List;
+export default RewardListPartner;

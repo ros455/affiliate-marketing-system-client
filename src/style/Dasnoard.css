@@ -1,0 +1,79 @@
+.dashboard_list_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dashboard_list_three_dot_block {
+  padding: 5px 10px;
+  margin: 0px;
+  background-color: #f4f7fe;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.dashboard_list_three_dot_icon {
+  font-size: 22px;
+  color: #4318ff;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+}
+
+.dashboard_list_title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.dasboard_user_list_and_chart_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dasboard_user_list {
+  width: 55%;
+}
+
+.dasboard_chartt {
+  width: 40%;
+}
+
+.dashboard_input_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+}
+.dashboard_input_wrap input {
+  height: 50px;
+  border-radius: 15px;
+  background: transparent;
+  padding: 10px;
+  background: #f4f7fe;
+  color: #000;
+  width: 100%;
+}
+
+.dashboard_pagination_buttons_block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dashboard_pagination_button_item {
+  background: #f4f7fe;
+  padding: 10px;
+  border-radius: 12px;
+  margin: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: #4318ff;
+}
+
+.pagination_current_page {
+  font-weight: 600;
+  color: #4318ff;
+}/*# sourceMappingURL=Dasnoard.css.map */
