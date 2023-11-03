@@ -1,0 +1,32 @@
+@import "./template.scss";
+
+.dashboard_button {
+  display: none;
+  @media (max-width: 480px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+  }
+}
+.dashboard_button_block {
+  background-color: $white_second_color;
+  color: $primary_blue_color;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.dashboard_button_active {
+  background: $primary_blue_color;
+  color: $white_second_color;
+}
+
+.partner_dasboard_render_ernings_element {
+  display: none;
+  @media (max-width: 480px) {
+    display: block;
+  }
+}
