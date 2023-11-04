@@ -17,8 +17,8 @@
   @media (max-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 480px) {
+    display: none;
   }
 }
 
@@ -39,4 +39,10 @@
 
 .user_one_btn_back {
   background-color: transparent;
+}
+
+.user_one_block_wrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

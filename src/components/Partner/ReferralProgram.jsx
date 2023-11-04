@@ -8,6 +8,7 @@ const ReferralProgram = () => {
       <div className="referral_program_wrapp">
         <div className="referral_program_link_wrapp">
           <a
+            className="referral_program_link"
             href="asfzjxpoAASFAJSzxcaso.com"
             target="_blank"
             rel="noopener noreferrer"

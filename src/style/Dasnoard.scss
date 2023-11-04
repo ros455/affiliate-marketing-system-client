@@ -4,7 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+}
+
+.dashboard_list_three_dot_block_wrapp {
+  display: flex;
+  gap: 10px;
 }
 
 .dashboard_list_three_dot_block {
@@ -14,6 +18,12 @@
   border-radius: 12px;
   cursor: pointer;
 }
+.dashboard_list_three_dot_block_arrow {
+  display: none;
+  @media (max-width: 480px) {
+    display: block;
+  }
+}
 
 .dashboard_list_three_dot_icon {
   font-size: 22px;
@@ -21,6 +31,9 @@
   font-weight: 600;
   margin: 0px;
   padding: 0px;
+}
+.dashboard_list_three_dot_icon_active {
+  rotate: 180deg;
 }
 
 .dashboard_list_title {
@@ -50,6 +63,7 @@
 }
 
 .dashboard_input_wrap {
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   gap: 10px;

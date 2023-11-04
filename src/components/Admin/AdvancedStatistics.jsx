@@ -104,6 +104,8 @@ const AdvancedStatistics = () => {
     //     <p>Conversion {conversion.toFixed(1)}%</p>
     // </div>
     <>
+      <p className="admin_content_text">Pages / Dashboard</p>
+      <h2 className="admin_content_title">Stats</h2>
       <StatisticChart />
     </>
   );

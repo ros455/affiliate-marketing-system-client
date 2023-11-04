@@ -16,24 +16,41 @@
 
 .referral_program_wrapp {
   margin-bottom: 59px;
-  display: flex;
+  display: grid;
   gap: 30px;
   grid-template-columns: repeat(2, 1fr);
-  @media (max-width: 992px) {
+  @media (max-width: 1280px) {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 .referral_program_link_wrapp {
+  width: 100%;
   display: flex;
   gap: 29px;
+  @media (max-width: 680px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.referral_program_link {
+  width: 100%;
 }
 
 .referral_program_link_item {
   color: $deep_blue_color;
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    font-size: 14px;
+  }
 }
 
 .referral_program_link_btn {
+  width: 175px;
+  min-height: 70px;
   padding: 10px;
   background-color: $main_color;
   color: $secondary-grey;
@@ -77,7 +94,7 @@
 }
 
 .referral_program_img {
-  display: block;
+  max-width: 100%;
   object-fit: cover;
   object-position: center;
 }

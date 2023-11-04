@@ -21,6 +21,9 @@
   display: grid;
   grid-template-columns: repeat(2, 250px);
   gap: 22px;
+  @media (max-width: 680px) {
+    grid-template-columns: repeat(1, 250px);
+  }
 }
 
 .reward_table_btn_wrapp {

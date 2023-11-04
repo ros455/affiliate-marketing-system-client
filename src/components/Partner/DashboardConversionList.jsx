@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { BsThreeDots } from "react-icons/bs";
+import ConversionTable from "../template/ConversionTable";
+import DashboardHeader from "../template/DashboardHeader";
 const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
+  const [toggleItem, setToggleItem] = useState(true);
   const [conversion] = useState([
     {
       _id: "1",
@@ -41,34 +43,34 @@ const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
 
   return (
     <div className="admin_panel_items derection_wraper">
-      <div className="dashboard_list_header">
-        <h3 className="dashboard_list_title">Statistic</h3>
-        <div className="dashboard_list_three_dot_block">
-          <BsThreeDots
-            onClick={() => hendlerOpenConversions()}
-            className="dashboard_list_three_dot_icon"
-          />
+      <DashboardHeader
+        title="Statistic"
+        hendlerOpen={hendlerOpenConversions}
+        setToggleItem={setToggleItem}
+        toggleItem={toggleItem}
+      />
+      <div className="derection_table_wrapp_xl">
+        <div className="derection_table_wrap">
+          <div className="table_header">
+            <p className="colum colum_name">Date</p>
+            <p className="colum ">Conversion</p>
+            <p className="colum ">Transitions</p>
+            <p className="colum ">Sales</p>
+          </div>
+          <div className="table_body">
+            {!!conversion.length &&
+              conversion.map((item) => (
+                <div className={`table_info_item ${className}`} key={item._id}>
+                  <p className="colum row colum_name">{item.date}</p>
+                  <p className="colum row colum_progres">{item.conversion}</p>
+                  <p className="colum row colum_quantity">{item.transitions}</p>
+                  <p className="colum row colum_data">{item.buy}</p>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
-      <div className="derection_table_wrap">
-        <div className="table_header">
-          <p className="colum colum_name">Date</p>
-          <p className="colum ">Conversion</p>
-          <p className="colum ">Transitions</p>
-          <p className="colum ">Sales</p>
-        </div>
-        <div className="table_body">
-          {!!conversion.length &&
-            conversion.map((item) => (
-              <div className={`table_info_item ${className}`} key={item._id}>
-                <p className="colum row colum_name">{item.date}</p>
-                <p className="colum row colum_progres">{item.conversion}</p>
-                <p className="colum row colum_quantity">{item.transitions}</p>
-                <p className="colum row colum_data">{item.buy}</p>
-              </div>
-            ))}
-        </div>
-      </div>
+      {toggleItem && <ConversionTable conversion={conversion} />}
     </div>
   );
 };

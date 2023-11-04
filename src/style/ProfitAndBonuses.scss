@@ -1,4 +1,10 @@
 @import "./template.scss";
+
+.profit_and_bonuses_wrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .profit_and_bonuses_text {
   color: $mid_blue_color;
   font-size: 14px;

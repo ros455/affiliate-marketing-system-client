@@ -1,8 +1,47 @@
+import { useState } from "react";
+
 import Ernings from "../template/Ernings";
 import BalanceSalesCom from "../template/BalanceSalesCom";
 import StatisticChart from "../template/StatisticChart";
+import DashboardButton from "../template/DashboardButton";
 
 const UserOne = ({ setActiveUser, currentUser }) => {
+  const [isActiveButton, setIsActiveButton] = useState("sales_month");
+  const [toggleItem, setToggleItem] = useState(false);
+
+  const handleActiveButton = (activeButton) => {
+    setIsActiveButton(activeButton);
+  };
+  const renderErnings = () => {
+    if (isActiveButton === "sales_month") {
+      return (
+        <Ernings img="./image/dashbord_icon_1.svg" sum="350$" title="Ernings" />
+      );
+    }
+    if (isActiveButton === "transition_month") {
+      return (
+        <Ernings img="./image/dashbord_icon_2.svg" sum="360$" title="Ernings" />
+      );
+    }
+    if (isActiveButton === "general_transitions") {
+      return (
+        <Ernings
+          img="./image/dashbord_icon_3.svg"
+          sum="642$"
+          title="Spend this month"
+        />
+      );
+    }
+    if (isActiveButton === "total_sales") {
+      return (
+        <Ernings
+          img="./image/dashbord_icon_4.svg"
+          sum="642$"
+          title="Spend this month"
+        />
+      );
+    }
+  };
   return (
     <>
       <p className="user_one_text">Pages / Partners / UserOne</p>
@@ -28,14 +67,33 @@ const UserOne = ({ setActiveUser, currentUser }) => {
         </button>
       </div>
       <div className="user_one_erning_sales_info_wrap">
-        <Ernings img="./image/ernings.svg" sum="350$" title="Ernings" />
-        <Ernings img="./image/month.svg" sum="642$" title="Spend this month" />
-        <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
+        <Ernings img="./image/icon1.svg" sum="350$" title="Sales month" />
+        <Ernings img="./image/icon2.svg" sum="642" title="Transition month" />
+        <Ernings
+          img="./image/icon3.svg"
+          sum="350"
+          title="General transitions"
+        />
+        <Ernings img="./image/icon4.svg" sum="642$" title="Total sales" />
+        <Ernings img="./image/icon1.svg" sum="350$" title="Sales month" />
+        <Ernings img="./image/icon2.svg" sum="642" title="Transition month" />
+        {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
         <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} />
         <BalanceSalesCom title="Reward balance" sum="1000$" isSales={false} />
-        <BalanceSalesCom title="Conversions" sum="50%" isSales={false} />
+        <BalanceSalesCom title="Conversions" sum="50%" isSales={false} /> */}
       </div>
-      <StatisticChart />
+      <div className="user_one_block_wrapp">
+        <DashboardButton
+          handleActiveButton={handleActiveButton}
+          isActiveButton={isActiveButton}
+          toggleItem={toggleItem}
+          setToggleItem={setToggleItem}
+        />
+        <div className="partner_dasboard_render_ernings_element">
+          {renderErnings()}
+        </div>
+        <StatisticChart />
+      </div>
     </>
   );
 };

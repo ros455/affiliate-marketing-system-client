@@ -7,6 +7,12 @@
   padding: 20px 30px;
   height: 100%;
 }
+.weekly_chart_wrapp_xl {
+  display: block;
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
 
 .weekly_chart_header {
   margin: 10px 0px;
@@ -15,6 +21,23 @@
 .weekly_chart_header_title {
   font-size: 20px;
   font-weight: 600;
+}
+
+.weekly_chart_visitors {
+  margin-bottom: 59px;
+  color: $deep_blue_color;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 123.529%;
+  letter-spacing: -0.68px;
+  span {
+    color: $light_blue_color;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 171.429%;
+    letter-spacing: -0.28px;
+  }
 }
 
 .weekly_chart_main_number_block {

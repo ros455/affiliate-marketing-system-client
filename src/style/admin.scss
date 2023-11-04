@@ -9,6 +9,8 @@
   --color-admin-text-second: #a3aed0;
 }
 
+@import "./template.scss";
+
 .login_wrap-admin {
   position: absolute;
   display: flex;
@@ -147,6 +149,20 @@
 }
 
 // admin panel
+
+.admin_content_text {
+  color: $mid_blue_color;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 171.429%;
+}
+.admin_content_title {
+  color: $deep_blue_color;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 123.529%;
+  letter-spacing: -0.68px;
+}
 
 .admin_panel_wraper {
   position: fixed;
@@ -289,7 +305,7 @@
   align-items: center;
   padding: 29px 17px;
   gap: 17px;
-  height: 100px;
+  // height: 100px;
   background: #fff;
   border-radius: 20px;
 }
@@ -319,10 +335,17 @@
 .derection_wraper {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .admin_panel_items-title {
   margin-bottom: 20px;
+}
+.derection_table_wrapp_xl {
+  display: block;
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 
 .derection_table_wrap {
