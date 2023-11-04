@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MdCalendarMonth } from "react-icons/md";
+import StatisticPaginationsButton from "./StatisticPaginationsButton";
 import StatisticChartItem from "./StatisticChartItem";
 
 const StatisticChart = () => {
@@ -54,6 +55,7 @@ const StatisticChart = () => {
   const [activeActionsButton, setActiveActionsButton] = useState("transitions");
   const [activeStatisticDate, setActiveStatisticDate] = useState("day");
   const [hoveredItem, setHoveredItem] = useState(null);
+  const scrollRef = useRef(null);
 
   const handleStatisticActions = (buttonName) => {
     setActiveActionsButton(buttonName);
@@ -74,105 +76,109 @@ const StatisticChart = () => {
   };
 
   return (
-    <div className="statistic_chart">
-      <div className="statistic_chart_wrapp">
-        <div className="statistic_chart_actions_wrapp">
-          <button
-            className={`statistic_chart_actions_btn ${
-              activeActionsButton === "transitions"
-                ? "statistic_chart_actions_btn_active"
-                : ""
-            }`}
-            type="button"
-            onClick={() => handleStatisticActions("transitions")}
-          >
-            Transitions
-          </button>
-          <button
-            className={`statistic_chart_actions_btn ${
-              activeActionsButton === "sales"
-                ? "statistic_chart_actions_btn_active"
-                : ""
-            }`}
-            type="button"
-            onClick={() => handleStatisticActions("sales")}
-          >
-            Sales
-          </button>
-          <button
-            className={`statistic_chart_actions_btn ${
-              activeActionsButton === "conversions"
-                ? "statistic_chart_actions_btn_active"
-                : ""
-            }`}
-            type="button"
-            onClick={() => handleStatisticActions("conversions")}
-          >
-            Conversions
-          </button>
+    <>
+      <div className="statistic_chart">
+        <div className="statistic_chart_wrapp">
+          <div className="statistic_chart_actions_wrapp">
+            <button
+              className={`statistic_chart_actions_btn ${
+                activeActionsButton === "transitions"
+                  ? "statistic_chart_actions_btn_active"
+                  : ""
+              }`}
+              type="button"
+              onClick={() => handleStatisticActions("transitions")}
+            >
+              Transitions
+            </button>
+            <button
+              className={`statistic_chart_actions_btn ${
+                activeActionsButton === "sales"
+                  ? "statistic_chart_actions_btn_active"
+                  : ""
+              }`}
+              type="button"
+              onClick={() => handleStatisticActions("sales")}
+            >
+              Sales
+            </button>
+            <button
+              className={`statistic_chart_actions_btn ${
+                activeActionsButton === "conversions"
+                  ? "statistic_chart_actions_btn_active"
+                  : ""
+              }`}
+              type="button"
+              onClick={() => handleStatisticActions("conversions")}
+            >
+              Conversions
+            </button>
+          </div>
+          <div className="statistic_chart_date_wrapp">
+            <button
+              className={`statistic_chart_date_btn ${
+                activeStatisticDate === "day"
+                  ? "statistic_chart_date_btn_active"
+                  : ""
+              }`}
+              type="button"
+              onClick={() => handleStatisticDate("day")}
+            >
+              Day
+            </button>
+            <button
+              className={`statistic_chart_date_btn ${
+                activeStatisticDate === "month"
+                  ? "statistic_chart_date_btn_active"
+                  : ""
+              }`}
+              type="button"
+              onClick={() => handleStatisticDate("month")}
+            >
+              Month
+            </button>
+            <button
+              className={`statistic_chart_date_btn ${
+                activeStatisticDate === "year"
+                  ? "statistic_chart_date_btn_active"
+                  : ""
+              }`}
+              type="button"
+              onClick={() => handleStatisticDate("year")}
+            >
+              Year
+            </button>
+            <button className="statistic_chart_date_btn" type="button">
+              <MdCalendarMonth className="statistic_chart_date_btn_icon" />
+            </button>
+          </div>
         </div>
-        <div className="statistic_chart_date_wrapp">
-          <button
-            className={`statistic_chart_date_btn ${
-              activeStatisticDate === "day"
-                ? "statistic_chart_date_btn_active"
-                : ""
-            }`}
-            type="button"
-            onClick={() => handleStatisticDate("day")}
+        <p className="statistic_chart_visitors">
+          2.579<span>Visitors</span>
+        </p>
+        <div className="statistic_chart_main_block_wrapp">
+          <div className="statistic_chart_main_block_text_wrapp">
+            <p className="statistic_chart_main_block_text">100</p>
+            <p className="statistic_chart_main_block_text">0</p>
+          </div>
+          <div
+            ref={scrollRef}
+            className="statistic_chart_main_block"
+            onMouseLeave={() => setHoveredItem(null)}
           >
-            Day
-          </button>
-          <button
-            className={`statistic_chart_date_btn ${
-              activeStatisticDate === "month"
-                ? "statistic_chart_date_btn_active"
-                : ""
-            }`}
-            type="button"
-            onClick={() => handleStatisticDate("month")}
-          >
-            Month
-          </button>
-          <button
-            className={`statistic_chart_date_btn ${
-              activeStatisticDate === "year"
-                ? "statistic_chart_date_btn_active"
-                : ""
-            }`}
-            type="button"
-            onClick={() => handleStatisticDate("year")}
-          >
-            Year
-          </button>
-          <button className="statistic_chart_date_btn" type="button">
-            <MdCalendarMonth className="statistic_chart_date_btn_icon" />
-          </button>
+            {currentDate().map((chart, idx) => (
+              <StatisticChartItem
+                chart={chart}
+                key={idx}
+                isHovered={hoveredItem === idx}
+                onMouseEnter={() => setHoveredItem(idx)}
+              />
+            ))}
+          </div>
         </div>
+        <StatisticPaginationsButton scrollRef={scrollRef} />
       </div>
-      <p className="statistic_chart_visitors">
-        2.579<span>Visitors</span>
-      </p>
-      <div className="statistic_chart_main_block_wrapp">
-        <div className="statistic_chart_main_block_text_wrapp">
-          <p className="statistic_chart_main_block_text">100</p>
-          <p className="statistic_chart_main_block_text">0</p>
-        </div>
-        <div
-          className="statistic_chart_main_block"
-          onMouseLeave={() => setHoveredItem(null)}
-        >
-          {currentDate().map((chart, idx) => (
-            <StatisticChartItem
-              chart={chart}
-              key={idx}
-              isHovered={hoveredItem === idx}
-              onMouseEnter={() => setHoveredItem(idx)}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 

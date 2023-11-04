@@ -20,6 +20,14 @@ import "./style/WeeklyChart.scss";
 import "./style/StatisticChart.scss";
 import "./style/UserOne.scss";
 import "./style/RewardSettings.scss";
+import "./style/ProfitAndBonuses.scss";
+import "./style/ReferralProgram.scss";
+import "./style/StatisticPaginationsButton.scss";
+import "./style/DashboardButton.scss";
+import "./style/BurgerButton.scss";
+import "./style/ConversionTable.scss";
+import "./style/PartnerTable.scss";
+
 function App() {
   const user = useSelector(currentUser);
   const navigate = useNavigate();
