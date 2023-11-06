@@ -28,8 +28,10 @@
 
 .reward_table_btn_wrapp {
   display: flex;
-  justify-content: center;
   align-items: center;
+  @media (max-width: 480px) {
+    flex-direction: row-reverse;
+  }
 }
 
 .reward_btn_edit {

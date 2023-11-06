@@ -4,8 +4,9 @@
   display: none;
   @media (max-width: 480px) {
     display: flex;
-    justify-content: space-between;
-    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
 }
 .dashboard_button_block {

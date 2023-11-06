@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import { MdCalendarMonth } from "react-icons/md";
 import StatisticPaginationsButton from "./StatisticPaginationsButton";
 import StatisticChartItem from "./StatisticChartItem";
+import StatisticChartSmall from "./StatisticChartSmall";
 
 const StatisticChart = () => {
   const chartArrayDays = [
@@ -147,9 +147,6 @@ const StatisticChart = () => {
               onClick={() => handleStatisticDate("year")}
             >
               Year
-            </button>
-            <button className="statistic_chart_date_btn" type="button">
-              <MdCalendarMonth className="statistic_chart_date_btn_icon" />
             </button>
           </div>
         </div>

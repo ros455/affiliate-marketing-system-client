@@ -14,34 +14,35 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
   };
   const renderErnings = () => {
     if (isActiveButton === "sales_month") {
-      return (
-        <Ernings img="./image/dashbord_icon_1.svg" sum="350$" title="Ernings" />
-      );
+      return <Ernings img="./image/icon1.svg" sum="350$" title="Sales month" />;
     }
     if (isActiveButton === "transition_month") {
       return (
-        <Ernings img="./image/dashbord_icon_2.svg" sum="360$" title="Ernings" />
+        <Ernings img="./image/icon2.svg" sum="360$" title="Transition month" />
       );
     }
     if (isActiveButton === "general_transitions") {
       return (
         <Ernings
-          img="./image/dashbord_icon_3.svg"
+          img="./image/icon3.svg"
           sum="642$"
-          title="Spend this month"
+          title="General transitions"
         />
       );
     }
     if (isActiveButton === "total_sales") {
+      return <Ernings img="./image/icon4.svg" sum="642$" title="Total_sales" />;
+    }
+    if (isActiveButton === "balance_reward") {
       return (
-        <Ernings
-          img="./image/dashbord_icon_4.svg"
-          sum="642$"
-          title="Spend this month"
-        />
+        <Ernings img="./image/icon5.svg" sum="642$" title="Balance reward" />
       );
     }
+    if (isActiveButton === "conversions") {
+      return <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />;
+    }
   };
+
   return (
     <div className="admin_content_wrap">
       <div>
@@ -57,12 +58,16 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
           title="General transitions"
         />
         <Ernings img="./image/icon4.svg" sum="642$" title="Total sales" />
+        <Ernings img="./image/icon5.svg" sum="642$" title="Balance reward" />
+        <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />
         {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
         <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} /> */}
       </div>
       <DashboardButton
         handleActiveButton={handleActiveButton}
         isActiveButton={isActiveButton}
+        balanceReward={true}
+        conversions={true}
       />
       <div className="partner_dasboard_render_ernings_element">
         {renderErnings()}
