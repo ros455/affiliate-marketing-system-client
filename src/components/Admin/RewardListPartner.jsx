@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import axios from "axios";
 import { AUTH_TOKEN } from "../../utils/Token";
 import { BASE_URL } from "../../http/BaseUrl";
 import { TbEdit } from "react-icons/tb";
+import RewardInputEdit from "../template/RewardInputEdit";
 
-import PartnerTable from "../template/PartnerTable";
+import PartnerRewardTable from "../template/PartnerRewardTable";
 import DashboardHeader from "../template/DashboardHeader";
 
 const RewardListPartner = () => {
@@ -20,6 +21,7 @@ const RewardListPartner = () => {
 
   const [userRewardValues, setUserRewardValues] = useState({});
   const [toggleItem, setToggleItem] = useState(true);
+  const inputRef = useRef();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -120,9 +122,20 @@ const RewardListPartner = () => {
                     <p className="colum row colum_progres">2</p>
                     <p className="colum row colum_quantity">3</p>
                     <p className="colum row colum_data">4</p>
-                    {editId === user._id ? (
+                    <RewardInputEdit
+                      user={user}
+                      editId={editId}
+                      inputRef={inputRef}
+                      userRewardValues={userRewardValues}
+                      handleChangeValues={handleChangeValues}
+                      handleEnterKey={handleEnterKey}
+                      handleUpdateAndSubmit={handleUpdateAndSubmit}
+                      setEditId={setEditId}
+                    />
+                    {/* {editId === user._id ? (
                       <div className="reward_input_edit_wrapp">
                         <input
+                          ref={inputRef}
                           className="reward_input_edit"
                           value={userRewardValues[user._id]}
                           type="text"
@@ -151,7 +164,7 @@ const RewardListPartner = () => {
                           <TbEdit className="reward_btn_edit_icon" />
                         </button>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 ))}
             </div>
@@ -186,9 +199,17 @@ const RewardListPartner = () => {
                 placeholder="Search partner"
               />
             </div>
-            <PartnerTable
+            <PartnerRewardTable
               partner={allUsers}
               rewards={true}
+              editId={editId}
+              inputRef={inputRef}
+              userRewardValues={userRewardValues}
+              handleChangeValues={handleChangeValues}
+              handleEnterKey={handleEnterKey}
+              handleUpdateAndSubmit={handleUpdateAndSubmit}
+              setEditId={setEditId}
+
               // handlerActiveUser={handlerActiveUser}
             />
             <div className="dashboard_pagination_wrap">

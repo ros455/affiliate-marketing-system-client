@@ -21,11 +21,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
 }
 .statistic_chart_date_wrapp {
   display: flex;
   flex-wrap: wrap;
   gap: 11px;
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
 }
 
 .statistic_chart_actions_btn {
