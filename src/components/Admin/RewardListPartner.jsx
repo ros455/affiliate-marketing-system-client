@@ -3,7 +3,6 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import axios from "axios";
 import { AUTH_TOKEN } from "../../utils/Token";
 import { BASE_URL } from "../../http/BaseUrl";
-import { TbEdit } from "react-icons/tb";
 import RewardInputEdit from "../template/RewardInputEdit";
 
 import PartnerRewardTable from "../template/PartnerRewardTable";
