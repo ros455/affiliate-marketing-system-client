@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { currentUser } from "../../store/auth";
 import Ernings from "../template/Ernings";
 import BalanceSalesCom from "../template/BalanceSalesCom";
 import WeeklyChart from "../template/WeeklyChart";
@@ -6,6 +8,8 @@ import DashboardConversionList from "./DashboardConversionList";
 import DashboardButton from "../template/DashboardButton";
 import DashboardHeader from "../template/DashboardHeader";
 const PartnerDashboard = ({ hendlerOpenConversions }) => {
+  const user = useSelector(currentUser);
+
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
   const [toggleItem, setToggleItem] = useState(false);
 
@@ -14,28 +18,48 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
   };
   const renderErnings = () => {
     if (isActiveButton === "sales_month") {
-      return <Ernings img="./image/icon1.svg" sum="350$" title="Sales month" />;
+      return (
+        <Ernings
+          img="./image/icon1.svg"
+          sum={`${user.statistics.buysMonth}$`}
+          title="Sales month"
+        />
+      );
     }
     if (isActiveButton === "transition_month") {
       return (
-        <Ernings img="./image/icon2.svg" sum="360$" title="Transition month" />
+        <Ernings
+          img="./image/icon2.svg"
+          sum={`${user.statistics.clicksMonth}`}
+          title="Transition month"
+        />
       );
     }
     if (isActiveButton === "general_transitions") {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum="642$"
+          sum={`${user.statistics.clicksAllPeriod}`}
           title="General transitions"
         />
       );
     }
     if (isActiveButton === "total_sales") {
-      return <Ernings img="./image/icon4.svg" sum="642$" title="Total_sales" />;
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user.statistics.buysAllPeriod}$`}
+          title="Total sales"
+        />
+      );
     }
     if (isActiveButton === "balance_reward") {
       return (
-        <Ernings img="./image/icon5.svg" sum="642$" title="Balance reward" />
+        <Ernings
+          img="./image/icon5.svg"
+          sum={`${user.balance}$`}
+          title="Balance reward"
+        />
       );
     }
     if (isActiveButton === "conversions") {
@@ -50,15 +74,31 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
         <h2 className="admin_content_title">Main Dashboard</h2>
       </div>
       <div className="erning_sales_info_wrap">
-        <Ernings img="./image/icon1.svg" sum="350$" title="Sales month" />
-        <Ernings img="./image/icon2.svg" sum="642" title="Transition month" />
+        <Ernings
+          img="./image/icon1.svg"
+          sum={`${user.statistics.buysMonth}$`}
+          title="Sales month"
+        />
+        <Ernings
+          img="./image/icon2.svg"
+          sum={`${user.statistics.clicksMonth}`}
+          title="Transition month"
+        />
         <Ernings
           img="./image/icon3.svg"
-          sum="350"
+          sum={`${user.statistics.clicksAllPeriod}`}
           title="General transitions"
         />
-        <Ernings img="./image/icon4.svg" sum="642$" title="Total sales" />
-        <Ernings img="./image/icon5.svg" sum="642$" title="Balance reward" />
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user.statistics.buysAllPeriod}$`}
+          title="Total sales"
+        />
+        <Ernings
+          img="./image/icon5.svg"
+          sum={`${user.balance}$`}
+          title="Balance reward"
+        />
         <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />
         {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
         <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} /> */}

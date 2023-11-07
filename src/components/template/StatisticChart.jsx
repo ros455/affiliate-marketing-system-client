@@ -1,9 +1,20 @@
 import { useState, useRef } from "react";
+import { useSelector } from "react-redux";
+import { currentUser, statisticAdmin } from "../../store/auth";
 import StatisticPaginationsButton from "./StatisticPaginationsButton";
 import StatisticChartItem from "./StatisticChartItem";
-import StatisticChartSmall from "./StatisticChartSmall";
 
 const StatisticChart = () => {
+  const user = useSelector(currentUser);
+  const statistic = useSelector(statisticAdmin);
+
+  const chartsMonth = user.isAdmin
+    ? statistic.chartsMonth
+    : user.statistics.chartsMonth;
+  const chartsYear = user.isAdmin
+    ? statistic.chartsYear
+    : user.statistics.chartsYear;
+
   const chartArrayDays = [
     { procent: "40%", date: "01" },
     { procent: "60%", date: "02" },
@@ -37,20 +48,6 @@ const StatisticChart = () => {
     { procent: "50%", date: "30" },
     { procent: "40%", date: "31" },
   ];
-  const chartArrayMonth = [
-    { procent: "40%", date: "01" },
-    { procent: "60%", date: "02" },
-    { procent: "100%", date: "03" },
-    { procent: "800%", date: "04" },
-    { procent: "90%", date: "05" },
-    { procent: "30%", date: "06" },
-    { procent: "50%", date: "07" },
-    { procent: "90%", date: "08" },
-    { procent: "30%", date: "09" },
-    { procent: "50%", date: "10" },
-    { procent: "40%", date: "11" },
-    { procent: "0%", date: "12" },
-  ];
 
   const [activeActionsButton, setActiveActionsButton] = useState("transitions");
   const [activeStatisticDate, setActiveStatisticDate] = useState("day");
@@ -65,14 +62,22 @@ const StatisticChart = () => {
   };
 
   const currentDate = () => {
-    if (activeStatisticDate === "day") {
-      return chartArrayDays;
-    }
-    if (activeStatisticDate === "month") {
-      return chartArrayMonth;
-    }
+    const chartMap = {
+      day: {
+        transitions: chartsMonth.clicks,
+        sales: chartsMonth.buys,
+        conversions: chartsMonth.conversions,
+      },
+      month: {
+        transitions: chartsYear.clicks,
+        sales: chartsYear.buys,
+        conversions: chartsYear.conversions,
+      },
+    };
 
-    return chartArrayDays;
+    const selectedDateData = chartMap[activeStatisticDate] || {};
+
+    return selectedDateData[activeActionsButton] || chartArrayDays;
   };
 
   return (
@@ -153,22 +158,24 @@ const StatisticChart = () => {
         <p className="statistic_chart_visitors">
           2.579<span>Visitors</span>
         </p>
-        <div className="statistic_chart_main_block_wrapp">
+        <div
+          className="statistic_chart_main_block_wrapp"
+          ref={scrollRef}
+          onMouseLeave={() => setHoveredItem(null)}
+        >
           <div className="statistic_chart_main_block_text_wrapp">
             <p className="statistic_chart_main_block_text">100</p>
             <p className="statistic_chart_main_block_text">0</p>
           </div>
-          <div
-            ref={scrollRef}
-            className="statistic_chart_main_block"
-            onMouseLeave={() => setHoveredItem(null)}
-          >
+          <div className="statistic_chart_main_block">
             {currentDate().map((chart, idx) => (
               <StatisticChartItem
+                currentDate={currentDate()}
                 chart={chart}
                 key={idx}
                 isHovered={hoveredItem === idx}
                 onMouseEnter={() => setHoveredItem(idx)}
+                activeActionsButton={activeActionsButton}
               />
             ))}
           </div>

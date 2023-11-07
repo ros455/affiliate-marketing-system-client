@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { TbEdit } from "react-icons/tb";
 
 const RewardInputEdit = ({
@@ -10,6 +11,11 @@ const RewardInputEdit = ({
   handleUpdateAndSubmit,
   setEditId,
 }) => {
+  useEffect(() => {
+    if (editId === user._id) {
+      inputRef.current.focus();
+    }
+  }, [editId, inputRef, user]);
   return (
     <>
       {editId === user._id ? (
