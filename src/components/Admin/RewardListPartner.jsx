@@ -20,7 +20,9 @@ const RewardListPartner = () => {
 
   const [userRewardValues, setUserRewardValues] = useState({});
   const [toggleItem, setToggleItem] = useState(true);
-  const inputRef = useRef();
+
+  const inputRefXl = useRef();
+  const inputRefSm = useRef();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -124,7 +126,7 @@ const RewardListPartner = () => {
                     <RewardInputEdit
                       user={user}
                       editId={editId}
-                      inputRef={inputRef}
+                      inputRef={inputRefXl}
                       userRewardValues={userRewardValues}
                       handleChangeValues={handleChangeValues}
                       handleEnterKey={handleEnterKey}
@@ -202,7 +204,7 @@ const RewardListPartner = () => {
               partner={allUsers}
               rewards={true}
               editId={editId}
-              inputRef={inputRef}
+              inputRef={inputRefSm}
               userRewardValues={userRewardValues}
               handleChangeValues={handleChangeValues}
               handleEnterKey={handleEnterKey}

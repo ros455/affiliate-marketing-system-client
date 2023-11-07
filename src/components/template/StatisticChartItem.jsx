@@ -1,9 +1,15 @@
 const StatisticChartItem = ({
+  currentDate,
   chart,
   isHovered,
   onMouseEnter,
   onMouseLeave,
+  activeActionsButton,
 }) => {
+  const maxValue = Math.max(...currentDate.map((el) => el.number));
+  const percentage = (chart.number / maxValue) * 100;
+  const heightInPx = maxValue === 0 ? 0 : (percentage / 100) * 113;
+
   return (
     <div
       className="statistic_chart_item_block"
@@ -15,10 +21,13 @@ const StatisticChartItem = ({
           isHovered ? "statistic_chart_item active" : "statistic_chart_item"
         }
         style={{
-          height: chart.procent === "0%" ? "1px" : chart.procent,
+          height: heightInPx === 0 ? "1px" : `${heightInPx}px`,
         }}
       >
-        <p className="statistic_chart_item_amount">{chart.procent}</p>
+        <p className="statistic_chart_item_amount">
+          {chart.number}
+          {activeActionsButton === "conversions" ? "%" : ""}
+        </p>
       </div>
       <p className="statistic_chart_item_value"> {chart.date}</p>
     </div>

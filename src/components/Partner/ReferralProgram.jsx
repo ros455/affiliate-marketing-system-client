@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
+import { currentUser } from "../../store/auth";
 import Ernings from "../template/Ernings";
 
 const ReferralProgram = () => {
+  const user = useSelector(currentUser);
+  console.log(user);
   return (
     <>
       <p className="referral_program_text">Pages / Dashboard</p>
@@ -9,13 +13,13 @@ const ReferralProgram = () => {
         <div className="referral_program_link_wrapp">
           <a
             className="referral_program_link"
-            href="asfzjxpoAASFAJSzxcaso.com"
+            href={user.link}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Ernings
               img="./image/ernings.svg"
-              sum="asfzjxpoAASFAJSzxcaso.com"
+              sum={user.link}
               title="Link"
               className={"referral_program_link_item"}
             />
@@ -27,7 +31,7 @@ const ReferralProgram = () => {
         <div className="referral_program_link_wrapp">
           <Ernings
             img="./image/ernings.svg"
-            sum="asfoAFAJSzx"
+            sum={user.promotionalCode}
             title="Promo code"
             className={"referral_program_link_item"}
           />

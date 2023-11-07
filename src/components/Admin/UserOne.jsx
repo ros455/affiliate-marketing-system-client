@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { statisticAdmin } from "../../store/auth";
 
 import Ernings from "../template/Ernings";
 import BalanceSalesCom from "../template/BalanceSalesCom";
@@ -6,6 +8,9 @@ import StatisticChart from "../template/StatisticChart";
 import DashboardButton from "../template/DashboardButton";
 
 const UserOne = ({ setActiveUser, currentUser }) => {
+  const statistic = useSelector(statisticAdmin);
+  console.log("statistic", statistic);
+
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
 
   const handleActiveButton = (activeButton) => {
@@ -13,24 +18,40 @@ const UserOne = ({ setActiveUser, currentUser }) => {
   };
   const renderErnings = () => {
     if (isActiveButton === "sales_month") {
-      return <Ernings img="./image/icon1.svg" sum="350$" title="Sales month" />;
+      return (
+        <Ernings
+          img="./image/icon1.svg"
+          sum={`${statistic.buysMonth}$`}
+          title="Sales month"
+        />
+      );
     }
     if (isActiveButton === "transition_month") {
       return (
-        <Ernings img="./image/icon2.svg" sum="360$" title="Transition month" />
+        <Ernings
+          img="./image/icon2.svg"
+          sum={statistic.clicksMonth}
+          title="Transition month"
+        />
       );
     }
     if (isActiveButton === "general_transitions") {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum="642$"
+          sum={`${statistic.clicksAllPeriod}`}
           title="General transitions"
         />
       );
     }
     if (isActiveButton === "total_sales") {
-      return <Ernings img="./image/icon4.svg" sum="642$" title="Total_sales" />;
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${statistic.buysAllPeriod}$`}
+          title="Total sales"
+        />
+      );
     }
     if (isActiveButton === "balance_reward") {
       return (
@@ -66,14 +87,27 @@ const UserOne = ({ setActiveUser, currentUser }) => {
         </button>
       </div>
       <div className="user_one_erning_sales_info_wrap">
-        <Ernings img="./image/icon1.svg" sum="350$" title="Sales month" />
-        <Ernings img="./image/icon2.svg" sum="642" title="Transition month" />
+        <Ernings
+          img="./image/icon1.svg"
+          sum={`${statistic.buysMonth}$`}
+          title="Sales month"
+        />
+        <Ernings
+          img="./image/icon2.svg"
+          sum={statistic.clicksMonth}
+          title="Transition month"
+        />
         <Ernings
           img="./image/icon3.svg"
-          sum="350"
+          sum={`${statistic.clicksAllPeriod}`}
           title="General transitions"
         />
-        <Ernings img="./image/icon4.svg" sum="642$" title="Total sales" />
+
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${statistic.buysAllPeriod}$`}
+          title="Total sales"
+        />
         <Ernings img="./image/icon5.svg" sum="642$" title="Balance reward" />
         <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />
         {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
