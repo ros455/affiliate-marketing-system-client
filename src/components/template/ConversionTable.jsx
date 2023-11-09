@@ -2,15 +2,15 @@ const ConversionTable = ({ conversion }) => {
   return (
     <ul className="conversion_table_list">
       {conversion.length > 0 &&
-        conversion.map(({ _id, date, conversion, transitions, buy }) => (
-          <li className="conversion_table_item" key={_id}>
+        conversion.map(({ id, date, conversion, transitions, buy }) => (
+          <li className="conversion_table_item" key={id}>
             <div className="conversion_table_block">
               <p className="conversion_table_text">Date</p>
               <p className="conversion_table_value">{date}</p>
             </div>
             <div className="conversion_table_block">
               <p className="conversion_table_text">Conversion</p>
-              <p className="conversion_table_value">{conversion}</p>
+              <p className="conversion_table_value">{conversion}%</p>
             </div>
             <div className="conversion_table_block">
               <p className="conversion_table_text">Transitions</p>

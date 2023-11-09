@@ -10,11 +10,26 @@ import DashboardHeader from "../template/DashboardHeader";
 // import PartnerMini from './PartnerMini';
 // import TiketsMini from './TiketsMini';
 const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
+  const [statisticSevenDays, setStatisticSevenDays] = useState([]);
   const statistic = useSelector(statisticAdmin);
   console.log("statistic", statistic);
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
   const [toggleItem, setToggleItem] = useState(false);
+
+  useEffect(() => {
+    if(statistic?.lastSevenDaysConversions) {
+      const newArr = [];
+      statistic.lastSevenDaysConversions.forEach((item) => {
+        newArr.push({
+          date: item.date,
+          transitions: item.number,
+          _id: item._id
+        })
+        setStatisticSevenDays(newArr);
+      })
+    }
+  },[statistic])
 
   const handleActiveButton = (activeButton) => {
     setIsActiveButton(activeButton);
@@ -66,7 +81,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
       <div className="erning_sales_info_wrap">
         <Ernings
           img="./image/icon1.svg"
-          sum={`${statistic.buysMonth}$`}
+          sum={`${statistic.buysMonth}`}
           title="Sales month"
         />
         <Ernings
@@ -82,7 +97,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
 
         <Ernings
           img="./image/icon4.svg"
-          sum={`${statistic.buysAllPeriod}$`}
+          sum={`${statistic.buysAllPeriod}`}
           title="Total sales"
         />
         {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
@@ -111,9 +126,9 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
             toggleItem={toggleItem}
           />
           <div className="weekly_chart_wrapp_xl">
-            <WeeklyChart />
+            <WeeklyChart chartArray={statisticSevenDays}/>
           </div>
-          {toggleItem && <WeeklyChart />}
+          {toggleItem && <WeeklyChart chartArray={statisticSevenDays}/>}
         </div>
         {/* <WeeklyChart /> */}
       </div>

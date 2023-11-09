@@ -12,6 +12,53 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
   const [toggleItem, setToggleItem] = useState(false);
+  const [partnerSevenDaysChart, setPartnerSevenDaysChart] = useState([]);
+
+  useEffect(() => {
+    if(user) {
+      let newArray = new Array(7).fill(null).map(() => ({ date: '', conversion: 0, transitions: 0, buy: 0,}));
+      user?.statistics.lastSevenDays.buys.forEach((item, index) => {
+        newArray[index].buy = item.number;
+        newArray[index].date = item.date;
+      })
+      user?.statistics.lastSevenDays.clicks.forEach((item, index) => {
+        newArray[index].transitions = item.number;
+      })
+      user?.statistics.lastSevenDays.conversions.forEach((item, index) => {
+        newArray[index].conversion = item.number;
+      })
+      setPartnerSevenDaysChart(newArray);
+      console.log('newArray',newArray);
+    }
+  },[user])
+
+  const [chartArray] = useState([
+    {
+      procent: "40%",
+    },
+    {
+      procent: "60%",
+    },
+    {
+      procent: "100%",
+    },
+    {
+      procent: "800%",
+    },
+    {
+      procent: "90%",
+    },
+    {
+      procent: "30%",
+    },
+    {
+      procent: "100%",
+    },
+  ]);
+
+  useEffect(() => {
+
+  })
 
   const handleActiveButton = (activeButton) => {
     setIsActiveButton(activeButton);
@@ -63,7 +110,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statisticss?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
 
@@ -99,9 +146,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
           sum={`${user.balance}$`}
           title="Balance reward"
         />
-        <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />
-        {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
-        <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} /> */}
+        <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />
       </div>
       <DashboardButton
         handleActiveButton={handleActiveButton}
@@ -112,14 +157,6 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       <div className="partner_dasboard_render_ernings_element">
         {renderErnings()}
       </div>
-
-      {/* <div style={{display:'flex'}}>
-                <div style={{width: '60%'}}>
-                </div>
-                <div style={{width:'40%'}}>
-            <WeeklyChart/>
-                </div>
-            </div> */}
       <div className="dasboard_user_list_and_chart_wrap">
         <div className="dasboard_user_list">
           <DashboardConversionList
@@ -135,15 +172,11 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
             toggleItem={toggleItem}
           />
           <div className="weekly_chart_wrapp_xl">
-            <WeeklyChart />
+            <WeeklyChart chartArray={partnerSevenDaysChart}/>
           </div>
           {toggleItem && <WeeklyChart />}
         </div>
       </div>
-      {/* <div className='partner_info_wrap'>
-                <PartnerMini/>
-                <TiketsMini/>
-            </div> */}
     </div>
   );
 };

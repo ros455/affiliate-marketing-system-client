@@ -38,7 +38,7 @@ const AllPrtnerList = ({ hendlerOpenListOfPartner }) => {
                 <p className="colum row colum_name">{user.name}</p>
                 <p className="colum row colum_progres">2</p>
                 <p className="colum row colum_quantity">3</p>
-                <p className="colum row colum_data">4</p>
+                <p className="colum row colum_data">41</p>
               </div>
             ))}
         </div>

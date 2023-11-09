@@ -55,11 +55,11 @@ const UserOne = ({ setActiveUser, currentUser }) => {
     }
     if (isActiveButton === "balance_reward") {
       return (
-        <Ernings img="./image/icon5.svg" sum="642$" title="Balance reward" />
+        <Ernings img="./image/icon5.svg" sum="6421$" title="Balance reward" />
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum="6421$" title="Conversions" />;
     }
   };
   return (
@@ -108,8 +108,8 @@ const UserOne = ({ setActiveUser, currentUser }) => {
           sum={`${statistic.buysAllPeriod}$`}
           title="Total sales"
         />
-        <Ernings img="./image/icon5.svg" sum="642$" title="Balance reward" />
-        <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />
+        <Ernings img="./image/icon5.svg" sum={`${statistic.conversionAllPeriod}%`} title="Balance reward" />
+        <Ernings img="./image/icon6.svg" sum={`${statistic.conversionAllPeriod}%`} title="Conversions" />
         {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
         <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} />
         <BalanceSalesCom title="Reward balance" sum="1000$" isSales={false} />

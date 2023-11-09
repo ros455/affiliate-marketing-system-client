@@ -75,6 +75,20 @@
   letter-spacing: -0.28px;
 }
 
+.reward_btn_close_submit {
+  display: flex;
+  padding: 4px 14px;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  color: $white_second_color;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 171.429%;
+  letter-spacing: -0.28px;
+}
+
 .reward_btn_edit_icon {
   width: 24px;
   height: 24px;

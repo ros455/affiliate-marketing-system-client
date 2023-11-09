@@ -47,9 +47,9 @@ const DashboardPrtnerList = ({ hendlerOpenListOfPartner }) => {
               allUsersState.map((user) => (
                 <div className="derection_table_info_item " key={user._id}>
                   <p className="colum row colum_name">{user.name}</p>
-                  <p className="colum row colum_progres">2</p>
-                  <p className="colum row colum_quantity">3</p>
-                  <p className="colum row colum_data">4</p>
+                  <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod}</p>
+                  <p className="colum row colum_quantity">{user?.statistics?.clicksAllPeriod}</p>
+                  <p className="colum row colum_data">{user?.statistics?.buysAllPeriod}</p>
                 </div>
               ))}
           </div>

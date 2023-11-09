@@ -1,4 +1,6 @@
+import { useState } from "react";
 import RewardInputEdit from "./RewardInputEdit";
+import { TbEdit } from "react-icons/tb";
 const PartnerRewardTable = ({
   partner,
   rewards,
@@ -11,6 +13,7 @@ const PartnerRewardTable = ({
   handleUpdateAndSubmit,
   setEditId,
 }) => {
+  const [isOpenEditor,setIsOpenEditor] = useState(false);
   return (
     <ul className="partner_table_list">
       {partner.length > 0 &&
@@ -30,17 +33,31 @@ const PartnerRewardTable = ({
             </div>
             <div className="partner_table_block">
               <p className="partner_table_text">Transitions</p>
-              <p className="partner_table_value">{4}</p>
+              <p className="partner_table_value">{user?.statistics?.clicksAllPeriod}</p>
             </div>
             <div className="partner_table_block">
               <p className="partner_table_text">Sales</p>
-              <p className="partner_table_value">{5}</p>
+              <p className="partner_table_value">{user?.statistics?.buysAllPeriod}</p>
             </div>
-            {rewards && (
+            <TbEdit className="reward_btn_edit_icon" />
+            {isOpenEditor
+            ?
+            <input/>
+            :
               <div className="partner_table_block">
                 <p className="partner_table_text">Rewards</p>
-                {/* <p className="partner_table_value">{5}</p> */}
-                <RewardInputEdit
+                <p className="partner_table_value">{user?.bonus}</p>
+              </div>
+            }
+          </li>
+        ))}
+    </ul>
+  );
+};
+
+export default PartnerRewardTable;
+
+                {/* <RewardInputEdit
                   editId={editId}
                   user={user}
                   inputRef={inputRef}
@@ -49,13 +66,4 @@ const PartnerRewardTable = ({
                   handleEnterKey={handleEnterKey}
                   handleUpdateAndSubmit={handleUpdateAndSubmit}
                   setEditId={setEditId}
-                />
-              </div>
-            )}
-          </li>
-        ))}
-    </ul>
-  );
-};
-
-export default PartnerRewardTable;
+                /> */}

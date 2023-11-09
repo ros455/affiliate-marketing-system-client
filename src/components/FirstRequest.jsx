@@ -14,14 +14,15 @@ const FirstRequest = ({ user }) => {
   useEffect(() => {
     if (user?.isAdmin) {
       dispatch(fetchAllUsers());
+      dispatch(fetchAdminStatistic());
     }
   }, [user]);
 
-  useEffect(() => {
-    if (AUTH_TOKEN) {
-      dispatch(fetchAdminStatistic());
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (AUTH_TOKEN) {
+  //     dispatch(fetchAdminStatistic());
+  //   }
+  // }, []);
 };
 
 export default FirstRequest;

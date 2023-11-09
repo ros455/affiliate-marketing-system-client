@@ -16,6 +16,13 @@ const RewardInputEdit = ({
       inputRef.current.focus();
     }
   }, [editId, inputRef, user]);
+
+  console.log('editId',editId);
+
+  const handleOkey = (id) => {
+    console.log('handleOkey');
+    handleUpdateAndSubmit(id)
+  }
   return (
     <>
       {editId === user._id ? (
@@ -33,7 +40,7 @@ const RewardInputEdit = ({
           <button
             className="reward_btn_edit_submit"
             type="submit"
-            onClick={() => handleUpdateAndSubmit(user._id)}
+            // onClick={() => handleOkey(user._id)}
           >
             ok
           </button>

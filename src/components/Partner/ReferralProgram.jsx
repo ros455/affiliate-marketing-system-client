@@ -18,6 +18,7 @@ const ReferralProgram = () => {
             rel="noopener noreferrer"
           >
             <Ernings
+              isManyText={true}
               img="./image/ernings.svg"
               sum={user.link}
               title="Link"

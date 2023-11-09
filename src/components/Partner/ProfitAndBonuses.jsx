@@ -62,7 +62,7 @@ const ProfitAndBonuses = () => {
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
 
@@ -92,7 +92,7 @@ const ProfitAndBonuses = () => {
             sum={`${user.statistics.buysAllPeriod}$`}
             title="Total sales"
           />
-          <Ernings img="./image/icon6.svg" sum="642$" title="Conversions" />
+          <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />
           {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
           <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} /> */}
         </div>

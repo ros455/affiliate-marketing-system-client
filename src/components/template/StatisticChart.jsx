@@ -1,10 +1,16 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { currentUser, statisticAdmin } from "../../store/auth";
 import StatisticPaginationsButton from "./StatisticPaginationsButton";
 import StatisticChartItem from "./StatisticChartItem";
 
 const StatisticChart = () => {
+  const [activeActionsButton, setActiveActionsButton] = useState("transitions");
+  const [activeStatisticDate, setActiveStatisticDate] = useState("day");
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [mainDate, setainDate] = useState(null);
+  const scrollRef = useRef(null);
+
   const user = useSelector(currentUser);
   const statistic = useSelector(statisticAdmin);
 
@@ -14,6 +20,9 @@ const StatisticChart = () => {
   const chartsYear = user.isAdmin
     ? statistic.chartsYear
     : user.statistics.chartsYear;
+  const chartsYearAllPeriod = user.isAdmin
+    ? statistic.chartsYearAllPeriod
+    : user?.statistics?.chartsYearAllPeriod;
 
   const chartArrayDays = [
     { procent: "40%", date: "01" },
@@ -49,10 +58,7 @@ const StatisticChart = () => {
     { procent: "40%", date: "31" },
   ];
 
-  const [activeActionsButton, setActiveActionsButton] = useState("transitions");
-  const [activeStatisticDate, setActiveStatisticDate] = useState("day");
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const scrollRef = useRef(null);
+  console.log('chartsYear',user?.statistics);
 
   const handleStatisticActions = (buttonName) => {
     setActiveActionsButton(buttonName);
@@ -73,9 +79,15 @@ const StatisticChart = () => {
         sales: chartsYear.buys,
         conversions: chartsYear.conversions,
       },
+      year: {
+        transitions: chartsYearAllPeriod.clicks,
+        sales: chartsYearAllPeriod.buys,
+        conversions: chartsYearAllPeriod.conversions,
+      }
     };
 
     const selectedDateData = chartMap[activeStatisticDate] || {};
+    console.log('returned chart',selectedDateData);
 
     return selectedDateData[activeActionsButton] || chartArrayDays;
   };

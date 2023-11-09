@@ -3,9 +3,8 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import axios from "axios";
 import { AUTH_TOKEN } from "../../utils/Token";
 import { BASE_URL } from "../../http/BaseUrl";
-import RewardInputEdit from "../template/RewardInputEdit";
-
-import PartnerRewardTable from "../template/PartnerRewardTable";
+import RewardListPartnerItem from "./RewardListPartnerItem";
+import RewardListPartnerItemMobile from "./RewardListPartnerItemMobile";
 import DashboardHeader from "../template/DashboardHeader";
 
 const RewardListPartner = () => {
@@ -16,13 +15,8 @@ const RewardListPartner = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
 
-  const [editId, setEditId] = useState(null);
-
-  const [userRewardValues, setUserRewardValues] = useState({});
   const [toggleItem, setToggleItem] = useState(true);
 
-  const inputRefXl = useRef();
-  const inputRefSm = useRef();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +30,6 @@ const RewardListPartner = () => {
           response.data.forEach((user) => {
             initialUserRewardValues[user._id] = "0"; // Додати початкове значення rewardValue для кожного користувача
           });
-          setUserRewardValues(initialUserRewardValues);
           setAllUsers(response.data);
           setVisibleCurrentPage(currentPage);
         } else {
@@ -61,45 +54,29 @@ const RewardListPartner = () => {
     setPage(1); // Reset to the first page on search
   };
 
-  const handleEnterKey = (e) => {
-    if (e.key === "Enter") {
-      setEditId(null);
-    }
-  };
+  const handleUpdateuserReward = (id, newBonus) => {
+    console.log('updated reward');
+    axios.patch(`${BASE_URL}/update-user-bonus`, {
+      id,
+      newBonus
+    })
+    .then(() => {
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log('error',error);
+    })
+  }
 
-  const handleUpdateAndSubmit = (userId) => {
-    setEditId(null);
-  };
-
-  const handleChangeValues = (userId, newValue) => {
-    const updatedRewardValues = { ...userRewardValues };
-    updatedRewardValues[userId] = newValue;
-    setUserRewardValues(updatedRewardValues);
-  };
-
+  console.log('allUsers2',allUsers);
   return (
     <>
       <div className="admin_panel_items derection_wraper">
-        {/* <div className="dashboard_list_header">
-        <h3 className="dashboard_list_title">Partner</h3>
-        <div className="dashboard_input_wrap">
-          <input
-            onChange={(e) => handleSearchChange(e)}
-            placeholder="Search partner"
-          />
-        </div>
-      </div> */}
         <DashboardHeader
           title="Partner"
           setToggleItem={setToggleItem}
           toggleItem={toggleItem}
         />
-        {/* <div className="dashboard_input_wrap">
-          <input
-            onChange={(e) => handleSearchChange(e)}
-            placeholder="Search partner"
-          />
-        </div> */}
         <div className="derection_table_wrapp_xl">
           <div className="dashboard_input_wrap">
             <input
@@ -118,55 +95,7 @@ const RewardListPartner = () => {
             <div className="table_body">
               {!!allUsers.length &&
                 allUsers.map((user) => (
-                  <div className="table_info_item" key={user._id}>
-                    <p className="colum row colum_name">{user.name}</p>
-                    <p className="colum row colum_progres">2</p>
-                    <p className="colum row colum_quantity">3</p>
-                    <p className="colum row colum_data">4</p>
-                    <RewardInputEdit
-                      user={user}
-                      editId={editId}
-                      inputRef={inputRefXl}
-                      userRewardValues={userRewardValues}
-                      handleChangeValues={handleChangeValues}
-                      handleEnterKey={handleEnterKey}
-                      handleUpdateAndSubmit={handleUpdateAndSubmit}
-                      setEditId={setEditId}
-                    />
-                    {/* {editId === user._id ? (
-                      <div className="reward_input_edit_wrapp">
-                        <input
-                          ref={inputRef}
-                          className="reward_input_edit"
-                          value={userRewardValues[user._id]}
-                          type="text"
-                          onChange={(e) =>
-                            handleChangeValues(user._id, e.target.value)
-                          }
-                          onKeyDown={(e) => handleEnterKey(e, user._id)}
-                          placeholder={`2%`}
-                        />
-                        <button
-                          className="reward_btn_edit_submit"
-                          type="submit"
-                          onClick={() => handleUpdateAndSubmit(user._id)}
-                        >
-                          ok
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="colum row colum_reward reward_table_btn_wrapp">
-                        <p>{userRewardValues[user._id]}</p>
-                        <button
-                          className="reward_btn_edit"
-                          type="button"
-                          onClick={() => setEditId(user._id)}
-                        >
-                          <TbEdit className="reward_btn_edit_icon" />
-                        </button>
-                      </div>
-                    )} */}
-                  </div>
+                  <RewardListPartnerItem key={user._id} user={user} handleUpdateuserReward={handleUpdateuserReward}/>
                 ))}
             </div>
           </div>
@@ -200,19 +129,10 @@ const RewardListPartner = () => {
                 placeholder="Search partner"
               />
             </div>
-            <PartnerRewardTable
-              partner={allUsers}
-              rewards={true}
-              editId={editId}
-              inputRef={inputRefSm}
-              userRewardValues={userRewardValues}
-              handleChangeValues={handleChangeValues}
-              handleEnterKey={handleEnterKey}
-              handleUpdateAndSubmit={handleUpdateAndSubmit}
-              setEditId={setEditId}
-
-              // handlerActiveUser={handlerActiveUser}
-            />
+            {!!allUsers.length &&
+                allUsers.map((user) => (
+                  <RewardListPartnerItemMobile key={user._id} user={user} handleUpdateuserReward={handleUpdateuserReward}/>
+            ))}
             <div className="dashboard_pagination_wrap">
               <div className="dashboard_pagination_block">
                 <div className="dashboard_pagination_buttons_block">
@@ -237,11 +157,20 @@ const RewardListPartner = () => {
             </div>
           </div>
         )}
-
-        {/* {toggleItem && <PartnerTable partner={allUsers} rewards={true} />} */}
       </div>
     </>
   );
 };
 
 export default RewardListPartner;
+
+                    {/* <RewardInputEdit
+                      user={user}
+                      editId={editId}
+                      inputRef={inputRefXl}
+                      userRewardValues={userRewardValues}
+                      handleChangeValues={handleChangeValues}
+                      handleEnterKey={handleEnterKey}
+                      handleUpdateAndSubmit={handleUpdateAndSubmit}
+                      setEditId={setEditId}
+                    /> */}
