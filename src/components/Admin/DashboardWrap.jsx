@@ -38,7 +38,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
       return (
         <Ernings
           img="./image/icon1.svg"
-          sum={`${statistic.buysMonth}$`}
+          sum={`${statistic?.buysMonth}$`}
           title="Sales month"
         />
       );
@@ -47,7 +47,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
       return (
         <Ernings
           img="./image/icon2.svg"
-          sum={statistic.clicksMonth}
+          sum={statistic?.clicksMonth}
           title="Transition month"
         />
       );
@@ -56,7 +56,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum={`${statistic.clicksAllPeriod}`}
+          sum={`${statistic?.clicksAllPeriod}`}
           title="General transitions"
         />
       );
@@ -65,7 +65,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
       return (
         <Ernings
           img="./image/icon4.svg"
-          sum={`${statistic.buysAllPeriod}$`}
+          sum={`${statistic?.buysAllPeriod}$`}
           title="Total sales"
         />
       );
@@ -80,23 +80,23 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
       <div className="erning_sales_info_wrap">
         <Ernings
           img="./image/icon1.svg"
-          sum={`${statistic.buysMonth}`}
+          sum={`${statistic?.buysMonth}`}
           title="Sales month"
         />
         <Ernings
           img="./image/icon2.svg"
-          sum={statistic.clicksMonth}
+          sum={statistic?.clicksMonth}
           title="Transition month"
         />
         <Ernings
           img="./image/icon3.svg"
-          sum={`${statistic.clicksAllPeriod}`}
+          sum={`${statistic?.clicksAllPeriod}`}
           title="General transitions"
         />
 
         <Ernings
           img="./image/icon4.svg"
-          sum={`${statistic.buysAllPeriod}`}
+          sum={`${statistic?.buysAllPeriod}`}
           title="Total sales"
         />
         {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />

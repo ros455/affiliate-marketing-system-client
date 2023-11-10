@@ -11,15 +11,15 @@ const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
   useEffect(() => {
     if(user) {
       let newArray = new Array(7).fill(null).map(() => ({ date: '', conversion: 0, transitions: 0, buy: 0, id: ''}));
-      user?.statistics.lastSevenDays.buys.forEach((item, index) => {
+      user?.statistics?.lastSevenDays?.buys.forEach((item, index) => {
         newArray[index].buy = item.number;
         newArray[index].date = item.date;
         newArray[index].id = item._id;
       })
-      user?.statistics.lastSevenDays.clicks.forEach((item, index) => {
+      user?.statistics?.lastSevenDays?.clicks.forEach((item, index) => {
         newArray[index].transitions = item.number;
       })
-      user?.statistics.lastSevenDays.conversions.forEach((item, index) => {
+      user?.statistics?.lastSevenDays?.conversions.forEach((item, index) => {
         newArray[index].conversion = item.number;
       })
       setDashboardStatistic(newArray);
@@ -47,10 +47,10 @@ const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
             {!!dashboardStatistic.length &&
               dashboardStatistic.map((item, idx) => (
                 <div className={`table_info_item ${className}`} key={idx}>
-                  <p className="colum row colum_name">{item.date}</p>
-                  <p className="colum row colum_progres">{item.conversion}%</p>
-                  <p className="colum row colum_quantity">{item.transitions}</p>
-                  <p className="colum row colum_data">{item.buy}</p>
+                  <p className="colum row colum_name">{item?.date}</p>
+                  <p className="colum row colum_progres">{item?.conversion}%</p>
+                  <p className="colum row colum_quantity">{item?.transitions}</p>
+                  <p className="colum row colum_data">{item?.buy}</p>
                 </div>
               ))}
           </div>

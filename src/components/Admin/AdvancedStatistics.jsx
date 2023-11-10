@@ -85,8 +85,8 @@ const AdvancedStatistics = () => {
 
   useEffect(() => {
     statistic.forEach((parent) => {
-      setClicks((state) => (state += parent.clicks.length));
-      setBuys((state) => (state += parent.buys.length));
+      setClicks((state) => (state += parent?.clicks.length));
+      setBuys((state) => (state += parent?.buys.length));
     });
   }, []);
 

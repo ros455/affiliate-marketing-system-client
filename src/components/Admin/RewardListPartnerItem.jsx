@@ -14,7 +14,7 @@ const RewardListPartnerItem = ({user, handleUpdateuserReward, isOpenEditor, setI
 
     return (
         <div className="table_info_item">
-        <p className="colum row colum_name">{user.name}</p>
+        <p className="colum row colum_name">{user?.name}</p>
         <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod}</p>
         <p className="colum row colum_quantity">{user?.statistics?.clicksAllPeriod}</p>
         <p className="colum row colum_data">{user?.statistics?.buysAllPeriod}</p>

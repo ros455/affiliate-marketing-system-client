@@ -18,11 +18,11 @@ const RewardListPartnerItemMobile = ({user, handleUpdateuserReward, isOpenEditor
             >
               <div className="partner_table_block">
                 <p className="partner_table_text">Name</p>
-                <p className="partner_table_value">{user.name}</p>
+                <p className="partner_table_value">{user?.name}</p>
               </div>
               <div className="partner_table_block">
                 <p className="partner_table_text">Email</p>
-                <p className="partner_table_value">{user.email}</p>
+                <p className="partner_table_value">{user?.email}</p>
               </div>
               <div className="partner_table_block">
                 <p className="partner_table_text">Transitions</p>

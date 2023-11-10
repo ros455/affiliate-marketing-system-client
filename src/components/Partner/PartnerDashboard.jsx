@@ -17,47 +17,19 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
   useEffect(() => {
     if(user) {
       let newArray = new Array(7).fill(null).map(() => ({ date: '', conversion: 0, transitions: 0, buy: 0,}));
-      user?.statistics.lastSevenDays.buys.forEach((item, index) => {
+      user?.statistics?.lastSevenDays?.buys.forEach((item, index) => {
         newArray[index].buy = item.number;
         newArray[index].date = item.date;
       })
-      user?.statistics.lastSevenDays.clicks.forEach((item, index) => {
+      user?.statistics?.lastSevenDays?.clicks.forEach((item, index) => {
         newArray[index].transitions = item.number;
       })
-      user?.statistics.lastSevenDays.conversions.forEach((item, index) => {
+      user?.statistics?.lastSevenDays?.conversions.forEach((item, index) => {
         newArray[index].conversion = item.number;
       })
       setPartnerSevenDaysChart(newArray);
     }
   },[user])
-
-  const [chartArray] = useState([
-    {
-      procent: "40%",
-    },
-    {
-      procent: "60%",
-    },
-    {
-      procent: "100%",
-    },
-    {
-      procent: "800%",
-    },
-    {
-      procent: "90%",
-    },
-    {
-      procent: "30%",
-    },
-    {
-      procent: "100%",
-    },
-  ]);
-
-  useEffect(() => {
-
-  })
 
   const handleActiveButton = (activeButton) => {
     setIsActiveButton(activeButton);
@@ -67,7 +39,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon1.svg"
-          sum={`${user.statistics.buysMonth}$`}
+          sum={`${user?.statistics?.buysMonth}$`}
           title="Sales month"
         />
       );
@@ -76,7 +48,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon2.svg"
-          sum={`${user.statistics.clicksMonth}`}
+          sum={`${user?.statistics?.clicksMonth}`}
           title="Transition month"
         />
       );
@@ -85,7 +57,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum={`${user.statistics.clicksAllPeriod}`}
+          sum={`${user?.statistics?.clicksAllPeriod}`}
           title="General transitions"
         />
       );
@@ -94,7 +66,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon4.svg"
-          sum={`${user.statistics.buysAllPeriod}$`}
+          sum={`${user?.statistics?.buysAllPeriod}$`}
           title="Total sales"
         />
       );
@@ -103,7 +75,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon5.svg"
-          sum={`${user.balance}$`}
+          sum={`${user?.balance}$`}
           title="Balance reward"
         />
       );
@@ -122,27 +94,27 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       <div className="erning_sales_info_wrap">
         <Ernings
           img="./image/icon1.svg"
-          sum={`${user.statistics.buysMonth}$`}
+          sum={`${user.statistics?.buysMonth}$`}
           title="Sales month"
         />
         <Ernings
           img="./image/icon2.svg"
-          sum={`${user.statistics.clicksMonth}`}
+          sum={`${user.statistics?.clicksMonth}`}
           title="Transition month"
         />
         <Ernings
           img="./image/icon3.svg"
-          sum={`${user.statistics.clicksAllPeriod}`}
+          sum={`${user.statistics?.clicksAllPeriod}`}
           title="General transitions"
         />
         <Ernings
           img="./image/icon4.svg"
-          sum={`${user.statistics.buysAllPeriod}$`}
+          sum={`${user.statistics?.buysAllPeriod}$`}
           title="Total sales"
         />
         <Ernings
           img="./image/icon5.svg"
-          sum={`${user.balance}$`}
+          sum={`${user?.balance}$`}
           title="Balance reward"
         />
         <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />

@@ -33,8 +33,8 @@ const AllPrtnerList = ({ hendlerOpenListOfPartner }) => {
         <div className="table_body">
           {!!allUsersState.length &&
             allUsersState.map((user) => (
-              <div className="table_info_item" key={user._id}>
-                <p className="colum row colum_name">{user.name}</p>
+              <div className="table_info_item" key={user?._id}>
+                <p className="colum row colum_name">{user?.name}</p>
                 <p className="colum row colum_progres">2</p>
                 <p className="colum row colum_quantity">3</p>
                 <p className="colum row colum_data">41</p>

@@ -20,7 +20,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon1.svg"
-          sum={`${user.statistics.buysMonth}$`}
+          sum={`${user.statistics?.buysMonth}$`}
           title="Sales month"
         />
       );
@@ -29,7 +29,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon2.svg"
-          sum={`${user.statistics.clicksMonth}`}
+          sum={`${user.statistics?.clicksMonth}`}
           title="Transition month"
         />
       );
@@ -38,7 +38,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum={`${user.statistics.clicksAllPeriod}`}
+          sum={`${user.statistics?.clicksAllPeriod}`}
           title="General transitions"
         />
       );
@@ -47,7 +47,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon4.svg"
-          sum={`${user.statistics.buysAllPeriod}$`}
+          sum={`${user.statistics?.buysAllPeriod}$`}
           title="Total sales"
         />
       );
@@ -56,7 +56,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon5.svg"
-          sum={`${user.balance}$`}
+          sum={`${user?.balance}$`}
           title="Balance reward"
         />
       );
@@ -74,22 +74,22 @@ const ProfitAndBonuses = () => {
         <div className="profit_and_bonuses_erning_sales_info_wrap">
           <Ernings
             img="./image/icon1.svg"
-            sum={`${user.statistics.buysMonth}$`}
+            sum={`${user?.statistics?.buysMonth}$`}
             title="Sales month"
           />
           <Ernings
             img="./image/icon2.svg"
-            sum={`${user.statistics.clicksMonth}`}
+            sum={`${user?.statistics?.clicksMonth}`}
             title="Transition month"
           />
           <Ernings
             img="./image/icon3.svg"
-            sum={`${user.statistics.clicksAllPeriod}`}
+            sum={`${user?.statistics?.clicksAllPeriod}`}
             title="General transitions"
           />
           <Ernings
             img="./image/icon4.svg"
-            sum={`${user.statistics.buysAllPeriod}$`}
+            sum={`${user?.statistics?.buysAllPeriod}$`}
             title="Total sales"
           />
           <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />

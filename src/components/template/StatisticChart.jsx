@@ -14,14 +14,14 @@ const StatisticChart = () => {
   const user = useSelector(currentUser);
   const statistic = useSelector(statisticAdmin);
 
-  const chartsMonth = user.isAdmin
-    ? statistic.chartsMonth
-    : user.statistics.chartsMonth;
-  const chartsYear = user.isAdmin
-    ? statistic.chartsYear
-    : user.statistics.chartsYear;
-  const chartsYearAllPeriod = user.isAdmin
-    ? statistic.chartsYearAllPeriod
+  const chartsMonth = user?.isAdmin
+    ? statistic?.chartsMonth
+    : user?.statistics?.chartsMonth;
+  const chartsYear = user?.isAdmin
+    ? statistic?.chartsYear
+    : user?.statistics?.chartsYear;
+  const chartsYearAllPeriod = user?.isAdmin
+    ? statistic?.chartsYearAllPeriod
     : user?.statistics?.chartsYearAllPeriod;
 
   const chartArrayDays = [

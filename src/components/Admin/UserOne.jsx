@@ -20,7 +20,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon1.svg"
-          sum={`${statistic.buysMonth}$`}
+          sum={`${statistic?.buysMonth}$`}
           title="Sales month"
         />
       );
@@ -29,7 +29,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon2.svg"
-          sum={statistic.clicksMonth}
+          sum={statistic?.clicksMonth}
           title="Transition month"
         />
       );
@@ -38,7 +38,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum={`${statistic.clicksAllPeriod}`}
+          sum={`${statistic?.clicksAllPeriod}`}
           title="General transitions"
         />
       );
@@ -47,7 +47,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon4.svg"
-          sum={`${statistic.buysAllPeriod}$`}
+          sum={`${statistic?.buysAllPeriod}$`}
           title="Total sales"
         />
       );
@@ -65,7 +65,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
     <>
       <p className="user_one_text">Pages / Partners / UserOne</p>
       <div className="user_one_title_wrapp">
-        <h2 className="user_one_title">{currentUser.name}</h2>
+        <h2 className="user_one_title">{currentUser?.name}</h2>
         <button
           type="button"
           className="user_one_btn_back"
@@ -88,27 +88,27 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       <div className="user_one_erning_sales_info_wrap">
         <Ernings
           img="./image/icon1.svg"
-          sum={`${statistic.buysMonth}$`}
+          sum={`${statistic?.buysMonth}$`}
           title="Sales month"
         />
         <Ernings
           img="./image/icon2.svg"
-          sum={statistic.clicksMonth}
+          sum={statistic?.clicksMonth}
           title="Transition month"
         />
         <Ernings
           img="./image/icon3.svg"
-          sum={`${statistic.clicksAllPeriod}`}
+          sum={`${statistic?.clicksAllPeriod}`}
           title="General transitions"
         />
 
         <Ernings
           img="./image/icon4.svg"
-          sum={`${statistic.buysAllPeriod}$`}
+          sum={`${statistic?.buysAllPeriod}$`}
           title="Total sales"
         />
-        <Ernings img="./image/icon5.svg" sum={`${statistic.conversionAllPeriod}%`} title="Balance reward" />
-        <Ernings img="./image/icon6.svg" sum={`${statistic.conversionAllPeriod}%`} title="Conversions" />
+        <Ernings img="./image/icon5.svg" sum={`${statistic?.conversionAllPeriod}%`} title="Balance reward" />
+        <Ernings img="./image/icon6.svg" sum={`${statistic?.conversionAllPeriod}%`} title="Conversions" />
         {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
         <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} />
         <BalanceSalesCom title="Reward balance" sum="1000$" isSales={false} />
