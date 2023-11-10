@@ -9,7 +9,6 @@ import DashboardButton from "../template/DashboardButton";
 
 const UserOne = ({ setActiveUser, currentUser }) => {
   const statistic = useSelector(statisticAdmin);
-  console.log("statistic", statistic);
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
 

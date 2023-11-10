@@ -58,8 +58,6 @@ const StatisticChart = () => {
     { procent: "40%", date: "31" },
   ];
 
-  console.log('chartsYear',user?.statistics);
-
   const handleStatisticActions = (buttonName) => {
     setActiveActionsButton(buttonName);
   };
@@ -87,7 +85,6 @@ const StatisticChart = () => {
     };
 
     const selectedDateData = chartMap[activeStatisticDate] || {};
-    console.log('returned chart',selectedDateData);
 
     return selectedDateData[activeActionsButton] || chartArrayDays;
   };

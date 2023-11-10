@@ -11,8 +11,6 @@ const EditUserProfileData = ({updateDataUrl}) => {
 
     const user = useSelector(currentUser);
 
-    console.log('user',user);
-
     useEffect(() => {
         setEmail(user.email)
         setName(user.name)

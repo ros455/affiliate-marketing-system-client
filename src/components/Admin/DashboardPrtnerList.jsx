@@ -16,7 +16,6 @@ const DashboardPrtnerList = ({ hendlerOpenListOfPartner }) => {
     }
   }, [allUser]);
 
-  console.log("allUsersState", allUsersState);
   return (
     <div className="admin_panel_items derection_wraper">
       {/* <div className="dashboard_list_header">

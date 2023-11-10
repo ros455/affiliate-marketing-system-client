@@ -17,10 +17,8 @@ const RewardInputEdit = ({
     }
   }, [editId, inputRef, user]);
 
-  console.log('editId',editId);
 
   const handleOkey = (id) => {
-    console.log('handleOkey');
     handleUpdateAndSubmit(id)
   }
   return (

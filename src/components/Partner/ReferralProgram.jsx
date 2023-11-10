@@ -4,7 +4,6 @@ import Ernings from "../template/Ernings";
 
 const ReferralProgram = () => {
   const user = useSelector(currentUser);
-  console.log(user);
   return (
     <>
       <p className="referral_program_text">Pages / Dashboard</p>

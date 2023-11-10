@@ -23,7 +23,6 @@ const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
         newArray[index].conversion = item.number;
       })
       setDashboardStatistic(newArray);
-      console.log('newArray',newArray);
     }
   },[user])
 

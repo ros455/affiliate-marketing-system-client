@@ -49,7 +49,6 @@ const ListOfPartner_List = () => {
       clearTimeout(timeoutId);
     };
   }, [currentPage, searchTerm]);
-  console.log("allUsers", allUsers);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);

@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { TbEdit } from "react-icons/tb";
-const RewardListPartnerItem = ({user, handleUpdateuserReward}) => {
-    const [isOpenEditor,setIsOpenEditor] = useState(false);
+const RewardListPartnerItem = ({user, handleUpdateuserReward, isOpenEditor, setIsOpenEditor}) => {
     const [stateReward, setStateReward] = useState('');
 
     useEffect(() => {
         setStateReward(user?.bonus)
     },[user])
 
-    const handleUpdateData = () => {
-        console.log('update user', user?._id);
-        handleUpdateuserReward(user?._id, stateReward)
-    }
 
-    const handleCloseInput = () => {
-        console.log('update user', user?._id);
+    const handleUpdateData = () => {
+        handleUpdateuserReward(user?._id, stateReward)
     }
 
     return (
@@ -50,7 +45,7 @@ const RewardListPartnerItem = ({user, handleUpdateuserReward}) => {
             </div>
               :
               <>
-              <TbEdit className="reward_btn_edit_icon" onClick={() => setIsOpenEditor(!isOpenEditor)}/>
+              <TbEdit className="reward_btn_edit_icon" onClick={() => setIsOpenEditor(user?._id)}/>
               <p className="colum row colum_data">{user?.bonus}</p>
               </>
               }

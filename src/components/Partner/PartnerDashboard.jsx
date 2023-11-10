@@ -28,7 +28,6 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
         newArray[index].conversion = item.number;
       })
       setPartnerSevenDaysChart(newArray);
-      console.log('newArray',newArray);
     }
   },[user])
 

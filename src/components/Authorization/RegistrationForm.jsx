@@ -19,8 +19,6 @@ const RegistrationForm = () => {
       password: password
     }));
 
-    console.log('data',data);
-
     // if (data.payload.message === 'Email already exists') {
     //   return alert('Email already exists');
     // }

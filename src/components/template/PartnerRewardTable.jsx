@@ -1,5 +1,4 @@
 import { useState } from "react";
-import RewardInputEdit from "./RewardInputEdit";
 import { TbEdit } from "react-icons/tb";
 const PartnerRewardTable = ({
   partner,
@@ -56,14 +55,3 @@ const PartnerRewardTable = ({
 };
 
 export default PartnerRewardTable;
-
-                {/* <RewardInputEdit
-                  editId={editId}
-                  user={user}
-                  inputRef={inputRef}
-                  userRewardValues={userRewardValues}
-                  handleChangeValues={handleChangeValues}
-                  handleEnterKey={handleEnterKey}
-                  handleUpdateAndSubmit={handleUpdateAndSubmit}
-                  setEditId={setEditId}
-                /> */}

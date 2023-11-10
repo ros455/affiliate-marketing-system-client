@@ -101,7 +101,6 @@ export const fetchAdminStatistic = createAsyncThunk(
       },
     });
     const data = await response.json();
-    console.log("fetchAdminStatistic", data[0]);
     // if(!data.loggedIn) {
     //     window.localStorage.removeItem("token");
     // }

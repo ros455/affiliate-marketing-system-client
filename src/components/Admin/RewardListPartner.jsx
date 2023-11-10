@@ -14,7 +14,7 @@ const RewardListPartner = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
-
+  const [isOpenEditor,setIsOpenEditor] = useState('');
   const [toggleItem, setToggleItem] = useState(true);
 
 
@@ -55,7 +55,6 @@ const RewardListPartner = () => {
   };
 
   const handleUpdateuserReward = (id, newBonus) => {
-    console.log('updated reward');
     axios.patch(`${BASE_URL}/update-user-bonus`, {
       id,
       newBonus
@@ -68,7 +67,6 @@ const RewardListPartner = () => {
     })
   }
 
-  console.log('allUsers2',allUsers);
   return (
     <>
       <div className="admin_panel_items derection_wraper">
@@ -95,7 +93,11 @@ const RewardListPartner = () => {
             <div className="table_body">
               {!!allUsers.length &&
                 allUsers.map((user) => (
-                  <RewardListPartnerItem key={user._id} user={user} handleUpdateuserReward={handleUpdateuserReward}/>
+                  <RewardListPartnerItem key={user._id} user={user} 
+                  handleUpdateuserReward={handleUpdateuserReward}
+                  isOpenEditor={user?._id == isOpenEditor}
+                  setIsOpenEditor={setIsOpenEditor}
+                  />
                 ))}
             </div>
           </div>
@@ -131,7 +133,11 @@ const RewardListPartner = () => {
             </div>
             {!!allUsers.length &&
                 allUsers.map((user) => (
-                  <RewardListPartnerItemMobile key={user._id} user={user} handleUpdateuserReward={handleUpdateuserReward}/>
+                  <RewardListPartnerItemMobile key={user._id} user={user} 
+                  handleUpdateuserReward={handleUpdateuserReward}
+                  isOpenEditor={user?._id == isOpenEditor}
+                  setIsOpenEditor={setIsOpenEditor}
+                  />
             ))}
             <div className="dashboard_pagination_wrap">
               <div className="dashboard_pagination_block">
@@ -163,14 +169,3 @@ const RewardListPartner = () => {
 };
 
 export default RewardListPartner;
-
-                    {/* <RewardInputEdit
-                      user={user}
-                      editId={editId}
-                      inputRef={inputRefXl}
-                      userRewardValues={userRewardValues}
-                      handleChangeValues={handleChangeValues}
-                      handleEnterKey={handleEnterKey}
-                      handleUpdateAndSubmit={handleUpdateAndSubmit}
-                      setEditId={setEditId}
-                    /> */}

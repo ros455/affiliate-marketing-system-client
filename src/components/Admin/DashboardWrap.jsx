@@ -12,7 +12,6 @@ import DashboardHeader from "../template/DashboardHeader";
 const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
   const [statisticSevenDays, setStatisticSevenDays] = useState([]);
   const statistic = useSelector(statisticAdmin);
-  console.log("statistic", statistic);
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
   const [toggleItem, setToggleItem] = useState(false);
