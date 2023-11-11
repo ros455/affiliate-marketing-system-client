@@ -3,12 +3,14 @@ import { useSelector } from "react-redux";
 import { statisticAdmin } from "../../store/auth";
 
 import Ernings from "../template/Ernings";
-import BalanceSalesCom from "../template/BalanceSalesCom";
+import ErningsAndEdit from "../template/ErningsAndEdit";
 import StatisticChart from "../template/StatisticChart";
 import DashboardButton from "../template/DashboardButton";
 
 const UserOne = ({ setActiveUser, currentUser }) => {
   const statistic = useSelector(statisticAdmin);
+
+  console.log('currentUser',currentUser);
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
 
@@ -54,11 +56,11 @@ const UserOne = ({ setActiveUser, currentUser }) => {
     }
     if (isActiveButton === "balance_reward") {
       return (
-        <Ernings img="./image/icon5.svg" sum="6421$" title="Balance reward" />
+        <ErningsAndEdit img="./image/icon5.svg" sum={currentUser?.balance} title="Balance" />
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum="6421$" title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${currentUser?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
   return (
@@ -88,31 +90,36 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       <div className="user_one_erning_sales_info_wrap">
         <Ernings
           img="./image/icon1.svg"
-          sum={`${statistic?.buysMonth}$`}
+          sum={`${currentUser?.statistics?.buysMonth}$`}
           title="Sales month"
         />
         <Ernings
           img="./image/icon2.svg"
-          sum={statistic?.clicksMonth}
+          sum={currentUser?.statistics?.clicksMonth}
           title="Transition month"
         />
         <Ernings
           img="./image/icon3.svg"
-          sum={`${statistic?.clicksAllPeriod}`}
+          sum={`${currentUser?.statistics?.clicksAllPeriod}`}
           title="General transitions"
         />
 
         <Ernings
           img="./image/icon4.svg"
-          sum={`${statistic?.buysAllPeriod}$`}
+          sum={`${currentUser?.statistics?.buysAllPeriod}$`}
           title="Total sales"
         />
-        <Ernings img="./image/icon5.svg" sum={`${statistic?.conversionAllPeriod}%`} title="Balance reward" />
-        <Ernings img="./image/icon6.svg" sum={`${statistic?.conversionAllPeriod}%`} title="Conversions" />
-        {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
-        <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} />
-        <BalanceSalesCom title="Reward balance" sum="1000$" isSales={false} />
-        <BalanceSalesCom title="Conversions" sum="50%" isSales={false} /> */}
+        <ErningsAndEdit
+          img="./image/icon5.svg"
+          sum={`${currentUser?.balance}`}
+          title="Balance"
+          user={currentUser}
+        />
+        <Ernings
+          img="./image/icon6.svg"
+          sum={`${currentUser?.statistics?.conversionAllPeriod}%`}
+          title="Conversions"
+        />
       </div>
       <div className="user_one_block_wrapp">
         <DashboardButton
@@ -124,7 +131,11 @@ const UserOne = ({ setActiveUser, currentUser }) => {
         <div className="partner_dasboard_render_ernings_element">
           {renderErnings()}
         </div>
-        <StatisticChart />
+        <StatisticChart
+          chartsMonth={currentUser?.statistics?.chartsMonth}
+          chartsYear={currentUser?.statistics?.chartsYear}
+          chartsYearAllPeriod={currentUser?.statistics?.chartsYearAllPeriod}
+        />
       </div>
     </>
   );

@@ -27,6 +27,8 @@ import "./style/DashboardButton.scss";
 import "./style/BurgerButton.scss";
 import "./style/ConversionTable.scss";
 import "./style/PartnerTable.scss";
+import "./style/confirmModal.scss";
+import "./style/ErningAndErningEdit.scss";
 
 function App() {
   const user = useSelector(currentUser);

@@ -114,7 +114,10 @@ const ProfitAndBonuses = () => {
             toggleItem={toggleItem}
           />
 
-          {toggleItem && <StatisticChart />}
+          {toggleItem && <StatisticChart 
+          chartsMonth={user?.statistics?.chartsMonth}
+          chartsYear={user?.statistics?.chartsYear}
+          chartsYearAllPeriod={user?.statistics?.chartsYearAllPeriod}/>}
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import { currentUser, statisticAdmin } from "../../store/auth";
 import StatisticPaginationsButton from "./StatisticPaginationsButton";
 import StatisticChartItem from "./StatisticChartItem";
 
-const StatisticChart = () => {
+const StatisticChart = ({chartsMonth, chartsYear, chartsYearAllPeriod}) => {
   const [activeActionsButton, setActiveActionsButton] = useState("transitions");
   const [activeStatisticDate, setActiveStatisticDate] = useState("day");
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -14,49 +14,16 @@ const StatisticChart = () => {
   const user = useSelector(currentUser);
   const statistic = useSelector(statisticAdmin);
 
-  const chartsMonth = user?.isAdmin
-    ? statistic?.chartsMonth
-    : user?.statistics?.chartsMonth;
-  const chartsYear = user?.isAdmin
-    ? statistic?.chartsYear
-    : user?.statistics?.chartsYear;
-  const chartsYearAllPeriod = user?.isAdmin
-    ? statistic?.chartsYearAllPeriod
-    : user?.statistics?.chartsYearAllPeriod;
+  // const chartsMonth = user?.isAdmin
+  //   ? statistic?.chartsMonth
+  //   : user?.statistics?.chartsMonth;
+  // const chartsYear = user?.isAdmin
+  //   ? statistic?.chartsYear
+  //   : user?.statistics?.chartsYear;
+  // const chartsYearAllPeriod = user?.isAdmin
+  //   ? statistic?.chartsYearAllPeriod
+  //   : user?.statistics?.chartsYearAllPeriod;
 
-  const chartArrayDays = [
-    { procent: "40%", date: "01" },
-    { procent: "60%", date: "02" },
-    { procent: "100%", date: "03" },
-    { procent: "800%", date: "04" },
-    { procent: "90%", date: "05" },
-    { procent: "30%", date: "06" },
-    { procent: "50%", date: "07" },
-    { procent: "90%", date: "08" },
-    { procent: "30%", date: "09" },
-    { procent: "50%", date: "10" },
-    { procent: "40%", date: "11" },
-    { procent: "60%", date: "12" },
-    { procent: "100%", date: "13" },
-    { procent: "800%", date: "14" },
-    { procent: "90%", date: "15" },
-    { procent: "30%", date: "16" },
-    { procent: "50%", date: "17" },
-    { procent: "90%", date: "18" },
-    { procent: "30%", date: "19" },
-    { procent: "50%", date: "20" },
-    { procent: "40%", date: "21" },
-    { procent: "60%", date: "22" },
-    { procent: "100%", date: "23" },
-    { procent: "800%", date: "24" },
-    { procent: "90%", date: "25" },
-    { procent: "30%", date: "26" },
-    { procent: "50%", date: "27" },
-    { procent: "90%", date: "28" },
-    { procent: "30%", date: "29" },
-    { procent: "50%", date: "30" },
-    { procent: "40%", date: "31" },
-  ];
 
   const handleStatisticActions = (buttonName) => {
     setActiveActionsButton(buttonName);
@@ -86,7 +53,7 @@ const StatisticChart = () => {
 
     const selectedDateData = chartMap[activeStatisticDate] || {};
 
-    return selectedDateData[activeActionsButton] || chartArrayDays;
+    return selectedDateData[activeActionsButton];
   };
 
   return (
