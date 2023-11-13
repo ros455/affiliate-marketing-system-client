@@ -1,18 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 import { statisticAdmin } from "../../store/auth";
-
 import Ernings from "../template/Ernings";
 import ErningsAndEdit from "../template/ErningsAndEdit";
 import StatisticChart from "../template/StatisticChart";
 import DashboardButton from "../template/DashboardButton";
+import { BASE_URL } from "../../http/BaseUrl";
+import { AUTH_TOKEN } from "../../utils/Token";
+import Loader from "../template/Loader";
+
 
 const UserOne = ({ setActiveUser, currentUser }) => {
-  const statistic = useSelector(statisticAdmin);
-
-  console.log('currentUser',currentUser);
-
+  // const statistic = useSelector(statisticAdmin);
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
+  const [reloadData, setReloadData] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/get-user-statistic/${currentUser._id}`, {
+      headers: { authorization: AUTH_TOKEN }
+    }).then((res) => {
+      console.log('res.data',res.data);
+      if(res.data) {
+        setUser(res.data)
+      }
+    }).catch((error) => {
+      console.log('error',error);
+    })
+  },[reloadData])
 
   const handleActiveButton = (activeButton) => {
     setIsActiveButton(activeButton);
@@ -22,7 +38,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon1.svg"
-          sum={`${statistic?.buysMonth}$`}
+          sum={`${user?.statistics?.buysMonth}`}
           title="Sales month"
         />
       );
@@ -31,7 +47,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon2.svg"
-          sum={statistic?.clicksMonth}
+          sum={user?.statistics?.clicksMonth}
           title="Transition month"
         />
       );
@@ -40,7 +56,7 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum={`${statistic?.clicksAllPeriod}`}
+          sum={`${user?.statistics?.clicksAllPeriod}`}
           title="General transitions"
         />
       );
@@ -49,25 +65,35 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <Ernings
           img="./image/icon4.svg"
-          sum={`${statistic?.buysAllPeriod}$`}
+          sum={`${user?.statistics?.buysAllPeriod}`}
           title="Total sales"
         />
       );
     }
     if (isActiveButton === "balance_reward") {
       return (
-        <ErningsAndEdit img="./image/icon5.svg" sum={currentUser?.balance} title="Balance" />
+        <ErningsAndEdit 
+        img="./image/icon5.svg"
+        sum={`${user?.balance}`}
+        title="Balance"
+        user={user}
+        setReloadData={setReloadData}/>
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum={`${currentUser?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
+  if(!user) {
+    return  (
+      <Loader/>
+    );
+  }
   return (
     <>
       <p className="user_one_text">Pages / Partners / UserOne</p>
       <div className="user_one_title_wrapp">
-        <h2 className="user_one_title">{currentUser?.name}</h2>
+        <h2 className="user_one_title">{user?.name}</h2>
         <button
           type="button"
           className="user_one_btn_back"
@@ -90,34 +116,35 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       <div className="user_one_erning_sales_info_wrap">
         <Ernings
           img="./image/icon1.svg"
-          sum={`${currentUser?.statistics?.buysMonth}$`}
+          sum={`${user?.statistics?.buysMonth}`}
           title="Sales month"
         />
         <Ernings
           img="./image/icon2.svg"
-          sum={currentUser?.statistics?.clicksMonth}
+          sum={user?.statistics?.clicksMonth}
           title="Transition month"
         />
         <Ernings
           img="./image/icon3.svg"
-          sum={`${currentUser?.statistics?.clicksAllPeriod}`}
+          sum={`${user?.statistics?.clicksAllPeriod}`}
           title="General transitions"
         />
 
         <Ernings
           img="./image/icon4.svg"
-          sum={`${currentUser?.statistics?.buysAllPeriod}$`}
+          sum={`${user?.statistics?.buysAllPeriod}`}
           title="Total sales"
         />
         <ErningsAndEdit
           img="./image/icon5.svg"
-          sum={`${currentUser?.balance}`}
+          sum={`${user?.balance}`}
           title="Balance"
-          user={currentUser}
+          user={user}
+          setReloadData={setReloadData}
         />
         <Ernings
           img="./image/icon6.svg"
-          sum={`${currentUser?.statistics?.conversionAllPeriod}%`}
+          sum={`${user?.statistics?.conversionAllPeriod}%`}
           title="Conversions"
         />
       </div>
@@ -132,9 +159,9 @@ const UserOne = ({ setActiveUser, currentUser }) => {
           {renderErnings()}
         </div>
         <StatisticChart
-          chartsMonth={currentUser?.statistics?.chartsMonth}
-          chartsYear={currentUser?.statistics?.chartsYear}
-          chartsYearAllPeriod={currentUser?.statistics?.chartsYearAllPeriod}
+          chartsMonth={user?.statistics?.chartsMonth}
+          chartsYear={user?.statistics?.chartsYear}
+          chartsYearAllPeriod={user?.statistics?.chartsYearAllPeriod}
         />
       </div>
     </>

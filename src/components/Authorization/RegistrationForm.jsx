@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchRegister } from "../../store/auth";
 import InputPassword from "../template/InputPassword";
 const RegistrationForm = () => {
@@ -18,10 +18,6 @@ const RegistrationForm = () => {
       name,
       password: password
     }));
-
-    // if (data.payload.message === 'Email already exists') {
-    //   return alert('Email already exists');
-    // }
 
     if ('token' in data.payload) {
       window.localStorage.setItem('A-M-S-token', data.payload.token);
@@ -72,14 +68,6 @@ const RegistrationForm = () => {
             <label htmlFor="password">
               Password<span>*</span>
             </label>
-            {/* <input
-              id="password"
-              type="password"
-              placeholder="Min. 8 characters"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={handleKeyDown}
-            /> */}
             <InputPassword password={password} setPassword={setPassword} handleKeyDown={handleKeyDown}/>
           </div>
         </div>
@@ -91,6 +79,14 @@ const RegistrationForm = () => {
             Registration
           </button>{" "}
         </div>
+        <div className="not_regist">
+            <p>
+              <Link to={"/"}>
+                {" "}
+                <span>Back to login</span>{" "}
+              </Link>{" "}
+            </p>
+          </div>
       </div>
     </div>
   );

@@ -6,8 +6,9 @@ import { BASE_URL } from "../../http/BaseUrl";
 import RewardListPartnerItem from "./RewardListPartnerItem";
 import RewardListPartnerItemMobile from "./RewardListPartnerItemMobile";
 import DashboardHeader from "../template/DashboardHeader";
+import Loader from "../template/Loader";
 
-const RewardListPartner = () => {
+const RewardListPartner = ({setIsShow}) => {
   const [allUsers, setAllUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleCurrentPage, setVisibleCurrentPage] = useState(1);
@@ -16,7 +17,7 @@ const RewardListPartner = () => {
   const [page, setPage] = useState(1);
   const [isOpenEditor,setIsOpenEditor] = useState('');
   const [toggleItem, setToggleItem] = useState(true);
-
+  const [reloadData, setReloadData] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +27,7 @@ const RewardListPartner = () => {
           headers: { authorization: AUTH_TOKEN },
         });
         if (response.data.length) {
+          setIsShow(true);
           const initialUserRewardValues = {};
           response.data.forEach((user) => {
             initialUserRewardValues[user._id] = "0"; // Додати початкове значення rewardValue для кожного користувача
@@ -47,7 +49,7 @@ const RewardListPartner = () => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [currentPage, searchTerm]);
+  }, [currentPage, searchTerm, reloadData]);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -60,13 +62,18 @@ const RewardListPartner = () => {
       newBonus
     })
     .then(() => {
-      window.location.reload();
+      setReloadData(!reloadData);
+      setIsOpenEditor('');
     })
     .catch((error) => {
       console.log('error',error);
     })
   }
-
+  if(!allUsers.length) {
+    return (
+      <Loader/>
+    )
+  }
   return (
     <>
       <div className="admin_panel_items derection_wraper">

@@ -6,7 +6,7 @@ const WeeklyChart = ({chartArray}) => {
 
   useEffect(() => {
     if(chartArray) {
-      const totalTransitions = chartArray.reduce((acc, current) => acc + current.transitions, 0);
+      const totalTransitions = chartArray.reduce((acc, current) => acc + current?.transitions, 0);
       setVisitors(totalTransitions);
     }
   },[chartArray])

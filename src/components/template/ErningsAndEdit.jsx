@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BiDownload } from "react-icons/bi";
 import axios from "axios";
 import { BASE_URL } from "../../http/BaseUrl";
-const ErningsAndEdit = ({ img, title, sum, className, isManyText, user }) => {
+const ErningsAndEdit = ({ img, title, sum, className, isManyText, user, setReloadData }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [value, setValue] = useState(false);
 
@@ -16,6 +16,7 @@ const ErningsAndEdit = ({ img, title, sum, className, isManyText, user }) => {
       newBalance: value
     }).then(() => {
       setIsEdit(false);
+      setReloadData((state) => !state)
     }).catch((error) => {
       console.log('error',error);
     })
@@ -28,16 +29,7 @@ const ErningsAndEdit = ({ img, title, sum, className, isManyText, user }) => {
           <img src={img} alt="" />
           <div className="ernings_wraper-content">
             <h5 className="content_title">{title}</h5>
-            {isManyText ? (
-              <p
-                className={`curent_sum ${className}`}
-                style={{ fontSize: "12px" }}
-              >
-                {sum}
-              </p>
-            ) : (
-              <p className={`curent_sum ${className}`}>{sum}</p>
-            )}
+              <p className={`curent_sum ${className}`}>{sum}$</p>
           </div>
         </div>
       </div>

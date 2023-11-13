@@ -6,8 +6,8 @@ const StatisticChartItem = ({
   onMouseLeave,
   activeActionsButton,
 }) => {
-  const maxValue = Math.max(...currentDate.map((el) => el.number));
-  const percentage = (chart.number / maxValue) * 100;
+  const maxValue = Math.max(...currentDate.map((el) => el?.number));
+  const percentage = (chart?.number / maxValue) * 100;
   const heightInPx = maxValue === 0 ? 0 : (percentage / 100) * 113;
 
   return (
@@ -25,11 +25,11 @@ const StatisticChartItem = ({
         }}
       >
         <p className="statistic_chart_item_amount">
-          {chart.number}
+          {chart?.number}
           {activeActionsButton === "conversions" ? "%" : ""}
         </p>
       </div>
-      <p className="statistic_chart_item_value"> {chart.date}</p>
+      <p className="statistic_chart_item_value"> {chart?.date}</p>
     </div>
   );
 };

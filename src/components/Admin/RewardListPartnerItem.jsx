@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { TbEdit } from "react-icons/tb";
-const RewardListPartnerItem = ({user, handleUpdateuserReward, isOpenEditor, setIsOpenEditor}) => {
+const RewardListPartnerItem = ({user, handleUpdateuserReward, isOpenEditor, setIsOpenEditor, }) => {
     const [stateReward, setStateReward] = useState('');
 
     useEffect(() => {
@@ -9,7 +9,7 @@ const RewardListPartnerItem = ({user, handleUpdateuserReward, isOpenEditor, setI
 
 
     const handleUpdateData = () => {
-        handleUpdateuserReward(user?._id, stateReward)
+        handleUpdateuserReward(user?._id, stateReward);
     }
 
     return (

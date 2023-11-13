@@ -7,15 +7,14 @@ import { BASE_URL } from "../../http/BaseUrl";
 import UserOne from "../Admin/UserOne";
 import PartnerTable from "../template/PartnerTable";
 import DashboardHeader from "../template/DashboardHeader";
+import Loader from "./Loader";
 
 const ListOfPartner_List = () => {
-  const [partnerName, setPartnerName] = useState("");
   const [allUsers, setAllUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleCurrentPage, setVisibleCurrentPage] = useState(1);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
 
   const [activeUser, setActiveUser] = useState(false);
@@ -59,6 +58,12 @@ const ListOfPartner_List = () => {
     setActiveUser(true);
     setCurrentUser(user);
   };
+
+  if(!allUsers.length) {
+    return (
+      <Loader/>
+    )
+  }
 
   return activeUser ? (
     <UserOne setActiveUser={setActiveUser} currentUser={currentUser} />

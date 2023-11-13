@@ -8,25 +8,16 @@ import DashboardHeader from "../template/DashboardHeader";
 const DashboardPrtnerList = ({ hendlerOpenListOfPartner }) => {
   const [toggleItem, setToggleItem] = useState(true);
   const [allUsersState, setAllUsersState] = useState([]);
-  const allUser = useSelector(allUsers);
+  const allUser = useSelector(allUsers) || [];
 
   useEffect(() => {
-    if (allUser) {
+    if (allUser.length) {
       setAllUsersState(allUser.slice(0, 5));
     }
   }, [allUser]);
 
   return (
     <div className="admin_panel_items derection_wraper">
-      {/* <div className="dashboard_list_header">
-        <h3 className="dashboard_list_title">Partner</h3>
-        <div className="dashboard_list_three_dot_block">
-          <BsThreeDots
-            onClick={() => hendlerOpenListOfPartner()}
-            className="dashboard_list_three_dot_icon"
-          />
-        </div>
-      </div> */}
       <DashboardHeader
         title="Partner"
         hendlerOpen={hendlerOpenListOfPartner}

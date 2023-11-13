@@ -16,19 +16,26 @@ const EditUserProfileData = ({updateDataUrl}) => {
         setName(user.name)
     },[user])
 
-    const handleUpdateData = () => {
-        axios.patch(`${BASE_URL}/${updateDataUrl}`,{
-            email,
-            name,
-            id: user._id,
-            password
-        })
-        .then(() => {
-            alert('User data updated')
-        })
-        .catch((error) => {
-            console.log('error',error);
-        })
+    const handleUpdateData = async () => {
+      try {
+        const response = await axios.patch(`${BASE_URL}/${updateDataUrl}`,{
+          email,
+          name,
+          id: user._id,
+          password
+      })
+      console.log('response',response);
+
+      if(response.status == 200) {
+        alert('User data updated')
+      } 
+
+      } catch(error) {
+        console.log('error',error);
+        if(error.response.data.message == 'Email already exists') {
+          alert('Email already exists')
+        }
+      }
     }
 
 

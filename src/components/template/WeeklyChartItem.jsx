@@ -1,10 +1,9 @@
 import React from 'react';
 
 const WeeklyChartItem = ({chart, fullChart, isHovered}) => {
-    const maxValue = Math.max(...fullChart.map((el) => el.transitions));
-    const percentage = (chart.transitions / maxValue) * 100;
+    const maxValue = Math.max(...fullChart.map((el) => el?.transitions));
+    const percentage = (chart?.transitions / maxValue) * 100;
     const heightInPx = maxValue === 0 ? 0 : (percentage / 100) * 113;
-    // const heightInPx = 100;
     return (
         <div
         className="statistic_chart_item_block"
@@ -16,10 +15,10 @@ const WeeklyChartItem = ({chart, fullChart, isHovered}) => {
           }}
         >
           <p className="statistic_chart_item_amount">
-            {chart.transitions}
+            {chart?.transitions}
           </p>
         </div>
-        <p className="statistic_chart_item_value"> {chart.date.split('.')[0]}</p>
+        <p className="statistic_chart_item_value"> {chart?.date.split('.')[0]}</p>
       </div>
     );
 };

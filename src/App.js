@@ -3,13 +3,13 @@ import "./App.css";
 import RegistrationForm from "./components/Authorization/RegistrationForm";
 import LoginForm from "./components/Authorization/LoginForm";
 import { Route, Routes } from "react-router-dom";
-import MainPage from "./components/MainPage";
 import AdminPanel from "./components/Admin/AdminPanel";
 import PartnerPanel from "./components/Partner/PartnerPanel";
 import { useSelector } from "react-redux";
 import { currentUser } from "./store/auth";
 import { useNavigate } from "react-router-dom";
 import FirstRequest from "./components/FirstRequest";
+import Page404 from "./components/template/Page404";
 import "./style/style-null.css";
 import "./style/LoginForm.scss";
 import "./style/admin.scss";
@@ -29,6 +29,9 @@ import "./style/ConversionTable.scss";
 import "./style/PartnerTable.scss";
 import "./style/confirmModal.scss";
 import "./style/ErningAndErningEdit.scss";
+import "./style/Uploadbaner.scss";
+import './style/loader.scss';
+import './style/page404.scss';
 
 function App() {
   const user = useSelector(currentUser);
@@ -41,13 +44,11 @@ function App() {
     }
   }, [user]);
 
-  // hello oleksandr
-  // hello oleksii
-
   return (
     <div className="App">
       <FirstRequest user={user} />
       <Routes>
+      <Route path="*" element={<Page404 />} />
         {!user && <Route path="/" element={<LoginForm />} />}
         {!user && <Route path="/registration" element={<RegistrationForm />} />}
         {user && user.isAdmin && (

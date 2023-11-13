@@ -20,7 +20,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon1.svg"
-          sum={`${user.statistics?.buysMonth}$`}
+          sum={`${user?.statistics?.buysMonth}`}
           title="Sales month"
         />
       );
@@ -29,7 +29,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon2.svg"
-          sum={`${user.statistics?.clicksMonth}`}
+          sum={`${user?.statistics?.clicksMonth}`}
           title="Transition month"
         />
       );
@@ -38,7 +38,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon3.svg"
-          sum={`${user.statistics?.clicksAllPeriod}`}
+          sum={`${user?.statistics?.clicksAllPeriod}`}
           title="General transitions"
         />
       );
@@ -47,7 +47,7 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon4.svg"
-          sum={`${user.statistics?.buysAllPeriod}$`}
+          sum={`${user?.statistics?.buysAllPeriod}`}
           title="Total sales"
         />
       );
@@ -74,7 +74,7 @@ const ProfitAndBonuses = () => {
         <div className="profit_and_bonuses_erning_sales_info_wrap">
           <Ernings
             img="./image/icon1.svg"
-            sum={`${user?.statistics?.buysMonth}$`}
+            sum={`${user?.statistics?.buysMonth}`}
             title="Sales month"
           />
           <Ernings
@@ -89,12 +89,10 @@ const ProfitAndBonuses = () => {
           />
           <Ernings
             img="./image/icon4.svg"
-            sum={`${user?.statistics?.buysAllPeriod}$`}
+            sum={`${user?.statistics?.buysAllPeriod}`}
             title="Total sales"
           />
           <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />
-          {/* <BalanceSalesCom title="Sales" sum="574$" isSales={true} />
-          <BalanceSalesCom title="Your balance" sum="1000$" isSales={false} /> */}
         </div>
       </div>
       <div className="profit_and_bonuses_wrapp">
@@ -109,7 +107,6 @@ const ProfitAndBonuses = () => {
         <div className="admin_panel_items derection_wraper">
           <DashboardHeader
             title="Transition"
-            // hendlerOpen={hendlerOpenConversions}
             setToggleItem={setToggleItem}
             toggleItem={toggleItem}
           />

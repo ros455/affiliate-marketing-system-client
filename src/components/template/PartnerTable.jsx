@@ -10,24 +10,24 @@ const PartnerTable = ({ partner, rewards, handlerActiveUser }) => {
           >
             <div className="partner_table_block">
               <p className="partner_table_text">Name</p>
-              <p className="partner_table_value">{user.name}</p>
+              <p className="partner_table_value">{user?.name}</p>
             </div>
             <div className="partner_table_block">
               <p className="partner_table_text">Email</p>
-              <p className="partner_table_value">{user.email}</p>
+              <p className="partner_table_value">{user?.email}</p>
             </div>
             <div className="partner_table_block">
               <p className="partner_table_text">Transitions</p>
-              <p className="partner_table_value">{4}</p>
+              <p className="partner_table_value">{user?.statistics?.clicksAllPeriod}</p>
             </div>
             <div className="partner_table_block">
               <p className="partner_table_text">Sales</p>
-              <p className="partner_table_value">{5}</p>
+              <p className="partner_table_value">{user?.statistics?.buysAllPeriod}</p>
             </div>
             {rewards && (
               <div className="partner_table_block">
                 <p className="partner_table_text">Rewards</p>
-                <p className="partner_table_value">{5}</p>
+                <p className="partner_table_value">{user?.bonus}</p>
               </div>
             )}
           </li>

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { currentUser } from "../../store/auth";
 import Ernings from "../template/Ernings";
-import BalanceSalesCom from "../template/BalanceSalesCom";
 import WeeklyChart from "../template/WeeklyChart";
 import DashboardConversionList from "./DashboardConversionList";
 import DashboardButton from "../template/DashboardButton";
 import DashboardHeader from "../template/DashboardHeader";
+import Loader from "../template/Loader";
 const PartnerDashboard = ({ hendlerOpenConversions }) => {
   const user = useSelector(currentUser);
 
@@ -39,7 +39,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon1.svg"
-          sum={`${user?.statistics?.buysMonth}$`}
+          sum={`${user?.statistics?.buysMonth}`}
           title="Sales month"
         />
       );
@@ -66,7 +66,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon4.svg"
-          sum={`${user?.statistics?.buysAllPeriod}$`}
+          sum={`${user?.statistics?.buysAllPeriod}`}
           title="Total sales"
         />
       );
@@ -76,14 +76,20 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
         <Ernings
           img="./image/icon5.svg"
           sum={`${user?.balance}$`}
-          title="Balance reward"
+          title="Balance"
         />
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum={`${user?.statisticss?.conversionAllPeriod}%`} title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
+
+  if(!user) {
+    return (
+      <Loader/>
+    )
+  }
 
   return (
     <div className="admin_content_wrap">
@@ -94,30 +100,30 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       <div className="erning_sales_info_wrap">
         <Ernings
           img="./image/icon1.svg"
-          sum={`${user.statistics?.buysMonth}$`}
+          sum={`${user?.statistics?.buysMonth || 0}`}
           title="Sales month"
         />
         <Ernings
           img="./image/icon2.svg"
-          sum={`${user.statistics?.clicksMonth}`}
+          sum={`${user?.statistics?.clicksMonth || 0}`}
           title="Transition month"
         />
         <Ernings
           img="./image/icon3.svg"
-          sum={`${user.statistics?.clicksAllPeriod}`}
+          sum={`${user?.statistics?.clicksAllPeriod || 0}`}
           title="General transitions"
         />
         <Ernings
           img="./image/icon4.svg"
-          sum={`${user.statistics?.buysAllPeriod}$`}
+          sum={`${user?.statistics?.buysAllPeriod || 0}`}
           title="Total sales"
         />
         <Ernings
           img="./image/icon5.svg"
-          sum={`${user?.balance}$`}
-          title="Balance reward"
+          sum={`${user?.balance || 0}$`}
+          title="Balance"
         />
-        <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />
+        <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod || 0}%`} title="Conversions" />
       </div>
       <DashboardButton
         handleActiveButton={handleActiveButton}
@@ -142,10 +148,13 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
             setToggleItem={setToggleItem}
             toggleItem={toggleItem}
           />
+          {toggleItem ? 
+          <WeeklyChart chartArray={partnerSevenDaysChart}/>
+          :
           <div className="weekly_chart_wrapp_xl">
-            <WeeklyChart chartArray={partnerSevenDaysChart}/>
-          </div>
-          {toggleItem && <WeeklyChart />}
+          <WeeklyChart chartArray={partnerSevenDaysChart}/>
+        </div>
+          }
         </div>
       </div>
     </div>

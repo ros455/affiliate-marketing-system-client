@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAuth, currentUser } from '../../store/auth';
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { fetchAuth } from '../../store/auth';
 import InputPassword from '../template/InputPassword';
 const LoginForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleLogin = async () => {

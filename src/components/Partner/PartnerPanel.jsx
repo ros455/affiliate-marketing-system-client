@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PartnerDashboard from "./PartnerDashboard";
 import ProfitAndBonuses from "./ProfitAndBonuses";
-import Conversions from "./Conversions";
 import ReferralProgram from "./ReferralProgram";
 import PartnerProfile from "./PartnerProfile";
 import { AiFillHome } from "react-icons/ai";
@@ -14,7 +13,6 @@ import BurgerButton from "../template/BurgerButton";
 const PartnerPanel = () => {
   const [isDashboadr, setIsDashboadr] = useState(true);
   const [isProfitAndBonuses, setIsProfitAndBonuses] = useState(false);
-  const [isConversions, setIsConversions] = useState(false);
   const [isReferralProgram, setIsReferralProgram] = useState(false);
   const [isProfile, setIsProfile] = useState(false);
 
@@ -30,7 +28,6 @@ const PartnerPanel = () => {
   const hendlerOpenDashboadr = () => {
     setIsDashboadr(true);
     setIsProfitAndBonuses(false);
-    setIsConversions(false);
     setIsReferralProgram(false);
     setIsProfile(false);
     setActiveBurgerButton(true);
@@ -39,7 +36,6 @@ const PartnerPanel = () => {
   const hendlerOpenProfitAndBonuses = () => {
     setIsDashboadr(false);
     setIsProfitAndBonuses(true);
-    setIsConversions(false);
     setIsReferralProgram(false);
     setIsProfile(false);
     setActiveBurgerButton(true);
@@ -48,7 +44,6 @@ const PartnerPanel = () => {
   const hendlerOpenConversions = () => {
     setIsDashboadr(false);
     setIsProfitAndBonuses(false);
-    setIsConversions(true);
     setIsReferralProgram(false);
     setIsProfile(false);
     setActiveBurgerButton(true);
@@ -57,7 +52,6 @@ const PartnerPanel = () => {
   const hendlerOpenReferralProgram = () => {
     setIsDashboadr(false);
     setIsProfitAndBonuses(false);
-    setIsConversions(false);
     setIsReferralProgram(true);
     setIsProfile(false);
     setActiveBurgerButton(true);
@@ -66,7 +60,6 @@ const PartnerPanel = () => {
   const hendlerOpenProfile = () => {
     setIsDashboadr(false);
     setIsProfitAndBonuses(false);
-    setIsConversions(false);
     setIsReferralProgram(false);
     setIsProfile(true);
     setActiveBurgerButton(true);
@@ -127,15 +120,6 @@ const PartnerPanel = () => {
                   Profit and bonuses
                 </li>
                 <li
-                  onClick={hendlerOpenConversions}
-                  className={`nav_list-item ${
-                    isConversions ? "nav_list-item-active" : ""
-                  } `}
-                >
-                  <BiSolidBarChartAlt2 />
-                  Conversions
-                </li>
-                <li
                   onClick={hendlerOpenReferralProgram}
                   className={`nav_list-item ${
                     isReferralProgram ? "nav_list-item-active" : ""
@@ -169,7 +153,6 @@ const PartnerPanel = () => {
               />
             )}
             {isProfitAndBonuses && <ProfitAndBonuses />}
-            {isConversions && <Conversions />}
             {isReferralProgram && <ReferralProgram />}
             {isProfile && <PartnerProfile />}
           </div>

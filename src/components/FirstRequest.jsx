@@ -17,12 +17,6 @@ const FirstRequest = ({ user }) => {
       dispatch(fetchAdminStatistic());
     }
   }, [user]);
-
-  // useEffect(() => {
-  //   if (AUTH_TOKEN) {
-  //     dispatch(fetchAdminStatistic());
-  //   }
-  // }, []);
 };
 
 export default FirstRequest;
