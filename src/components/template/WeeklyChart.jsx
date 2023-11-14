@@ -10,6 +10,8 @@ const WeeklyChart = ({chartArray}) => {
       setVisitors(totalTransitions);
     }
   },[chartArray])
+
+  console.log('chartArray',chartArray);
   return (
     <div className="weekly_chart_wrap">
       <div className="weekly_chart_main_number_block">
@@ -19,8 +21,8 @@ const WeeklyChart = ({chartArray}) => {
       </div>
       <div className="weekly_chart_main_block" onMouseLeave={() => setHoveredItem(null)}>
         {chartArray && !!chartArray.length && chartArray.map((chart, idx) => (
-          <div onMouseEnter={() => setHoveredItem(idx)}>
-            <WeeklyChartItem chart={chart} fullChart={chartArray} key={idx} isHovered={hoveredItem === idx}/>
+          <div onMouseEnter={() => setHoveredItem(idx)} key={chart._id}>
+            <WeeklyChartItem chart={chart} fullChart={chartArray} isHovered={hoveredItem === idx}/>
           </div>
         ))}
       </div>

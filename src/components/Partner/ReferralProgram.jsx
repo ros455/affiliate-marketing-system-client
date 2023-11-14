@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Ernings from "../template/Ernings";
 import ReferralProgramBanerBlock from "./ReferralProgramBanerBlock";
 import ConfirmModal from "../template/ConfirmModal";
+import ReferalCodeTemplate from "../template/ReferalCodeTemplate";
 import axios from "axios";
 import { BASE_URL } from "../../http/BaseUrl";
 import { AUTH_TOKEN } from "../../utils/Token";
@@ -51,10 +52,10 @@ const ReferralProgram = () => {
       <div className="referral_program_wrapp">
         <div className="referral_program_link_wrapp">
             {user &&
-            <Ernings
+            <ReferalCodeTemplate
               isManyText={true}
               img="./image/ernings.svg"
-              sum={user?.link}
+              text={user?.link}
               title="Link"
               className={"referral_program_link_item"}
             />
@@ -74,9 +75,9 @@ const ReferralProgram = () => {
         </div>
         <div className="referral_program_link_wrapp">
           {user &&
-          <Ernings
+          <ReferalCodeTemplate
             img="./image/ernings.svg"
-            sum={user?.promotionalCode}
+            text={user?.promotionalCode}
             title="Promo code"
             className={"referral_program_link_item"}
           />

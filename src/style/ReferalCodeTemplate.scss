@@ -1,0 +1,15 @@
+@import "./template.scss";
+.copy_icon_block {
+
+}
+
+.copy_icon {
+    color: $main_color;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.8);
+    }
+}

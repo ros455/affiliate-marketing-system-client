@@ -74,14 +74,14 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       return (
         <ErningsAndEdit 
         img="./image/icon5.svg"
-        sum={`${user?.balance}`}
+        sum={`${user?.balance.toFixed(1)}`}
         title="Balance"
         user={user}
         setReloadData={setReloadData}/>
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`} title="Conversions" />;
     }
   };
   if(!user) {
@@ -137,14 +137,14 @@ const UserOne = ({ setActiveUser, currentUser }) => {
         />
         <ErningsAndEdit
           img="./image/icon5.svg"
-          sum={`${user?.balance}`}
+          sum={`${user?.balance.toFixed(1)}`}
           title="Balance"
           user={user}
           setReloadData={setReloadData}
         />
         <Ernings
           img="./image/icon6.svg"
-          sum={`${user?.statistics?.conversionAllPeriod}%`}
+          sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`}
           title="Conversions"
         />
       </div>

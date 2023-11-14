@@ -75,13 +75,13 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       return (
         <Ernings
           img="./image/icon5.svg"
-          sum={`${user?.balance}$`}
+          sum={`${user?.balance.toFixed(1)}$`}
           title="Balance"
         />
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`} title="Conversions" />;
     }
   };
 
@@ -123,7 +123,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
           sum={`${user?.balance || 0}$`}
           title="Balance"
         />
-        <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod || 0}%`} title="Conversions" />
+        <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1) || 0}%`} title="Conversions" />
       </div>
       <DashboardButton
         handleActiveButton={handleActiveButton}

@@ -6,7 +6,7 @@
 
 .banter-loader {
     position: absolute;
-    left: 60%;
+    left: 50%;
     top: 50%;
     width: 72px;
     height: 72px;
@@ -49,11 +49,11 @@
     margin-bottom: 0;
   }
 
-  @media (max-width: 992px) {
-    .banter-loader {
-      left: 50%;
-    }
-  }
+  // @media (max-width: 992px) {
+  //   .banter-loader {
+  //     left: 50%;
+  //   }
+  // }
   
   @keyframes moveBox-1 {
     9.0909090909% {

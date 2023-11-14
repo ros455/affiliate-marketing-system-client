@@ -73,7 +73,7 @@ const ReferralProgramBanerBlock = () => {
           <img
             className="referral_program_img"
             src={`${BASE_URL}${bigBanner}`}
-            alt="link"
+            alt="Big banner"
           />
         </div>
         <div className="referral_program_img_block">
@@ -84,7 +84,7 @@ const ReferralProgramBanerBlock = () => {
           <img
             className="referral_program_img"
             src={`${BASE_URL}${middleBanner}`}
-            alt="link"
+            alt="Middle banner"
           />
         </div>
         <div className="referral_program_img_block">
@@ -95,7 +95,7 @@ const ReferralProgramBanerBlock = () => {
           <img
             className="referral_program_img"
             src={`${BASE_URL}${smallBanner}`}
-            alt="link"
+            alt="Small banner"
           />
         </div>
       </div>

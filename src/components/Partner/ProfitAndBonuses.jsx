@@ -56,13 +56,13 @@ const ProfitAndBonuses = () => {
       return (
         <Ernings
           img="./image/icon5.svg"
-          sum={`${user?.balance}$`}
+          sum={`${user?.balance.toFixed(1)}$`}
           title="Balance reward"
         />
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`} title="Conversions" />;
     }
   };
 
@@ -92,7 +92,7 @@ const ProfitAndBonuses = () => {
             sum={`${user?.statistics?.buysAllPeriod}`}
             title="Total sales"
           />
-          <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />
+          <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`} title="Conversions" />
         </div>
       </div>
       <div className="profit_and_bonuses_wrapp">

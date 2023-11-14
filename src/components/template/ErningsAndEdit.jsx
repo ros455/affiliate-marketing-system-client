@@ -7,7 +7,7 @@ const ErningsAndEdit = ({ img, title, sum, className, isManyText, user, setReloa
   const [value, setValue] = useState(false);
 
   useEffect(() => {
-    setValue(user?.balance);
+    setValue(user?.balance.toFixed(1));
   },[user])
 
   const handelUpdateBalance = () => {

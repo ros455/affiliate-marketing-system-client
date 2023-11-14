@@ -1,6 +1,4 @@
-import { useState, useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { currentUser, statisticAdmin } from "../../store/auth";
+import { useState, useRef } from "react";
 import StatisticPaginationsButton from "./StatisticPaginationsButton";
 import StatisticChartItem from "./StatisticChartItem";
 

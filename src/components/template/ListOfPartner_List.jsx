@@ -109,7 +109,7 @@ const ListOfPartner_List = () => {
                     onClick={() => handlerActiveUser(user)}
                   >
                     <p className="colum row colum_name">{user.name}</p>
-                    <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod}</p>
+                    <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod.toFixed(1)}</p>
                     <p className="colum row colum_quantity">{user?.statistics?.clicksAllPeriod}</p>
                     <p className="colum row colum_data">{user?.statistics?.buysAllPeriod}</p>
                     <p className="colum row colum_reward">{user?.bonus}</p>

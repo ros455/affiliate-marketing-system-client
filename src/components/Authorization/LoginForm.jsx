@@ -34,7 +34,7 @@ const LoginForm = () => {
           <div className="input_wraper">
             <div className="input_wraper-item">
               <label htmlFor="mail">
-                Email <span>*</span>
+                Login <span>*</span>
               </label>
               <input
                 id="mail"

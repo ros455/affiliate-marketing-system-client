@@ -43,7 +43,7 @@ const EditUserProfileData = ({updateDataUrl}) => {
         <div className='change_data_wrap'>
             <div className="input_wraper-item">
               <label htmlFor="mail">
-                Email
+                Login
               </label>
               <input
                 id="mail"

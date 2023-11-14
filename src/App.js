@@ -32,6 +32,8 @@ import "./style/ErningAndErningEdit.scss";
 import "./style/Uploadbaner.scss";
 import './style/loader.scss';
 import './style/page404.scss';
+import './style/ReferalCodeTemplate.scss';
+import './style/Alert.scss';
 
 function App() {
   const user = useSelector(currentUser);

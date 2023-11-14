@@ -48,7 +48,7 @@ const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
               dashboardStatistic.map((item, idx) => (
                 <div className={`table_info_item ${className}`} key={idx}>
                   <p className="colum row colum_name">{item?.date}</p>
-                  <p className="colum row colum_progres">{item?.conversion}%</p>
+                  <p className="colum row colum_progres">{item?.conversion.toFixed(1)}%</p>
                   <p className="colum row colum_quantity">{item?.transitions}</p>
                   <p className="colum row colum_data">{item?.buy}</p>
                 </div>
