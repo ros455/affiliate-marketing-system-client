@@ -16,7 +16,6 @@ const ReferralProgram = () => {
     axios.get(`${BASE_URL}/get-me`, {
       headers: { authorization: AUTH_TOKEN }
     }).then((res) => {
-      console.log('res.data',res.data);
       if(res.data) {
         setUser(res.data)
       }

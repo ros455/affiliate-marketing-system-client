@@ -8,7 +8,6 @@ const ReferralProgramBanerBlock = () => {
   useEffect(() => {
     axios.get(`${BASE_URL}/get-all-banners`).then((res) => {
       if(res.data) {
-        console.log('res.date',res.data);
         setBigBanner(res.data.BigBanner);
         setMiddleBanner(res.data.MiddleBanner);
         setSmallBanner(res.data.SmallBanner);
@@ -21,7 +20,6 @@ const ReferralProgramBanerBlock = () => {
   const dowladBigBanner = async () => {
     try {
       const resonse = await axios.get(`${BASE_URL}/download-big-banner`);
-      console.log('resonse',resonse);
       if (resonse.status == 200) {
         const link = document.createElement("a");
         link.href = `${BASE_URL}/download-big-banner`;

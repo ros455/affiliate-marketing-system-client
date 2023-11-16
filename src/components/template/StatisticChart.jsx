@@ -115,9 +115,9 @@ const StatisticChart = ({chartsMonth, chartsYear, chartsYearAllPeriod}) => {
             </button>
           </div>
         </div>
-        <p className="statistic_chart_visitors">
+        {/* <p className="statistic_chart_visitors">
           {chartsMonth?.clicks?.reduce((acc, next) => acc + next.number, 0)}<span> Visitors</span>
-        </p>
+        </p> */}
         <div
           className="statistic_chart_main_block_wrapp"
           ref={scrollRef}

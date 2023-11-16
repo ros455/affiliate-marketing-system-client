@@ -21,7 +21,6 @@ const UserOne = ({ setActiveUser, currentUser }) => {
     axios.get(`${BASE_URL}/get-user-statistic/${currentUser._id}`, {
       headers: { authorization: AUTH_TOKEN }
     }).then((res) => {
-      console.log('res.data',res.data);
       if(res.data) {
         setUser(res.data)
       }

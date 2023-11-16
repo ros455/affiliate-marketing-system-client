@@ -118,12 +118,16 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
           sum={`${user?.statistics?.buysAllPeriod || 0}`}
           title="Total sales"
         />
+        {user?.balance &&
         <Ernings
           img="./image/icon5.svg"
-          sum={`${user?.balance || 0}$`}
+          sum={`${user?.balance.toFixed(1) || 0}$`}
           title="Balance"
         />
+        }
+        {user?.statistics?.conversionAllPeriod &&
         <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1) || 0}%`} title="Conversions" />
+        }
       </div>
       <DashboardButton
         handleActiveButton={handleActiveButton}

@@ -24,7 +24,6 @@ const EditUserProfileData = ({updateDataUrl}) => {
           id: user._id,
           password
       })
-      console.log('response',response);
 
       if(response.status == 200) {
         alert('User data updated')

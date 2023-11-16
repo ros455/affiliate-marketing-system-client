@@ -7,7 +7,6 @@ const ReferalCodeTemplate = ({ img, title, text, className, isManyText }) => {
         navigator.clipboard.writeText(text)
             .then(() => {
                 // Handle success (optional)
-                console.log('Text copied to clipboard');
             })
             .catch(err => {
                 // Handle errors (optional)
