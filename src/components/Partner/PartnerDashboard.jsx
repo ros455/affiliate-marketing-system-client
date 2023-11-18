@@ -40,7 +40,16 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
         <Ernings
           img="./image/icon1.svg"
           sum={`${user?.statistics?.buysMonth}`}
-          title="Sales month"
+          title="Number of sales per month"
+        />
+      );
+    }
+    if (isActiveButton === "sales_amount_month") {
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user?.statistics?.buysSumMonth || 0}$`}
+          title="Amount of sales per month"
         />
       );
     }
@@ -49,7 +58,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
         <Ernings
           img="./image/icon2.svg"
           sum={`${user?.statistics?.clicksMonth}`}
-          title="Transition month"
+          title="Transitions per month"
         />
       );
     }
@@ -58,16 +67,25 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
         <Ernings
           img="./image/icon3.svg"
           sum={`${user?.statistics?.clicksAllPeriod}`}
-          title="General transitions"
+          title="Transitions for the entire period"
         />
       );
     }
     if (isActiveButton === "total_sales") {
       return (
         <Ernings
-          img="./image/icon4.svg"
+          img="./image/icon1.svg"
           sum={`${user?.statistics?.buysAllPeriod}`}
-          title="Total sales"
+          title="Number of sales for all time"
+        />
+      );
+    }
+    if (isActiveButton === "total_amount_sales") {
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user?.statistics?.buysSumAllPeriod || 0}$`}
+          title="Amount of sales for all time"
         />
       );
     }
@@ -81,7 +99,7 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`} title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
 
@@ -101,33 +119,39 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
         <Ernings
           img="./image/icon1.svg"
           sum={`${user?.statistics?.buysMonth || 0}`}
-          title="Sales month"
+          title="Number of sales per month"
+        />
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user?.statistics?.buysSumMonth || 0}$`}
+          title="Amount of sales per month"
         />
         <Ernings
           img="./image/icon2.svg"
           sum={`${user?.statistics?.clicksMonth || 0}`}
-          title="Transition month"
+          title="Transitions per month"
         />
         <Ernings
           img="./image/icon3.svg"
           sum={`${user?.statistics?.clicksAllPeriod || 0}`}
-          title="General transitions"
+          title="Transitions for the entire period"
+        />
+        <Ernings
+          img="./image/icon1.svg"
+          sum={`${user?.statistics?.buysAllPeriod || 0}`}
+          title="Number of sales for all time"
         />
         <Ernings
           img="./image/icon4.svg"
-          sum={`${user?.statistics?.buysAllPeriod || 0}`}
-          title="Total sales"
+          sum={`${user?.statistics?.buysSumAllPeriod || 0}$`}
+          title="Amount of sales for all time"
         />
-        {user?.balance &&
         <Ernings
           img="./image/icon5.svg"
           sum={`${user?.balance.toFixed(1) || 0}$`}
           title="Balance"
         />
-        }
-        {user?.statistics?.conversionAllPeriod &&
-        <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1) || 0}%`} title="Conversions" />
-        }
+        <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod || 0}%`} title="Conversions" />
       </div>
       <DashboardButton
         handleActiveButton={handleActiveButton}

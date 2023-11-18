@@ -54,7 +54,7 @@ const ReferralProgram = () => {
             <ReferalCodeTemplate
               isManyText={true}
               img="./image/ernings.svg"
-              text={user?.link}
+              text={`${BASE_URL}/click?link=${user?.link}`}
               title="Link"
               className={"referral_program_link_item"}
             />

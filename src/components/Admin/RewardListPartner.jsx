@@ -23,7 +23,7 @@ const RewardListPartner = ({setIsShow}) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/search-users`, {
-          params: { page: currentPage, limit: 2, search: searchTerm },
+          params: { page: currentPage, limit: 5, search: searchTerm },
           headers: { authorization: AUTH_TOKEN },
         });
         if (response.data.length) {

@@ -8,9 +8,9 @@ const ReferralProgramBanerBlock = () => {
   useEffect(() => {
     axios.get(`${BASE_URL}/get-all-banners`).then((res) => {
       if(res.data) {
-        setBigBanner(res.data.BigBanner);
-        setMiddleBanner(res.data.MiddleBanner);
-        setSmallBanner(res.data.SmallBanner);
+        setBigBanner(`${BASE_URL}${res.data.BigBanner}`);
+        setMiddleBanner(`${BASE_URL}${res.data.MiddleBanner}`);
+        setSmallBanner(`${BASE_URL}${res.data.SmallBanner}`);
       }
     }).catch((error) => {
       console.log('error',error);
@@ -70,7 +70,7 @@ const ReferralProgramBanerBlock = () => {
             </div>
           <img
             className="referral_program_img"
-            src={`${BASE_URL}${bigBanner}`}
+            src={bigBanner}
             alt="Big banner"
           />
         </div>
@@ -81,7 +81,7 @@ const ReferralProgramBanerBlock = () => {
             </div>
           <img
             className="referral_program_img"
-            src={`${BASE_URL}${middleBanner}`}
+            src={middleBanner}
             alt="Middle banner"
           />
         </div>
@@ -92,7 +92,7 @@ const ReferralProgramBanerBlock = () => {
             </div>
           <img
             className="referral_program_img"
-            src={`${BASE_URL}${smallBanner}`}
+            src={smallBanner}
             alt="Small banner"
           />
         </div>

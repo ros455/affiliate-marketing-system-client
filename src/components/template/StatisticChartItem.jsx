@@ -27,6 +27,7 @@ const StatisticChartItem = ({
         <p className="statistic_chart_item_amount">
           {chart?.number}
           {activeActionsButton === "conversions" ? "%" : ""}
+          {activeActionsButton === "sales" ? "$" : ""}
         </p>
       </div>
       <p className="statistic_chart_item_value"> {chart?.date}</p>

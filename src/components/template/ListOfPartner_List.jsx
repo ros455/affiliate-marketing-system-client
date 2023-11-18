@@ -26,7 +26,7 @@ const ListOfPartner_List = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/search-users`, {
-          params: { page: currentPage, limit: 2, search: searchTerm },
+          params: { page: currentPage, limit: 5, search: searchTerm },
           headers: { authorization: AUTH_TOKEN },
         });
         if (response.data.length) {
@@ -109,10 +109,10 @@ const ListOfPartner_List = () => {
                     onClick={() => handlerActiveUser(user)}
                   >
                     <p className="colum row colum_name">{user.name}</p>
-                    <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod.toFixed(1)}</p>
+                    <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod}%</p>
                     <p className="colum row colum_quantity">{user?.statistics?.clicksAllPeriod}</p>
                     <p className="colum row colum_data">{user?.statistics?.buysAllPeriod}</p>
-                    <p className="colum row colum_reward">{user?.bonus}</p>
+                    <p className="colum row colum_reward">{user?.bonus}%</p>
                   </div>
                 ))}
             </div>

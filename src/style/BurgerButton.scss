@@ -1,11 +1,14 @@
+@import "./template.scss";
+
 .burger_button {
   display: none;
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
   z-index: 200;
-
-  background-color: transparent;
+  background-color: $white_second_color;
+  border-radius: 10px;
+  padding: 5px;
   svg {
     width: 40px;
     height: 40px;

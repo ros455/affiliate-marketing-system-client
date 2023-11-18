@@ -15,7 +15,7 @@ const RewardListPartnerItem = ({user, handleUpdateuserReward, isOpenEditor, setI
     return (
         <div className="table_info_item">
         <p className="colum row colum_name">{user?.name}</p>
-        <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod.toFixed(1)}</p>
+        <p className="colum row colum_progres">{user?.statistics?.conversionAllPeriod}%</p>
         <p className="colum row colum_quantity">{user?.statistics?.clicksAllPeriod}</p>
         <p className="colum row colum_data">{user?.statistics?.buysAllPeriod}</p>
         <div>
@@ -44,10 +44,10 @@ const RewardListPartnerItem = ({user, handleUpdateuserReward, isOpenEditor, setI
               </button>
             </div>
               :
-              <>
+              <div className='reward_icon_text_block'>
               <TbEdit className="reward_btn_edit_icon" onClick={() => setIsOpenEditor(user?._id)}/>
               <p className="colum row colum_data">{user?.bonus}</p>
-              </>
+              </div>
               }
         </div>
       </div>

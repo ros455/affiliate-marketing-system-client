@@ -41,6 +41,38 @@ const DashboardButton = ({
       <button
         type="button"
         className={`dashboard_button_block ${
+          isActiveButton === "sales_amount_month" ? "dashboard_button_active" : ""
+        }`}
+        onClick={() => handleActiveButton("sales_amount_month")}
+      >
+        <svg
+          width="37"
+          height="36"
+          viewBox="0 0 37 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_573_1570)">
+            <path
+              d="M18.303 16.5427C14.9368 15.6776 13.8543 14.7833 13.8543 13.3905C13.8543 11.7924 15.352 10.6781 17.8582 10.6781C19.9639 10.6781 21.0168 11.4698 21.4023 12.7307C21.5803 13.3171 22.0696 13.757 22.6925 13.757H23.1373C24.1161 13.757 24.813 12.804 24.472 11.895C23.8491 10.1649 22.3959 8.72811 20.0825 8.17097V7.15933C20.0825 5.94243 19.089 4.96011 17.8582 4.96011C16.6274 4.96011 15.6338 5.94243 15.6338 7.15933V8.12699C12.7569 8.74277 10.4436 10.5901 10.4436 13.4198C10.4436 16.8066 13.276 18.4926 17.4133 19.475C21.1206 20.3546 21.862 21.6449 21.862 23.0084C21.862 24.02 21.1354 25.6328 17.8582 25.6328C15.4114 25.6328 14.1509 24.7677 13.6615 23.5362C13.4391 22.9644 12.9349 22.5539 12.3269 22.5539H11.9117C10.9181 22.5539 10.2212 23.5508 10.5919 24.4599C11.4372 26.4978 13.4094 27.7 15.6338 28.1692V29.1515C15.6338 30.3684 16.6274 31.3507 17.8582 31.3507C19.089 31.3507 20.0825 30.3684 20.0825 29.1515V28.1985C22.9742 27.6561 25.2727 25.9993 25.2727 22.9937C25.2727 18.8299 21.6693 17.4077 18.303 16.5427Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_573_1570">
+              <rect
+                width="35.5899"
+                height="35.1875"
+                fill="currentColor"
+                transform="translate(0.804932 0.561676)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+      <button
+        type="button"
+        className={`dashboard_button_block ${
           isActiveButton === "transition_month" ? "dashboard_button_active" : ""
         }`}
         onClick={() => handleActiveButton("transition_month")}
@@ -86,6 +118,38 @@ const DashboardButton = ({
           isActiveButton === "total_sales" ? "dashboard_button_active" : ""
         }`}
         onClick={() => handleActiveButton("total_sales")}
+      >
+        <svg
+          width="37"
+          height="36"
+          viewBox="0 0 37 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_573_1551)">
+            <path
+              d="M9.98135 14.0502H10.2779C11.4198 14.0502 12.354 14.9739 12.354 16.1028V26.3659C12.354 27.4948 11.4198 28.4185 10.2779 28.4185H9.98135C8.83951 28.4185 7.90527 27.4948 7.90527 26.3659V16.1028C7.90527 14.9739 8.83951 14.0502 9.98135 14.0502ZM18.2857 7.89243C19.4275 7.89243 20.3617 8.8161 20.3617 9.94503V26.3659C20.3617 27.4948 19.4275 28.4185 18.2857 28.4185C17.1438 28.4185 16.2096 27.4948 16.2096 26.3659V9.94503C16.2096 8.8161 17.1438 7.89243 18.2857 7.89243ZM26.59 19.6216C27.7318 19.6216 28.6661 20.5453 28.6661 21.6742V26.3659C28.6661 27.4948 27.7318 28.4185 26.59 28.4185C25.4481 28.4185 24.5139 27.4948 24.5139 26.3659V21.6742C24.5139 20.5453 25.4481 19.6216 26.59 19.6216Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_573_1551">
+              <rect
+                width="35.5899"
+                height="35.1875"
+                fill="currentColor"
+                transform="translate(0.490967 0.561676)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+      <button
+        type="button"
+        className={`dashboard_button_block ${
+          isActiveButton === "total_amount_sales" ? "dashboard_button_active" : ""
+        }`}
+        onClick={() => handleActiveButton("total_amount_sales")}
       >
         <svg
           width="37"

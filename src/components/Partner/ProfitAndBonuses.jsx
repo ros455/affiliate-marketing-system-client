@@ -21,7 +21,16 @@ const ProfitAndBonuses = () => {
         <Ernings
           img="./image/icon1.svg"
           sum={`${user?.statistics?.buysMonth}`}
-          title="Sales month"
+          title="Number of sales per month"
+        />
+      );
+    }
+    if (isActiveButton === "sales_amount_month") {
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user?.statistics?.buysSumMonth || 0}$`}
+          title="Amount of sales per month"
         />
       );
     }
@@ -30,7 +39,7 @@ const ProfitAndBonuses = () => {
         <Ernings
           img="./image/icon2.svg"
           sum={`${user?.statistics?.clicksMonth}`}
-          title="Transition month"
+          title="Transitions per month"
         />
       );
     }
@@ -39,7 +48,7 @@ const ProfitAndBonuses = () => {
         <Ernings
           img="./image/icon3.svg"
           sum={`${user?.statistics?.clicksAllPeriod}`}
-          title="General transitions"
+          title="Transitions for the entire period"
         />
       );
     }
@@ -48,7 +57,16 @@ const ProfitAndBonuses = () => {
         <Ernings
           img="./image/icon4.svg"
           sum={`${user?.statistics?.buysAllPeriod}`}
-          title="Total sales"
+          title="Number of sales for all time"
+        />
+      );
+    }
+    if (isActiveButton === "total_amount_sales") {
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user?.statistics?.buysSumAllPeriod || 0}$`}
+          title="Amount of sales for all time"
         />
       );
     }
@@ -62,7 +80,7 @@ const ProfitAndBonuses = () => {
       );
     }
     if (isActiveButton === "conversions") {
-      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`} title="Conversions" />;
+      return <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
 
@@ -75,24 +93,34 @@ const ProfitAndBonuses = () => {
           <Ernings
             img="./image/icon1.svg"
             sum={`${user?.statistics?.buysMonth}`}
-            title="Sales month"
+            title="Number of sales per month"
           />
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user?.statistics?.buysSumMonth || 0}$`}
+          title="Amount of sales per month"
+        />
           <Ernings
             img="./image/icon2.svg"
             sum={`${user?.statistics?.clicksMonth}`}
-            title="Transition month"
+            title="Transitions per month"
           />
           <Ernings
             img="./image/icon3.svg"
             sum={`${user?.statistics?.clicksAllPeriod}`}
-            title="General transitions"
+            title="Transitions for the entire period"
           />
           <Ernings
             img="./image/icon4.svg"
             sum={`${user?.statistics?.buysAllPeriod}`}
-            title="Total sales"
+            title="Number of sales for all time"
           />
-          <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod.toFixed(1)}%`} title="Conversions" />
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${user?.statistics?.buysSumAllPeriod || 0}$`}
+          title="Amount of sales for all time"
+        />
+          <Ernings img="./image/icon6.svg" sum={`${user?.statistics?.conversionAllPeriod}%`} title="Conversions" />
         </div>
       </div>
       <div className="profit_and_bonuses_wrapp">

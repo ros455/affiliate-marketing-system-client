@@ -86,7 +86,7 @@ const UploadImageTemplate = () => {
           hidden
         />
         <div className='upload_baner-baner_section'>
-        <div className='baner_section_text'>600 x 120</div>
+        <div className='baner_section_text'>300 x 120</div>
         <div className='baner_section_icon_wrap'>
             <FaDownload className='upload_baner_icon' onClick={() => smallRef.current.click()}/>
         </div>

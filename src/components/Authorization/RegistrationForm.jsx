@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { fetchRegister } from "../../store/auth";
 import InputPassword from "../template/InputPassword";
+import ConfirmModal from "../template/ConfirmModal";
 const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [isOpenModalConfirm, setIsOpenModalConfirm] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ const RegistrationForm = () => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleRegistration();
+      setIsOpenModalConfirm(!isOpenModalConfirm);
     }
   };
 
@@ -74,7 +76,7 @@ const RegistrationForm = () => {
         <div className="registration_button_wrap">
           <button
             className="button_approve"
-            onClick={() => handleRegistration(email, password)}
+            onClick={() => setIsOpenModalConfirm(!isOpenModalConfirm)}
           >
             Registration
           </button>{" "}
@@ -88,6 +90,12 @@ const RegistrationForm = () => {
             </p>
           </div>
       </div>
+      <ConfirmModal
+        title={"Are you 18 years old?"}
+        isOpenModal={isOpenModalConfirm}
+        setIsOpen={setIsOpenModalConfirm}
+        handleChangeFunc={handleRegistration}
+      />
     </div>
   );
 };

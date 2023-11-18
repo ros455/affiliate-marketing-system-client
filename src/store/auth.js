@@ -77,7 +77,6 @@ export const fetchAllUsers = createAsyncThunk(
       },
     });
     const data = await response.json();
-
     thunkAPI.dispatch(authSlice.actions.setAllUsers(data));
     // if(!data.loggedIn) {
     //     window.localStorage.removeItem("token");

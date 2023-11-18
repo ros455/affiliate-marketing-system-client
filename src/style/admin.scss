@@ -374,6 +374,7 @@
   height: 25px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  align-items: center;
 }
 .table_info_item_partner {
   grid-template-columns: repeat(4, 1fr);

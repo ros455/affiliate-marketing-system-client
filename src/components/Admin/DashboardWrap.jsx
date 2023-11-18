@@ -37,7 +37,16 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
         <Ernings
           img="./image/icon1.svg"
           sum={`${statistic?.buysMonth}`}
-          title="Sales month"
+          title="Number of sales per month"
+        />
+      );
+    }
+    if (isActiveButton === "sales_amount_month") {
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${statistic?.buysSumMonth || 0}$`}
+          title="Amount of sales per month"
         />
       );
     }
@@ -46,7 +55,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
         <Ernings
           img="./image/icon2.svg"
           sum={statistic?.clicksMonth}
-          title="Transition month"
+          title="Transitions per month"
         />
       );
     }
@@ -55,18 +64,30 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
         <Ernings
           img="./image/icon3.svg"
           sum={`${statistic?.clicksAllPeriod}`}
-          title="General transitions"
+          title="Transitions for the entire period"
         />
       );
     }
     if (isActiveButton === "total_sales") {
       return (
         <Ernings
-          img="./image/icon4.svg"
+          img="./image/icon1.svg"
           sum={`${statistic?.buysAllPeriod}`}
-          title="Total sales"
+          title="Number of sales for all time"
         />
       );
+    }
+    if (isActiveButton === "total_amount_sales") {
+      return (
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${statistic?.buysSumAllPeriod || 0}$`}
+          title="Amount of sales for all time"
+        />
+      );
+    }
+    if (isActiveButton === "conversions") {
+      return <Ernings img="./image/icon6.svg" sum={`${statistic?.conversionAllPeriod}%`} title="Conversions" />;
     }
   };
   if(!statistic) {
@@ -84,23 +105,38 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
         <Ernings
           img="./image/icon1.svg"
           sum={`${statistic?.buysMonth}`}
-          title="Sales month"
+          title="Number of sales per month"
+        />
+          <Ernings
+          img="./image/icon4.svg"
+          sum={`${statistic?.buysSumMonth || 0}$`}
+          title="Amount of sales per month"
         />
         <Ernings
           img="./image/icon2.svg"
           sum={statistic?.clicksMonth}
-          title="Transition month"
+          title="Transitions per month"
         />
         <Ernings
           img="./image/icon3.svg"
           sum={`${statistic?.clicksAllPeriod}`}
-          title="General transitions"
+          title="Transitions for the entire period"
         />
 
         <Ernings
-          img="./image/icon4.svg"
+          img="./image/icon1.svg"
           sum={`${statistic?.buysAllPeriod}`}
-          title="Total sales"
+          title="Number of sales for all time"
+        />
+        <Ernings
+          img="./image/icon4.svg"
+          sum={`${statistic?.buysSumAllPeriod || 0}$`}
+          title="Amount of sales for all time"
+        />
+        <Ernings
+          img="./image/icon6.svg"
+          sum={`${statistic?.conversionAllPeriod}%`}
+          title="Conversions"
         />
       </div>
       <DashboardButton
@@ -108,6 +144,7 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
         isActiveButton={isActiveButton}
         toggleItem={toggleItem}
         setToggleItem={setToggleItem}
+        conversions={true}
       />
       <div className="partner_dasboard_render_ernings_element">
         {renderErnings()}
