@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { currentUser } from "../../store/auth";
-import Ernings from "../template/Ernings";
-import StatisticChart from "../template/StatisticChart";
-import DashboardButton from "../template/DashboardButton";
-import DashboardHeader from "../template/DashboardHeader";
+import { currentUser } from "../../../store/auth";
+import Ernings from "../../template/Ernings";
+import StatisticChart from "../../template/StatisticChart";
+import DashboardButton from "../../template/DashboardButton";
+import DashboardHeader from "../../template/DashboardHeader";
 
-const ProfitAndBonuses = () => {
+const ProfitAndBonusesTab = () => {
   const user = useSelector(currentUser);
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
@@ -55,7 +55,7 @@ const ProfitAndBonuses = () => {
     if (isActiveButton === "total_sales") {
       return (
         <Ernings
-          img="./image/icon4.svg"
+          img="./image/icon1.svg"
           sum={`${user?.statistics?.buysAllPeriod}`}
           title="Number of sales for all time"
         />
@@ -149,4 +149,4 @@ const ProfitAndBonuses = () => {
   );
 };
 
-export default ProfitAndBonuses;
+export default ProfitAndBonusesTab;

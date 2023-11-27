@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Ernings from "../template/Ernings";
-import ReferralProgramBanerBlock from "./ReferralProgramBanerBlock";
-import ConfirmModal from "../template/ConfirmModal";
-import ReferalCodeTemplate from "../template/ReferalCodeTemplate";
+import Ernings from "../../template/Ernings";
+import ReferralProgramBanerBlock from "../ReferralProgramBanerBlock";
+import ConfirmModal from "../../template/ConfirmModal";
+import ReferalCodeTemplate from "../../template/ReferalCodeTemplate";
 import axios from "axios";
-import { BASE_URL } from "../../http/BaseUrl";
-import { AUTH_TOKEN } from "../../utils/Token";
-const ReferralProgram = () => {
+import { BASE_URL } from "../../../http/BaseUrl";
+import { AUTH_TOKEN } from "../../../utils/Token";
+const ReferralProgramTab = () => {
   const [isOpenModalConfirmLink, setIsOpenModalConfirmLink] = useState(false);
   const [isOpenModalConfirmCode, setIsOpenModalConfirmCode] = useState(false);
   const [user, setUser] = useState(null);
@@ -100,4 +100,4 @@ const ReferralProgram = () => {
   );
 };
 
-export default ReferralProgram;
+export default ReferralProgramTab;

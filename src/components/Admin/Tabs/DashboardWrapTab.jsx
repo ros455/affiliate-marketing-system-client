@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { statisticAdmin } from "../../store/auth";
-import Ernings from "../template/Ernings";
-import DashboardPrtnerList from "./DashboardPrtnerList";
-import WeeklyChart from "../template/WeeklyChart";
-import DashboardButton from "../template/DashboardButton";
-import DashboardHeader from "../template/DashboardHeader";
-import Loader from "../template/Loader";
-const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
+import { statisticAdmin } from "../../../store/auth";
+import Ernings from "../../template/Ernings";
+import DashboardPrtnerList from "../DashboardPrtnerList";
+import WeeklyChart from "../../template/WeeklyChart";
+import DashboardButton from "../../template/DashboardButton";
+import DashboardHeader from "../../template/DashboardHeader";
+import Loader from "../../template/Loader";
+const DashboardWrapTab = ({ hendlerOpenListOfPartner }) => {
   const [statisticSevenDays, setStatisticSevenDays] = useState([]);
   const statistic = useSelector(statisticAdmin);
 
@@ -174,4 +174,4 @@ const DashboardWrap = ({ hendlerOpenListOfPartner }) => {
   );
 };
 
-export default DashboardWrap;
+export default DashboardWrapTab;

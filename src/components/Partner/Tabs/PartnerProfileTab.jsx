@@ -1,6 +1,6 @@
 import React from 'react';
-import EditUserProfileData from '../template/EditUserProfileData';
-const PartnerProfile = () => {
+import EditUserProfileData from '../../template/EditUserProfileData';
+const PartnerProfileTab = () => {
     return (
         <div>
             <EditUserProfileData updateDataUrl='update-user-data'/>
@@ -8,4 +8,4 @@ const PartnerProfile = () => {
     );
 };
 
-export default PartnerProfile;
+export default PartnerProfileTab;

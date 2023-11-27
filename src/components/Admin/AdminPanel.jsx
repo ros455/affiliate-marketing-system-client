@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DashboardWrap from "./DashboardWrap";
-import ListOfPartner from "./ListOfPartner";
-import AdvancedStatistics from "./AdvancedStatistics";
-import RewardSettings from "./RewardSettings";
-import Profile from "./Profile";
+import DashboardWrapTab from "./Tabs/DashboardWrapTab";
+import ListOfPartnerTab from "./Tabs/ListOfPartnerTab";
+import AdvancedStatisticsTab from "./Tabs/AdvancedStatisticsTab";
+import RewardSettingsTab from "./Tabs/RewardSettingsTab";
+import ProfileTab from "./Tabs/ProfileTab";
+import PaymentsTab from "./Tabs/Paymants/PaymentsTab";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { allUsers } from "../../store/auth";
 import { AiFillHome } from "react-icons/ai";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { BiLogOut, BiSolidBarChartAlt2 } from "react-icons/bi";
 import { BsCart2, BsFillPersonFill } from "react-icons/bs";
+import { FaMoneyCheckDollar } from "react-icons/fa6";
 import BurgerButton from "../template/BurgerButton";
 
 const AdminPanel = () => {
@@ -19,6 +21,7 @@ const AdminPanel = () => {
   const [isAdvancedStatistics, setIsAdvancedStatistics] = useState(false);
   const [isRewardSettings, setIsRewardSettings] = useState(false);
   const [isProfile, setIsProfile] = useState(false);
+  const [isPayments, setIsPayments] = useState(false);
 
   const [activeBurgerButton, setActiveBurgerButton] = useState(true);
 
@@ -37,6 +40,7 @@ const AdminPanel = () => {
     setIsRewardSettings(false);
     setIsProfile(false);
     checkScreenWidthAndSetActive();
+    setIsPayments(false);
   };
   const hendlerOpenListOfPartner = () => {
     setIsDashboadr(false);
@@ -45,6 +49,7 @@ const AdminPanel = () => {
     setIsRewardSettings(false);
     setIsProfile(false);
     checkScreenWidthAndSetActive();
+    setIsPayments(false);
   };
   const hendlerOpenAdvancedStatistics = () => {
     setIsDashboadr(false);
@@ -53,6 +58,7 @@ const AdminPanel = () => {
     setIsRewardSettings(false);
     setIsProfile(false);
     checkScreenWidthAndSetActive();
+    setIsPayments(false);
   };
   const hendlerOpenRewardSettings = () => {
     setIsDashboadr(false);
@@ -61,6 +67,7 @@ const AdminPanel = () => {
     setIsRewardSettings(true);
     setIsProfile(false);
     checkScreenWidthAndSetActive();
+    setIsPayments(false);
   };
   const hendlerOpenProfile = () => {
     setIsDashboadr(false);
@@ -69,6 +76,16 @@ const AdminPanel = () => {
     setIsRewardSettings(false);
     setIsProfile(true);
     checkScreenWidthAndSetActive();
+    setIsPayments(false);
+  };
+  const hendlerOpenPayments = () => {
+    setIsDashboadr(false);
+    setIsListOfPartner(false);
+    setIsAdvancedStatistics(false);
+    setIsRewardSettings(false);
+    setIsProfile(false);
+    checkScreenWidthAndSetActive();
+    setIsPayments(true);
   };
 
   const logoutAdministration = () => {
@@ -151,6 +168,13 @@ const AdminPanel = () => {
                   <BsFillPersonFill />
                   Profile
                 </li>
+                <li className={`nav_list-item ${
+                    isPayments ? "nav_list-item-active" : ""
+                  } `} 
+                  onClick={hendlerOpenPayments}>
+                  <FaMoneyCheckDollar />
+                  Paymants
+                </li>
                 <li className="nav_list-item" onClick={logoutAdministration}>
                   <BiLogOut />
                   Log Out
@@ -162,14 +186,15 @@ const AdminPanel = () => {
         <div className="admin_panel_content-wraper">
           <div className="title_body">
             {isDashboadr && (
-              <DashboardWrap
+              <DashboardWrapTab
                 hendlerOpenListOfPartner={hendlerOpenListOfPartner}
               />
             )}
-            {isListOfPartner && <ListOfPartner />}
-            {isAdvancedStatistics && <AdvancedStatistics />}
-            {isRewardSettings && <RewardSettings />}
-            {isProfile && <Profile />}
+            {isListOfPartner && <ListOfPartnerTab />}
+            {isAdvancedStatistics && <AdvancedStatisticsTab />}
+            {isRewardSettings && <RewardSettingsTab />}
+            {isProfile && <ProfileTab />}
+            {isPayments && <PaymentsTab />}
           </div>
         </div>
       </div>

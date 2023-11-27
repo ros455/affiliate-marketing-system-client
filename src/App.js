@@ -34,6 +34,8 @@ import './style/loader.scss';
 import './style/page404.scss';
 import './style/ReferalCodeTemplate.scss';
 import './style/Alert.scss';
+import './style/ModalWithdrawMoney.scss';
+import './style/ModalDisplayRequestData.scss'
 
 function App() {
   const user = useSelector(currentUser);

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import StatisticChart from "../template/StatisticChart";
+import StatisticChart from "../../template/StatisticChart";
 import { useSelector } from "react-redux";
-import { statisticAdmin } from "../../store/auth";
-const AdvancedStatistics = () => {
+import { statisticAdmin } from "../../../store/auth";
+const AdvancedStatisticsTab = () => {
   const adminStatistic = useSelector(statisticAdmin);
 
   return (
@@ -18,4 +18,4 @@ const AdvancedStatistics = () => {
   );
 };
 
-export default AdvancedStatistics;
+export default AdvancedStatisticsTab;

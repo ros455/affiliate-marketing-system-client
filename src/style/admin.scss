@@ -645,6 +645,7 @@
   padding: 5px 0px;
   justify-content: space-between;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 
 .select_header {
@@ -702,7 +703,7 @@
   gap: 5px;
   padding: 10px 5px;
   border-top: 1px solid #ccc;
-  max-height: 400px;
+  max-height: 210px;
   overflow-y: auto;
 }
 
@@ -742,4 +743,26 @@
     height: 40px;
     padding: 0 10px;
   }
+}
+
+.color_new {
+  color: $main_color;
+  font-weight: 600;
+}
+
+.color_cancelled {
+  color: $light_red;
+  font-weight: 600;
+}
+
+.color_successfully {
+  color: $light_green;
+  font-weight: 600;
+}
+
+.title_diferent_components {
+  color: $deep_blue_color;
+  padding: 10px 0px;
+  font-size: 18px;
+  font-weight: 600;
 }

@@ -8,7 +8,7 @@ const DashboardHeader = ({ title, hendlerOpen, setToggleItem, toggleItem }) => {
       <div className="dashboard_list_three_dot_block_wrapp">
         <div className="dashboard_list_three_dot_block">
           <BsThreeDots
-            onClick={hendlerOpen ? () => hendlerOpen() : null}
+            // onClick={hendlerOpen ? () => hendlerOpen() : null}
             className="dashboard_list_three_dot_icon"
           />
         </div>

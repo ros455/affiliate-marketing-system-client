@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { currentUser } from "../../store/auth";
-import Ernings from "../template/Ernings";
-import WeeklyChart from "../template/WeeklyChart";
-import DashboardConversionList from "./DashboardConversionList";
-import DashboardButton from "../template/DashboardButton";
-import DashboardHeader from "../template/DashboardHeader";
-import Loader from "../template/Loader";
-const PartnerDashboard = ({ hendlerOpenConversions }) => {
+import { currentUser } from "../../../store/auth";
+import Ernings from "../../template/Ernings";
+import WeeklyChart from "../../template/WeeklyChart";
+import DashboardConversionList from "../DashboardConversionList";
+import DashboardButton from "../../template/DashboardButton";
+import DashboardHeader from "../../template/DashboardHeader";
+import Loader from "../../template/Loader";
+const PartnerDashboardTab = ({ hendlerOpenConversions }) => {
   const user = useSelector(currentUser);
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
@@ -189,4 +189,4 @@ const PartnerDashboard = ({ hendlerOpenConversions }) => {
   );
 };
 
-export default PartnerDashboard;
+export default PartnerDashboardTab;

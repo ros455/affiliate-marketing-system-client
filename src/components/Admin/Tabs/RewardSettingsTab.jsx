@@ -1,8 +1,8 @@
 import { useState } from "react";
-import RewardListPartner from "./RewardListPartner";
-import Ernings from "../template/Ernings";
-import UploadImageTemplate from "../template/UploadImageTemplate";
-const RewardSettings = () => {
+import RewardListPartner from "../RewardListPartner";
+import Ernings from "../../template/Ernings";
+import UploadImageTemplate from "../../template/UploadImageTemplate";
+const RewardSettingsTab = () => {
   const [isShow, setIsShow] = useState(false);
   return (
     <>
@@ -18,4 +18,4 @@ const RewardSettings = () => {
   );
 };
 
-export default RewardSettings;
+export default RewardSettingsTab;

@@ -1,0 +1,19 @@
+import React, { useEffect, useState } from 'react';
+import { TbEdit } from "react-icons/tb";
+const HistoryTransactionsItem = ({request}) => {
+
+    return (
+        <div className="table_info_item">
+        <p className="colum row colum_name">{request?.partner?.name}</p>
+        <p className="colum row colum_progres">{request?.sum}$</p>
+        <p className="colum row colum_quantity">{request?.method}</p>
+        {request?.status == 'New' && <p className="colum row colum_data color_new">{request?.status}</p>}
+        {request?.status == 'Successfully' && <p className="colum row colum_data color_successfully">{request?.status}</p>}
+        {request?.status == 'Cancelled' && <p className="colum row colum_data color_cancelled">{request?.status}</p>}
+        
+        <p className="colum row colum_data">{request?.date}</p>
+      </div>
+    );
+};
+
+export default HistoryTransactionsItem;
