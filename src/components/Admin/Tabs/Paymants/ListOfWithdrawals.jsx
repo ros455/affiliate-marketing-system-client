@@ -1,12 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import axios from "axios";
-import { AUTH_TOKEN } from "../../../../utils/Token";
-import { BASE_URL } from "../../../../http/BaseUrl";
 import ListOfWithdrawalsItem from "./ListOfWithdrawalsItem";
 import ListOfWithdrawalsItemmobile from "./ListOfWithdrawalsItemmobile";
 import DashboardHeader from "../../../template/DashboardHeader";
-import Loader from "../../../template/Loader";
+import { apiInstance } from "../../../../http/Api";
 
 const ListOfWithdrawals = () => {
   const [allRequest, setAllRequest] = useState([]);
@@ -19,9 +16,8 @@ const ListOfWithdrawals = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/get-all-paymant-request`, {
+        const response = await apiInstance.get(`/get-all-paymant-request`, {
           params: { page: currentPage, limit: 5},
-          headers: { authorization: AUTH_TOKEN },
         });
         if (response.data.length) {
           const initialUserRewardValues = {};

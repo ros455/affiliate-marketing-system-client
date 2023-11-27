@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE_URL } from "../http/BaseUrl";
 import axios from "axios";
 import { AUTH_TOKEN } from "../utils/Token";
+import { apiInstance } from "../http/Api";
 export const fetchRegister = createAsyncThunk(
   "auth/fetchRegister",
   async (payload, thunkAPI) => {

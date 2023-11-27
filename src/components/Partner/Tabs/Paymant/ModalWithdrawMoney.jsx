@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { BASE_URL } from "../../../../http/BaseUrl";
-import axios from "axios";
 import CustomSelect from "../../../template/CustomSelect";
 import { currentUser } from "../../../../store/auth";
 import { useSelector } from "react-redux";
 import {validationSendRequest} from '../../../../validation/validation.js';
 import ErrorMessage from "../../../template/ErrorMessage.jsx";
+import { apiInstance } from "../../../../http/Api.js";
 const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
   const [sum, setSum] = useState(0);
   const [comment, setComment] = useState('');
@@ -20,7 +19,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
   const user = useSelector(currentUser);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/get-all-paymants-method`)
+    apiInstance.get(`/get-all-paymants-method`)
       .then((res) => {
         setAllMethods(res.data);
       })
@@ -51,7 +50,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
     }
 
     if(isValid) {
-      axios.post(`${BASE_URL}/send-paymant-request`, {
+      apiInstance.post(`/send-paymant-request`, {
         sum,
         comment,
         wallet,

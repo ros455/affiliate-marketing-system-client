@@ -1,9 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import axios from "axios";
-import { AUTH_TOKEN } from "../../utils/Token";
-import { BASE_URL } from "../../http/BaseUrl";
-import { adminInstance } from "../../http/Api";
+import { apiInstance } from "../../http/Api";
 import RewardListPartnerItem from "./RewardListPartnerItem";
 import RewardListPartnerItemMobile from "./RewardListPartnerItemMobile";
 import DashboardHeader from "../template/DashboardHeader";
@@ -23,7 +20,7 @@ const RewardListPartner = ({setIsShow}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await adminInstance.get(`/search-users`, {
+        const response = await apiInstance.get(`/search-users`, {
           params: { page: currentPage, limit: 5, search: searchTerm },
         });
         if (response.data.length) {
@@ -57,7 +54,7 @@ const RewardListPartner = ({setIsShow}) => {
   };
 
   const handleUpdateuserReward = (id, newBonus) => {
-    axios.patch(`${BASE_URL}/update-user-bonus`, {
+    apiInstance.patch(`/update-user-bonus`, {
       id,
       newBonus
     })

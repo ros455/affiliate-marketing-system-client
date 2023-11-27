@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { BiDownArrow } from "react-icons/bi";
-import axios from "axios";
-import { BASE_URL } from "../../../../http/BaseUrl";
-import { AUTH_TOKEN } from "../../../../utils/Token";
 import { currentUser } from "../../../../store/auth";
 import { useSelector } from "react-redux";
+import { apiInstance } from "../../../../http/Api";
 const MySavedAddress = () => {
   const [method, setMethod] = useState("");
-  const [isOpenSelect, setIsOpenSelect] = useState("");
   const [reload, setReload] = useState("");
 
   const user = useSelector(currentUser);
@@ -17,7 +13,7 @@ const MySavedAddress = () => {
   }, []);
 
   const updateAddress = async () => {
-    axios.patch(`${BASE_URL}/update-wallet-address`, {
+    apiInstance.patch(`/update-wallet-address`, {
       address: method,
       id: user._id
     })
@@ -30,8 +26,6 @@ const MySavedAddress = () => {
     })
   }
 
-
-  // console.log('allMethods',allMethods);
   return (
     <div>
       <div>

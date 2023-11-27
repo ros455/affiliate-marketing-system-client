@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BiDownArrow } from "react-icons/bi";
-import axios from "axios";
-import { BASE_URL } from "../../../../http/BaseUrl";
-import { AUTH_TOKEN } from "../../../../utils/Token";
+import { apiInstance } from "../../../../http/Api";
 const PaymentManagement = () => {
   const [method, setMethod] = useState("");
   const [isOpenSelect, setIsOpenSelect] = useState("");
@@ -10,7 +8,7 @@ const PaymentManagement = () => {
   const [allMethods, setAllMethods] = useState([]);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/get-all-paymants-method`)
+    apiInstance.get(`/get-all-paymants-method`)
       .then((res) => {
         setAllMethods(res.data);
         console.log('res.data',res.data);
@@ -21,7 +19,7 @@ const PaymentManagement = () => {
   }, [reload]);
 
   const addNewMethod = async () => {
-    axios.post(`${BASE_URL}/create-paymant-method`, {
+    apiInstance.post(`/create-paymant-method`, {
         name: method
     })
     .then(() => {
@@ -34,7 +32,7 @@ const PaymentManagement = () => {
 
   const removeOneMethod = (id) => {
     console.log('id',id);
-    axios.delete(`${BASE_URL}/delete-paymant-method`, {
+    apiInstance.delete(`/delete-paymant-method`, {
         params: {id}
     }).then(() => {
         setReload(!reload)

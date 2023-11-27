@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
 import { BASE_URL } from '../../http/BaseUrl';
+import { apiInstance } from '../../http/Api';
 const ReferralProgramBanerBlock = () => {
   const [bigBanner, setBigBanner] = useState('');
   const [middleBanner, setMiddleBanner] = useState('');
   const [smallBanner, setSmallBanner] = useState('');
   useEffect(() => {
-    axios.get(`${BASE_URL}/get-all-banners`).then((res) => {
+    apiInstance.get(`/get-all-banners`).then((res) => {
       if(res.data) {
         setBigBanner(`${BASE_URL}${res.data.BigBanner}`);
         setMiddleBanner(`${BASE_URL}${res.data.MiddleBanner}`);
@@ -19,7 +19,7 @@ const ReferralProgramBanerBlock = () => {
 
   const dowladBigBanner = async () => {
     try {
-      const resonse = await axios.get(`${BASE_URL}/download-big-banner`);
+      const resonse = await apiInstance.get(`/download-big-banner`);
       if (resonse.status == 200) {
         const link = document.createElement("a");
         link.href = `${BASE_URL}/download-big-banner`;
@@ -33,7 +33,7 @@ const ReferralProgramBanerBlock = () => {
 
   const dowladMiddleBanner = async () => {
     try {
-      const resonse = await axios.get(`${BASE_URL}/download-middle-banner`);
+      const resonse = await apiInstance.get(`/download-middle-banner`);
 
       if (resonse.status == 200) {
         const link = document.createElement("a");
@@ -48,7 +48,7 @@ const ReferralProgramBanerBlock = () => {
 
   const dowladSmallBanner = async () => {
     try {
-      const resonse = await axios.get(`${BASE_URL}/download-small-banner`);
+      const resonse = await apiInstance.get(`/download-small-banner`);
 
       if (resonse.status == 200) {
         const link = document.createElement("a");

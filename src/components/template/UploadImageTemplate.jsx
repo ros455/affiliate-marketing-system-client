@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import {FaDownload} from 'react-icons/fa';
-import axios from 'axios';
-import { BASE_URL } from '../../http/BaseUrl';
+import { apiInstance } from '../../http/Api';
 const UploadImageTemplate = () => {
     const bigRef = useRef(null);
     const middleRef = useRef(null);
@@ -11,7 +10,7 @@ const UploadImageTemplate = () => {
         if (e) {
             const formData = new FormData();
             formData.append("BigBanner", e.target.files[0]);
-            axios.patch(`${BASE_URL}/upload-big-baner`,formData).then(() => {
+            apiInstance.patch(`/upload-big-baner`,formData).then(() => {
                 alert('Baner added')
             }).catch((error) => {
                 console.log('error',error);
@@ -23,7 +22,7 @@ const UploadImageTemplate = () => {
         if (e) {
             const formData = new FormData();
             formData.append("MiddleBanner", e.target.files[0]);
-            axios.patch(`${BASE_URL}/upload-middle-baner`,formData).then(() => {
+            apiInstance.patch(`/upload-middle-baner`,formData).then(() => {
                 alert('Baner added')
             }).catch((error) => {
                 console.log('error',error);
@@ -35,7 +34,7 @@ const UploadImageTemplate = () => {
         if (e) {
             const formData = new FormData();
             formData.append("SmallBanner", e.target.files[0]);
-            axios.patch(`${BASE_URL}/upload-small-baner`,formData).then(() => {
+            apiInstance.patch(`/upload-small-baner`,formData).then(() => {
                 alert('Baner added')
             }).catch((error) => {
                 console.log('error',error);

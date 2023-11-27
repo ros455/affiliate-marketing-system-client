@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { currentUser } from '../../store/auth';
 import InputPassword from './InputPassword';
-import axios from 'axios';
-import { BASE_URL } from '../../http/BaseUrl';
+import { apiInstance } from '../../http/Api';
 const EditUserProfileData = ({updateDataUrl}) => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -18,7 +17,7 @@ const EditUserProfileData = ({updateDataUrl}) => {
 
     const handleUpdateData = async () => {
       try {
-        const response = await axios.patch(`${BASE_URL}/${updateDataUrl}`,{
+        const response = await apiInstance.patch(`/${updateDataUrl}`,{
           email,
           name,
           id: user._id,

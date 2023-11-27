@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import { BASE_URL } from "../../../../http/BaseUrl";
-import axios from "axios";
+import { apiInstance } from "../../../../http/Api";
 const ModalDisplayRequestData = ({
   isOpenModal,
   setIsOpen,
@@ -15,7 +13,7 @@ const ModalDisplayRequestData = ({
 }) => {
 
     const aproveRequest = () => {
-        axios.patch(`${BASE_URL}/aprove-request`, {
+      apiInstance.patch(`/aprove-request`, {
           sum,
           userId: user._id,
           requestId: requestId
@@ -29,7 +27,7 @@ const ModalDisplayRequestData = ({
     }
 
     const cancelledRequest = () => {
-        axios.patch(`${BASE_URL}/cancelled-request`, {
+      apiInstance.patch(`/cancelled-request`, {
           requestId: requestId
         }).then(() => {
             alert('The operation is cancelled')

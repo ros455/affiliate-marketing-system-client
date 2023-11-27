@@ -1,26 +1,19 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
-import { statisticAdmin } from "../../store/auth";
 import Ernings from "../template/Ernings";
 import ErningsAndEdit from "../template/ErningsAndEdit";
 import StatisticChart from "../template/StatisticChart";
 import DashboardButton from "../template/DashboardButton";
-import { BASE_URL } from "../../http/BaseUrl";
-import { AUTH_TOKEN } from "../../utils/Token";
 import Loader from "../template/Loader";
-
+import { apiInstance } from "../../http/Api";
 
 const UserOne = ({ setActiveUser, currentUser }) => {
-  // const statistic = useSelector(statisticAdmin);
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
   const [reloadData, setReloadData] = useState(false);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/get-user-statistic/${currentUser._id}`, {
-      headers: { authorization: AUTH_TOKEN }
-    }).then((res) => {
+    apiInstance.get(`/get-user-statistic/${currentUser._id}`)
+    .then((res) => {
       if(res.data) {
         setUser(res.data)
       }

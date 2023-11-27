@@ -1,14 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import axios from "axios";
-import { AUTH_TOKEN } from "../../../../utils/Token";
-import { BASE_URL } from "../../../../http/BaseUrl";
 import HistoryTransactionsItem from "./HistoryTransactionsItem";
 import HistoryTransactionsItemMobile from "./HistoryTransactionsItemMobile";
 import DashboardHeader from "../../../template/DashboardHeader";
-import Loader from "../../../template/Loader";
 import { currentUser } from "../../../../store/auth";
 import { useSelector } from "react-redux";
+import { apiInstance } from "../../../../http/Api";
 
 const HistoryTransactions = ({reloadData, setReloadData}) => {
   const [allRequest, setAllRequest] = useState([]);
@@ -23,9 +20,8 @@ const HistoryTransactions = ({reloadData, setReloadData}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/get-all-paymant-request-for-user`, {
+        const response = await apiInstance.get(`/get-all-paymant-request-for-user`, {
           params: { page: currentPage, limit: 5, userId: user._id},
-          headers: { authorization: AUTH_TOKEN },
         });
         if (response.data.length) {
           const initialUserRewardValues = {};

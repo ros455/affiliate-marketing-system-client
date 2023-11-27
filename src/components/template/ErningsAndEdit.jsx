@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiDownload } from "react-icons/bi";
-import axios from "axios";
-import { BASE_URL } from "../../http/BaseUrl";
+import { apiInstance } from "../../http/Api";
 const ErningsAndEdit = ({ img, title, sum, className, isManyText, user, setReloadData }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [value, setValue] = useState(false);
@@ -11,7 +10,7 @@ const ErningsAndEdit = ({ img, title, sum, className, isManyText, user, setReloa
   },[user])
 
   const handelUpdateBalance = () => {
-    axios.patch(`${BASE_URL}/update-user-balance`, {
+    apiInstance.patch(`/update-user-balance`, {
       id: user._id,
       newBalance: value
     }).then(() => {

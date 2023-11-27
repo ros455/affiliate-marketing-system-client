@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import axios from "axios";
 import { AUTH_TOKEN } from "../../utils/Token";
-import { BASE_URL } from "../../http/BaseUrl";
 import UserOne from "../Admin/UserOne";
 import PartnerTable from "../template/PartnerTable";
 import DashboardHeader from "../template/DashboardHeader";
 import Loader from "./Loader";
+import { apiInstance } from "../../http/Api";
 
 const ListOfPartner_List = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -25,7 +23,7 @@ const ListOfPartner_List = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/search-users`, {
+        const response = await apiInstance.get(`/search-users`, {
           params: { page: currentPage, limit: 5, search: searchTerm },
           headers: { authorization: AUTH_TOKEN },
         });

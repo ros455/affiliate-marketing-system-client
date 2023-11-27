@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BiDownload } from "react-icons/bi";
-import axios from "axios";
-import { BASE_URL } from "../../../../http/BaseUrl";
 import ModalWithdrawMoney from "./ModalWithdrawMoney";
 const WithdrawMoneyForParthner = ({
   img,

@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import Ernings from "../../template/Ernings";
 import ReferralProgramBanerBlock from "../ReferralProgramBanerBlock";
 import ConfirmModal from "../../template/ConfirmModal";
 import ReferalCodeTemplate from "../../template/ReferalCodeTemplate";
-import axios from "axios";
 import { BASE_URL } from "../../../http/BaseUrl";
-import { AUTH_TOKEN } from "../../../utils/Token";
+import { apiInstance } from "../../../http/Api";
 const ReferralProgramTab = () => {
   const [isOpenModalConfirmLink, setIsOpenModalConfirmLink] = useState(false);
   const [isOpenModalConfirmCode, setIsOpenModalConfirmCode] = useState(false);
@@ -13,9 +11,8 @@ const ReferralProgramTab = () => {
   const [reloadData, setReloadData] = useState(false);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/get-me`, {
-      headers: { authorization: AUTH_TOKEN }
-    }).then((res) => {
+    apiInstance.get(`/get-me`)
+    .then((res) => {
       if(res.data) {
         setUser(res.data)
       }
@@ -26,7 +23,7 @@ const ReferralProgramTab = () => {
 
 
   const handleChangelink = () => {
-    axios.patch(`${BASE_URL}/update-user-link`, {
+    apiInstance.patch(`/update-user-link`, {
       id: user?._id
     }).then(() => {
       setReloadData(!reloadData);
@@ -36,7 +33,7 @@ const ReferralProgramTab = () => {
   }
 
   const handleChangeCode = () => {
-    axios.patch(`${BASE_URL}/update-user-promo-code`, {
+    apiInstance.patch(`/update-user-promo-code`, {
       id: user._id
     }).then(() => {
       setReloadData(!reloadData);
