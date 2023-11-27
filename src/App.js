@@ -46,7 +46,12 @@ function App() {
     } else if (user && user.isPartner) {
       navigate("/partner-panel");
     }
+
+    if(user && user.message === 'Access denied') {
+      window.localStorage.removeItem('A-M-S-token')
+    }
   }, [user]);
+
 
   return (
     <div className="App">
