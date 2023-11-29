@@ -1,0 +1,22 @@
+@import "./template.scss";
+
+.pagination_buttons_block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+ 
+}
+
+@import "./template.scss";
+
+.pagination_button_item {
+  background: $white_color;
+  padding: 10px;
+  border-radius: 12px;
+  margin: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: $main_color;
+}

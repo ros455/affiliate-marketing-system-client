@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchRegister } from "../../store/auth";
 import InputPassword from "../template/InputPassword";
+import ConfirmModal from "../template/ConfirmModal";
 const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [isOpenModalConfirm, setIsOpenModalConfirm] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,12 +20,6 @@ const RegistrationForm = () => {
       name,
       password: password
     }));
-
-    console.log('data',data);
-
-    // if (data.payload.message === 'Email already exists') {
-    //   return alert('Email already exists');
-    // }
 
     if ('token' in data.payload) {
       window.localStorage.setItem('A-M-S-token', data.payload.token);
@@ -36,7 +32,7 @@ const RegistrationForm = () => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleRegistration();
+      setIsOpenModalConfirm(!isOpenModalConfirm);
     }
   };
 
@@ -46,7 +42,7 @@ const RegistrationForm = () => {
         <div className="input_wraper">
           <div className="input_wraper-item">
             <label htmlFor="mail">
-              Email <span>*</span>
+              Login <span>*</span>
             </label>
             <input
               id="mail"
@@ -74,26 +70,32 @@ const RegistrationForm = () => {
             <label htmlFor="password">
               Password<span>*</span>
             </label>
-            {/* <input
-              id="password"
-              type="password"
-              placeholder="Min. 8 characters"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={handleKeyDown}
-            /> */}
             <InputPassword password={password} setPassword={setPassword} handleKeyDown={handleKeyDown}/>
           </div>
         </div>
         <div className="registration_button_wrap">
           <button
             className="button_approve"
-            onClick={() => handleRegistration(email, password)}
+            onClick={() => setIsOpenModalConfirm(!isOpenModalConfirm)}
           >
             Registration
           </button>{" "}
         </div>
+        <div className="not_regist">
+            <p>
+              <Link to={"/"}>
+                {" "}
+                <span>Back to login</span>{" "}
+              </Link>{" "}
+            </p>
+          </div>
       </div>
+      <ConfirmModal
+        title={"Are you 18 years old?"}
+        isOpenModal={isOpenModalConfirm}
+        setIsOpen={setIsOpenModalConfirm}
+        handleChangeFunc={handleRegistration}
+      />
     </div>
   );
 };

@@ -1,0 +1,64 @@
+@import "./template.scss";
+
+.withdraw_money_item_body{
+    background: #FFF;
+    width: 80%;
+    // height: 400px;
+    max-width: 921px;
+    border-radius: 10px;
+    padding: 10px 0px;
+    h4{
+        text-align: center;
+        padding: 0 5%;
+        font-size: 26px;
+        font-weight: 600;
+    }
+}
+
+.withdraw_money_close_wrap {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 10px 0px 0px;
+}
+
+.withdraw_money_close_text {
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+        color: $main_color;
+    }
+}
+
+.withdraw_money_form_wrapper {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 30px;
+}
+
+.withdraw_money_form_block_first {
+    width: 60%;
+    padding-right: 5px;
+}
+
+.withdraw_money_form_block_second {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding-left: 5px;
+    justify-content: space-between;
+}
+
+.textarea_item {
+    height: 100px;
+    resize: none;
+    border-radius: 15px;
+    background: transparent;
+    padding: 5px;
+    background: $white_second_color;
+    color: $black_color;
+}

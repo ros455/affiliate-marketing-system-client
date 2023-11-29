@@ -1,0 +1,40 @@
+@import "./template.scss";
+
+.edit_ernings_wraper {
+    padding: 29px 17px;
+    gap: 17px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.ernings_wraper {
+    display: flex;
+    // flex: 0 1 25%;
+    width: 100%;
+  }
+
+.ernings_wraper-item {
+    display: flex;
+    // justify-content: space-around;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .ernings_wraper-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 20px;
+  }
+  
+  .ernings_withdraw_money_wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .ernings_withdraw_money_icon {
+    width: 25px;
+    height: 25px;
+    color: $main_color;
+    cursor: pointer;
+  }
+  

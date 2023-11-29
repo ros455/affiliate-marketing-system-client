@@ -1,0 +1,219 @@
+@import "./template.scss";
+
+.statistic_chart {
+  padding: 30px;
+  border-radius: 20px;
+  background: $white_second_color;
+}
+
+.statistic_chart_wrapp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 37px;
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
+}
+
+.statistic_chart_actions_wrapp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
+}
+.statistic_chart_date_wrapp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
+}
+
+.statistic_chart_actions_btn {
+  padding: 8px 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: rgba(119, 119, 119, 0.5);
+  color: $white_second_color;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 171.429%;
+  letter-spacing: -0.28px;
+}
+
+.statistic_chart_actions_btn_active {
+  background: $white_second_color;
+  color: $deep_blue_color;
+  border: 1px solid $deep_blue_color;
+}
+
+.statistic_chart_date_btn {
+  width: 69px;
+  padding: 8px 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: rgba(119, 119, 119, 0.5);
+  color: $white_second_color;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 171.429%;
+  letter-spacing: -0.28px;
+  .statistic_chart_date_btn_icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.statistic_chart_date_btn_active {
+  background: $white_second_color;
+  color: $deep_blue_color;
+  border: 1px solid $deep_blue_color;
+}
+
+.statistic_chart_visitors {
+  margin-bottom: 59px;
+  color: $deep_blue_color;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 123.529%;
+  letter-spacing: -0.68px;
+  span {
+    color: $light_blue_color;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 171.429%;
+    letter-spacing: -0.28px;
+  }
+}
+.statistic_chart_main_block_wrapp {
+  padding-top: 20px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  // max-width: 880px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  // @media (max-width: 1200px) {
+  //   max-width: 600px;
+  // }
+  // @media (max-width: 992px) {
+  //   max-width: 100%;
+  //   width: 100%;
+  // }
+}
+
+.statistic_chart_main_block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  &:hover {
+    .statistic_chart_item:not(.active) {
+      opacity: 0.5;
+    }
+  }
+  border-top: 1px dotted $light_blue_gray_color;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 40px;
+    border-bottom: 1px dotted $light_blue_gray_color;
+  }
+}
+
+.statistic_chart_main_block_text_wrapp {
+  height: 135px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(-20px);
+}
+.statistic_chart_main_block_text {
+  color: $light_blue_gray_color;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 166.667%;
+  letter-spacing: -0.24px;
+}
+
+.statistic_chart_item_block {
+  height: 153px;
+  width: 14%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.statistic_chart_item {
+  position: relative;
+  cursor: pointer;
+  width: 14px;
+  background: linear-gradient(#4318ff, #4318ff47);
+  border-radius: 50px 50px 0 0;
+}
+
+.statistic_chart_item.active {
+  opacity: 1;
+
+  .statistic_chart_item_amount {
+    display: block;
+  }
+
+  background: linear-gradient(#4318ff 5.56%, rgba(67, 24, 255, 0.28) 100%);
+}
+
+.statistic_chart_main_block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.statistic_chart_item_amount {
+  display: none;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $purple_color;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 105.263%;
+  letter-spacing: -0.38px;
+}
+
+.statistic_chart_item_value {
+  margin-top: 21px;
+  color: $light_blue_gray_color;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 166.667%;
+  letter-spacing: -0.24px;
+}

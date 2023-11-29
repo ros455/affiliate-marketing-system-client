@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { currentUser } from '../../store/auth';
 import InputPassword from './InputPassword';
-import axios from 'axios';
-import { BASE_URL } from '../../http/BaseUrl';
+import { apiInstance } from '../../http/Api';
 const EditUserProfileData = ({updateDataUrl}) => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -11,26 +10,30 @@ const EditUserProfileData = ({updateDataUrl}) => {
 
     const user = useSelector(currentUser);
 
-    console.log('user',user);
-
     useEffect(() => {
         setEmail(user.email)
         setName(user.name)
     },[user])
 
-    const handleUpdateData = () => {
-        axios.patch(`${BASE_URL}/${updateDataUrl}`,{
-            email,
-            name,
-            id: user._id,
-            password
-        })
-        .then(() => {
-            alert('User data updated')
-        })
-        .catch((error) => {
-            console.log('error',error);
-        })
+    const handleUpdateData = async () => {
+      try {
+        const response = await apiInstance.patch(`/${updateDataUrl}`,{
+          email,
+          name,
+          id: user._id,
+          password
+      })
+
+      if(response.status == 200) {
+        alert('User data updated')
+      } 
+
+      } catch(error) {
+        console.log('error',error);
+        if(error.response.data.message == 'Email already exists') {
+          alert('Email already exists')
+        }
+      }
     }
 
 
@@ -38,7 +41,7 @@ const EditUserProfileData = ({updateDataUrl}) => {
         <div className='change_data_wrap'>
             <div className="input_wraper-item">
               <label htmlFor="mail">
-                Email
+                Login
               </label>
               <input
                 id="mail"

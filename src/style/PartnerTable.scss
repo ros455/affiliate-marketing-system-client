@@ -1,0 +1,30 @@
+@import "./template.scss";
+
+.partner_table_list {
+  display: none;
+  @media (max-width: 480px) {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+.partner_table_block {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.partner_table_text {
+  color: $light_blue_color;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 171.429%;
+  letter-spacing: -0.28px;
+}
+.partner_table_value {
+  color: $deep_blue_color;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 171.429%;
+  letter-spacing: -0.28px;
+}
