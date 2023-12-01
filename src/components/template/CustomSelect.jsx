@@ -1,6 +1,7 @@
 import React from 'react';
 import { BiDownArrow } from "react-icons/bi";
 const CustomSelect = ({setIsOpenSelect, isOpenSelect, allList, selectValue, handleSelect}) => {
+  console.log('allList',allList);
     return (
         <div className="select_wrap_coin">
         <div className="name_coin">

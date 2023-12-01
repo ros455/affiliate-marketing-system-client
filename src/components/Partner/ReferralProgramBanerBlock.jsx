@@ -65,8 +65,8 @@ const ReferralProgramBanerBlock = () => {
         <div className="referral_program_img_wrapp">
           <div className="referral_program_img_block">
             <div className='referral_program_content_wrap'>
-            <p className="referral_program_img_text">Link 600 x 240</p>
-            <p className="referral_program_img_text" onClick={dowladBigBanner}>Dowload</p>
+            <p className="referral_program_img_text">Link to the big banner</p>
+            <p className="referral_program_img_text" onClick={dowladBigBanner}>Download</p>
             </div>
           <img
             className="referral_program_img"
@@ -76,8 +76,8 @@ const ReferralProgramBanerBlock = () => {
         </div>
         <div className="referral_program_img_block">
         <div className='referral_program_content_wrap'>
-            <p className="referral_program_img_text">Link 600 x 150</p>
-            <p className="referral_program_img_text" onClick={dowladMiddleBanner}>Dowload</p>
+            <p className="referral_program_img_text">Link to the average banner</p>
+            <p className="referral_program_img_text" onClick={dowladMiddleBanner}>Download</p>
             </div>
           <img
             className="referral_program_img"
@@ -87,8 +87,8 @@ const ReferralProgramBanerBlock = () => {
         </div>
         <div className="referral_program_img_block">
         <div className='referral_program_content_wrap'>
-            <p className="referral_program_img_text">Link 300 x 120</p>
-            <p className="referral_program_img_text" onClick={dowladSmallBanner}>Dowload</p>
+            <p className="referral_program_img_text">Link to the small banner</p>
+            <p className="referral_program_img_text" onClick={dowladSmallBanner}>Download</p>
             </div>
           <img
             className="referral_program_img"

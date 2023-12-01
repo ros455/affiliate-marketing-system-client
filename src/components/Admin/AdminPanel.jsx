@@ -119,7 +119,7 @@ const AdminPanel = () => {
         {activeBurgerButton && (
           <aside className="admin_panel_aside-menu">
             <p className="logo_admin">
-              Bus <span>Logo</span>
+              <span>Logo</span>
             </p>
             <nav className="admin_panel_nav-bar">
               <ul className="nav_list">
@@ -173,7 +173,7 @@ const AdminPanel = () => {
                   } `} 
                   onClick={hendlerOpenPayments}>
                   <FaMoneyCheckDollar />
-                  Paymants
+                  Payments
                 </li>
                 <li className="nav_list-item" onClick={logoutAdministration}>
                   <BiLogOut />
@@ -188,6 +188,7 @@ const AdminPanel = () => {
             {isDashboadr && (
               <DashboardWrapTab
                 hendlerOpenListOfPartner={hendlerOpenListOfPartner}
+                hendlerOpenAdvancedStatistics={hendlerOpenAdvancedStatistics}
               />
             )}
             {isListOfPartner && <ListOfPartnerTab />}

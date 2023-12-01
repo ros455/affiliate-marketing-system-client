@@ -45,15 +45,6 @@ const PartnerPanel = () => {
     checkScreenWidthAndSetActive();
     setIsPayments(false);
   };
-  const hendlerOpenConversions = () => {
-    setIsDashboadr(false);
-    setIsProfitAndBonuses(false);
-    setIsReferralProgram(false);
-    setIsProfile(false);
-    setActiveBurgerButton(true);
-    checkScreenWidthAndSetActive();
-    setIsPayments(false);
-  };
   const hendlerOpenReferralProgram = () => {
     setIsDashboadr(false);
     setIsProfitAndBonuses(false);
@@ -113,7 +104,7 @@ const PartnerPanel = () => {
         {activeBurgerButton && (
           <aside className="admin_panel_aside-menu">
             <p className="logo_admin">
-              Bus <span>Logo</span>
+              <span>Logo</span>
             </p>
             <nav className="admin_panel_nav-bar">
               <ul className="nav_list">
@@ -158,7 +149,7 @@ const PartnerPanel = () => {
                   } `} 
                   onClick={hendlerOpenPaymant}>
                   <FaMoneyCheckDollar />
-                  Paymants
+                  Payments
                 </li>
                 <li className="nav_list-item" onClick={handleLogoutPartner}>
                   <BiLogOut />
@@ -172,7 +163,7 @@ const PartnerPanel = () => {
           <div className="title_body">
             {isDashboadr && (
               <PartnerDashboard
-                hendlerOpenConversions={hendlerOpenConversions}
+              hendlerOpenProfitAndBonuses={hendlerOpenProfitAndBonuses}
               />
             )}
             {isProfitAndBonuses && <ProfitAndBonuses />}

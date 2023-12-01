@@ -59,7 +59,7 @@ const UploadImageTemplate = () => {
           hidden
         />
         <div className='upload_baner-baner_section'>
-        <div className='baner_section_text'>600 x 240</div>
+        <div className='baner_section_text'>Big Banner</div>
         <div className='baner_section_icon_wrap'>
             <FaDownload className='upload_baner_icon' onClick={() => bigRef.current.click()}/>
         </div>
@@ -72,7 +72,7 @@ const UploadImageTemplate = () => {
           hidden
         />
         <div className='upload_baner-baner_section'>
-        <div className='baner_section_text'>600 x 150</div>
+        <div className='baner_section_text'>Average Banner</div>
         <div className='baner_section_icon_wrap'>
             <FaDownload className='upload_baner_icon' onClick={() => middleRef.current.click()}/>
         </div>
@@ -85,7 +85,7 @@ const UploadImageTemplate = () => {
           hidden
         />
         <div className='upload_baner-baner_section'>
-        <div className='baner_section_text'>300 x 120</div>
+        <div className='baner_section_text'>Small Banner</div>
         <div className='baner_section_icon_wrap'>
             <FaDownload className='upload_baner_icon' onClick={() => smallRef.current.click()}/>
         </div>

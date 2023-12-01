@@ -66,11 +66,6 @@ const RewardListPartner = ({setIsShow}) => {
       console.log('error',error);
     })
   }
-  if(!allUsers.length) {
-    return (
-      <Loader/>
-    )
-  }
   return (
     <>
       <div className="admin_panel_items derection_wraper">

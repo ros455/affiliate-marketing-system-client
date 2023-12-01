@@ -57,11 +57,11 @@ const ListOfPartner_List = () => {
     setCurrentUser(user);
   };
 
-  if(!allUsers.length) {
-    return (
-      <Loader/>
-    )
-  }
+  // if(!allUsers.length) {
+  //   return (
+  //     <Loader/>
+  //   )
+  // }
 
   return activeUser ? (
     <UserOne setActiveUser={setActiveUser} currentUser={currentUser} />

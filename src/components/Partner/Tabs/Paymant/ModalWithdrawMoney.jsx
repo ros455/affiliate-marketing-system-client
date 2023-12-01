@@ -11,7 +11,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
   const [wallet, setWallet] = useState('');
   const [allMethods, setAllMethods] = useState([]);
   const [isOpenSelect, setIsOpenSelect] = useState("");
-  const [selectValue, setSelectValue] = useState("TRC20");
+  const [selectValue, setSelectValue] = useState("USDT TRC20");
 
   const [sumErrorMessage, setSumErrorMessage] = useState('');
   const [walletErrorMessage, setWalletErrorMessage] = useState('');
@@ -21,6 +21,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
   useEffect(() => {
     apiInstance.get(`/get-all-paymants-method`)
       .then((res) => {
+        console.log('res.data',res.data);
         setAllMethods(res.data);
       })
       .catch((error) => {
@@ -125,6 +126,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
 
   console.log('sumErrorMessage',sumErrorMessage);
   console.log('walletErrorMessage',walletErrorMessage);
+  console.log('allMethods',allMethods);
 
   return (
     <>

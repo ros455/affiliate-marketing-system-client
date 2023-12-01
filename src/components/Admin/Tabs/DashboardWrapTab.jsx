@@ -7,7 +7,7 @@ import WeeklyChart from "../../template/WeeklyChart";
 import DashboardButton from "../../template/DashboardButton";
 import DashboardHeader from "../../template/DashboardHeader";
 import Loader from "../../template/Loader";
-const DashboardWrapTab = ({ hendlerOpenListOfPartner }) => {
+const DashboardWrapTab = ({ hendlerOpenListOfPartner, hendlerOpenAdvancedStatistics }) => {
   const [statisticSevenDays, setStatisticSevenDays] = useState([]);
   const statistic = useSelector(statisticAdmin);
 
@@ -160,6 +160,8 @@ const DashboardWrapTab = ({ hendlerOpenListOfPartner }) => {
             title="Transition"
             setToggleItem={setToggleItem}
             toggleItem={toggleItem}
+            showTransistionButton={true}
+            handleOpen={hendlerOpenAdvancedStatistics}
           />
           {toggleItem ? 
           <WeeklyChart chartArray={statisticSevenDays}/>

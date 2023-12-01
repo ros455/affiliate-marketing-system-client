@@ -13,7 +13,7 @@ const RewardSettingsTab = () => {
         <Ernings img="./image/icon6.svg" sum="2%" title="Premium" />
       </div> */}
       <RewardListPartner setIsShow={setIsShow}/>
-      {isShow && <UploadImageTemplate/>}
+      <UploadImageTemplate/>
     </>
   );
 };

@@ -20,9 +20,10 @@ const DashboardPrtnerList = ({ hendlerOpenListOfPartner }) => {
     <div className="admin_panel_items derection_wraper">
       <DashboardHeader
         title="Partner"
-        hendlerOpen={hendlerOpenListOfPartner}
+        handleOpen={hendlerOpenListOfPartner}
         setToggleItem={setToggleItem}
         toggleItem={toggleItem}
+        showTransistionButton={true}
       />
       <div className="derection_table_wrapp_xl">
         <div className="derection_table_wrap">

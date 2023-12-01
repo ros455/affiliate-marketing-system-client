@@ -3,7 +3,7 @@ import ConversionTable from "../template/ConversionTable";
 import DashboardHeader from "../template/DashboardHeader";
 import { useSelector } from "react-redux";
 import { currentUser } from "../../store/auth";
-const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
+const DashboardConversionList = ({ hendlerOpenProfitAndBonuses, className }) => {
   const [toggleItem, setToggleItem] = useState(true);
   const [dashboardStatistic, setDashboardStatistic] = useState([]);
   const user = useSelector(currentUser);
@@ -31,9 +31,10 @@ const DashboardConversionList = ({ hendlerOpenConversions, className }) => {
     <div className="admin_panel_items derection_wraper">
       <DashboardHeader
         title="Statistic"
-        hendlerOpen={hendlerOpenConversions}
+        handleOpen={hendlerOpenProfitAndBonuses}
         setToggleItem={setToggleItem}
         toggleItem={toggleItem}
+        showTransistionButton={true}
       />
       <div className="derection_table_wrapp_xl">
         <div className="derection_table_wrap">

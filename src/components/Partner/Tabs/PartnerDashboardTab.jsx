@@ -7,7 +7,7 @@ import DashboardConversionList from "../DashboardConversionList";
 import DashboardButton from "../../template/DashboardButton";
 import DashboardHeader from "../../template/DashboardHeader";
 import Loader from "../../template/Loader";
-const PartnerDashboardTab = ({ hendlerOpenConversions }) => {
+const PartnerDashboardTab = ({ hendlerOpenProfitAndBonuses }) => {
   const user = useSelector(currentUser);
 
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
@@ -165,16 +165,17 @@ const PartnerDashboardTab = ({ hendlerOpenConversions }) => {
       <div className="dasboard_user_list_and_chart_wrap">
         <div className="dasboard_user_list">
           <DashboardConversionList
-            hendlerOpenConversions={hendlerOpenConversions}
+            hendlerOpenProfitAndBonuses={hendlerOpenProfitAndBonuses}
             className={"table_info_item_partner"}
           />
         </div>
         <div className="admin_panel_items derection_wraper">
           <DashboardHeader
             title="Transition"
-            hendlerOpen={hendlerOpenConversions}
+            handleOpen={hendlerOpenProfitAndBonuses}
             setToggleItem={setToggleItem}
             toggleItem={toggleItem}
+            showTransistionButton={true}
           />
           {toggleItem ? 
           <WeeklyChart chartArray={partnerSevenDaysChart}/>

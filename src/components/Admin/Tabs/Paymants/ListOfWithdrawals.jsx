@@ -53,7 +53,7 @@ const ListOfWithdrawals = () => {
     <>
       <div className="admin_panel_items derection_wraper">
         <DashboardHeader
-          title="Request paymants"
+          title="Request payments"
           setToggleItem={setToggleItem}
           toggleItem={toggleItem}
         />

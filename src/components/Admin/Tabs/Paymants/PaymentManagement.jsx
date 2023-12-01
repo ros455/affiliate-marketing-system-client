@@ -48,7 +48,7 @@ const PaymentManagement = () => {
       <div>
       </div>
       <div>
-        <p className="title_diferent_components">Added new paymant method</p>
+        <p className="title_diferent_components">Add withdrawal method</p>
         <div className="input_wraper-item">
           <input
             id="mail"
@@ -57,7 +57,7 @@ const PaymentManagement = () => {
             value={method}
             onChange={(e) => setMethod(e.target.value)}
           />
-          <button className="button_approve" onClick={addNewMethod}>Added new method</button>
+          <button className="button_approve" onClick={addNewMethod}>Add new method</button>
         </div>
         <p className="title_diferent_components">Paymant method list</p>
         <div className="select_wrap_coin">

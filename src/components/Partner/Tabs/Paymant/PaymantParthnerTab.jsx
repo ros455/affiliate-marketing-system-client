@@ -25,7 +25,7 @@ const PaymantParthnerTab = () => {
         setReloadData={setReloadData}
         reloadData={reloadData}/>
       </div>
-      <p className="title_diferent_components">Added new paymant method</p>
+      <p className="title_diferent_components">Add withdrawal method</p>
       <div>
         <MySavedAddress />
       </div>
