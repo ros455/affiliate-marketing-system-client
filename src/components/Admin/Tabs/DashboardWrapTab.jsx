@@ -167,7 +167,7 @@ const DashboardWrapTab = ({ hendlerOpenListOfPartner, hendlerOpenAdvancedStatist
           <WeeklyChart chartArray={statisticSevenDays}/>
           :
           <div className="weekly_chart_wrapp_xl">
-            <WeeklyChart chartArray={statisticSevenDays}/>
+            <WeeklyChart chartArray={statisticSevenDays.reverse()}/>
           </div>
           }
         </div>
