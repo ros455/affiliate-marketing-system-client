@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ReferralProgramBanerBlock from "../ReferralProgramBanerBlock";
+// import ReferralProgramBanerBlock from "../ReferralProgramBanerBlock";
 import ConfirmModal from "../../template/ConfirmModal";
 import ReferalCodeTemplate from "../../template/ReferalCodeTemplate";
 import { BASE_URL } from "../../../http/BaseUrl";
@@ -43,7 +43,6 @@ const ReferralProgramTab = () => {
   }
   return (
     <>
-      <p className="referral_program_text">Pages / Dashboard</p>
       <h2 className="referral_program_title">Referral program</h2>
       <div className="referral_program_wrapp">
         <div className="referral_program_link_wrapp">
@@ -92,7 +91,7 @@ const ReferralProgramTab = () => {
           />
         </div>
       </div>
-      <ReferralProgramBanerBlock/>
+      {/* <ReferralProgramBanerBlock/> */}
     </>
   );
 };

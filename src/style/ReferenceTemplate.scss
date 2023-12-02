@@ -1,0 +1,48 @@
+@import "./template.scss";
+.reference_template_wrap {
+    margin: 20px 0px;
+}
+
+.reference_template_icon_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white_color;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    svg {
+        color: $main_color;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+.reference_template_input_wrap {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+.reference_template_input {
+    width: 100%;
+    padding-left: 20px;
+    border-radius: 20px;
+    background: $soft_gray_color;
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 171.429%;
+    letter-spacing: -0.28px;
+    border: none;
+    &::placeholder {
+      color: $medium_gray_color;
+    }
+}
+
+.reference_template_buttons_wrap {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

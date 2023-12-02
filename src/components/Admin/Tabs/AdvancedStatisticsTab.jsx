@@ -7,8 +7,7 @@ const AdvancedStatisticsTab = () => {
 
   return (
     <>
-      <p className="admin_content_text">Pages / Dashboard</p>
-      <h2 className="admin_content_title">Stats</h2>
+      <h2 className="admin_content_title">Advanced statistics</h2>
       <StatisticChart
         chartsMonth={adminStatistic?.chartsMonth}
         chartsYear={adminStatistic?.chartsYear}

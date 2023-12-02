@@ -6,6 +6,7 @@ import AdvancedStatisticsTab from "./Tabs/AdvancedStatisticsTab";
 import RewardSettingsTab from "./Tabs/RewardSettingsTab";
 import ProfileTab from "./Tabs/ProfileTab";
 import PaymentsTab from "./Tabs/Paymants/PaymentsTab";
+import AdminCreativesTab from "./Tabs/Paymants/AdminCreativesTab";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { allUsers } from "../../store/auth";
 import { AiFillHome } from "react-icons/ai";
@@ -13,6 +14,7 @@ import { GiSettingsKnobs } from "react-icons/gi";
 import { BiLogOut, BiSolidBarChartAlt2 } from "react-icons/bi";
 import { BsCart2, BsFillPersonFill } from "react-icons/bs";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { MdPermMedia } from "react-icons/md";
 import BurgerButton from "../template/BurgerButton";
 
 const AdminPanel = () => {
@@ -22,6 +24,7 @@ const AdminPanel = () => {
   const [isRewardSettings, setIsRewardSettings] = useState(false);
   const [isProfile, setIsProfile] = useState(false);
   const [isPayments, setIsPayments] = useState(false);
+  const [isCreatives, setCreatives] = useState(false);
 
   const [activeBurgerButton, setActiveBurgerButton] = useState(true);
 
@@ -41,6 +44,7 @@ const AdminPanel = () => {
     setIsProfile(false);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenListOfPartner = () => {
     setIsDashboadr(false);
@@ -50,6 +54,7 @@ const AdminPanel = () => {
     setIsProfile(false);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenAdvancedStatistics = () => {
     setIsDashboadr(false);
@@ -59,6 +64,7 @@ const AdminPanel = () => {
     setIsProfile(false);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenRewardSettings = () => {
     setIsDashboadr(false);
@@ -68,6 +74,7 @@ const AdminPanel = () => {
     setIsProfile(false);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenProfile = () => {
     setIsDashboadr(false);
@@ -77,6 +84,7 @@ const AdminPanel = () => {
     setIsProfile(true);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenPayments = () => {
     setIsDashboadr(false);
@@ -86,6 +94,17 @@ const AdminPanel = () => {
     setIsProfile(false);
     checkScreenWidthAndSetActive();
     setIsPayments(true);
+    setCreatives(false);
+  };
+  const hendlerOpenCreatives = () => {
+    setIsDashboadr(false);
+    setIsListOfPartner(false);
+    setIsAdvancedStatistics(false);
+    setIsRewardSettings(false);
+    setIsProfile(false);
+    checkScreenWidthAndSetActive();
+    setIsPayments(false);
+    setCreatives(true);
   };
 
   const logoutAdministration = () => {
@@ -175,6 +194,13 @@ const AdminPanel = () => {
                   <FaMoneyCheckDollar />
                   Payments
                 </li>
+                <li className={`nav_list-item ${
+                    isCreatives ? "nav_list-item-active" : ""
+                  } `} 
+                  onClick={hendlerOpenCreatives}>
+                  <MdPermMedia />
+                  Creatives
+                </li>
                 <li className="nav_list-item" onClick={logoutAdministration}>
                   <BiLogOut />
                   Log Out
@@ -196,6 +222,7 @@ const AdminPanel = () => {
             {isRewardSettings && <RewardSettingsTab />}
             {isProfile && <ProfileTab />}
             {isPayments && <PaymentsTab />}
+            {isCreatives && <AdminCreativesTab />}
           </div>
         </div>
       </div>

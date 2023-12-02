@@ -10,6 +10,7 @@ const PaymantParthnerTab = () => {
   const user = useSelector(currentUser);
   return (
     <div>
+        <h2 className="referral_program_title">Payments</h2>
       <div>
         <WithdrawMoneyForParthner
           img="./image/icon5.svg"

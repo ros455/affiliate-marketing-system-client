@@ -87,7 +87,6 @@ const ProfitAndBonusesTab = () => {
   return (
     <>
       <div className="derection_table_wrapp_xl">
-        <p className="profit_and_bonuses_text">Pages / Dashboard</p>
         <h2 className="profit_and_bonuses_title">Profit and bonuses</h2>
         <div className="profit_and_bonuses_erning_sales_info_wrap">
           <Ernings

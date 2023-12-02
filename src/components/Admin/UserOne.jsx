@@ -101,7 +101,6 @@ const UserOne = ({ setActiveUser, currentUser }) => {
   }
   return (
     <>
-      <p className="user_one_text">Pages / Partners / UserOne</p>
       <div className="user_one_title_wrapp">
         <h2 className="user_one_title">{user?.name}</h2>
         <button

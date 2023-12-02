@@ -5,11 +5,13 @@ import ProfitAndBonuses from "./Tabs/ProfitAndBonusesTab";
 import ReferralProgram from "./Tabs/ReferralProgramTab";
 import PartnerProfile from "./Tabs/PartnerProfileTab";
 import PaymantParthnerTab from './Tabs/Paymant/PaymantParthnerTab';
+import CreativesTab from "./Tabs/CreativesTab";
 import { AiFillHome } from "react-icons/ai";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { BiLogOut, BiSolidBarChartAlt2 } from "react-icons/bi";
 import { BsCart2, BsFillPersonFill } from "react-icons/bs";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { MdPermMedia } from "react-icons/md";
 import BurgerButton from "../template/BurgerButton";
 
 const PartnerPanel = () => {
@@ -19,6 +21,7 @@ const PartnerPanel = () => {
   const [isProfile, setIsProfile] = useState(false);
   const [isPayments, setIsPayments] = useState(false);
   const [activeBurgerButton, setActiveBurgerButton] = useState(true);
+  const [isCreatives, setCreatives] = useState(false);
 
   const navigate = useNavigate();
   const checkScreenWidthAndSetActive = () => {
@@ -35,6 +38,7 @@ const PartnerPanel = () => {
     setActiveBurgerButton(true);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenProfitAndBonuses = () => {
     setIsDashboadr(false);
@@ -44,6 +48,7 @@ const PartnerPanel = () => {
     setActiveBurgerButton(true);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenReferralProgram = () => {
     setIsDashboadr(false);
@@ -53,6 +58,7 @@ const PartnerPanel = () => {
     setActiveBurgerButton(true);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenProfile = () => {
     setIsDashboadr(false);
@@ -62,6 +68,7 @@ const PartnerPanel = () => {
     setActiveBurgerButton(true);
     checkScreenWidthAndSetActive();
     setIsPayments(false);
+    setCreatives(false);
   };
   const hendlerOpenPaymant = () => {
     setIsDashboadr(false);
@@ -71,6 +78,17 @@ const PartnerPanel = () => {
     setActiveBurgerButton(true);
     checkScreenWidthAndSetActive();
     setIsPayments(true);
+    setCreatives(false);
+  };
+  const hendlerOpenCreatives = () => {
+    setIsDashboadr(false);
+    setIsProfitAndBonuses(false);
+    setIsReferralProgram(false);
+    setIsProfile(false);
+    setActiveBurgerButton(true);
+    checkScreenWidthAndSetActive();
+    setIsPayments(false);
+    setCreatives(true);
   };
 
   const handleLogoutPartner = () => {
@@ -151,6 +169,13 @@ const PartnerPanel = () => {
                   <FaMoneyCheckDollar />
                   Payments
                 </li>
+                <li className={`nav_list-item ${
+                    isCreatives ? "nav_list-item-active" : ""
+                  } `} 
+                  onClick={hendlerOpenCreatives}>
+                  <MdPermMedia />
+                  Creatives
+                </li>
                 <li className="nav_list-item" onClick={handleLogoutPartner}>
                   <BiLogOut />
                   Log Out
@@ -170,6 +195,7 @@ const PartnerPanel = () => {
             {isReferralProgram && <ReferralProgram />}
             {isProfile && <PartnerProfile />}
             {isPayments && <PaymantParthnerTab />}
+            {isCreatives && <CreativesTab />}
           </div>
         </div>
       </div>

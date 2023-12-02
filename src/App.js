@@ -36,6 +36,7 @@ import './style/ReferalCodeTemplate.scss';
 import './style/Alert.scss';
 import './style/ModalWithdrawMoney.scss';
 import './style/ModalDisplayRequestData.scss'
+import './style/ReferenceTemplate.scss';
 
 function App() {
   const user = useSelector(currentUser);

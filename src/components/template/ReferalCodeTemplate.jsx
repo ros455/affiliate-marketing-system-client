@@ -4,7 +4,7 @@ import {BiCopy} from 'react-icons/bi';
 const ReferalCodeTemplate = ({ img, title, text, className, isManyText }) => {
 
     const handleImageClick = () => {
-        navigator.clipboard.writeText(text)
+        window.navigator.clipboard.writeText(text)
             .then(() => {
                 // Handle success (optional)
             })

@@ -98,7 +98,6 @@ const DashboardWrapTab = ({ hendlerOpenListOfPartner, hendlerOpenAdvancedStatist
   return (
     <div className="admin_content_wrap">
       <div>
-        <p className="admin_content_text">Pages / Dashboard</p>
         <h2 className="admin_content_title">Main Dashboard</h2>
       </div>
       <div className="erning_sales_info_wrap">
