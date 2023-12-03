@@ -9,7 +9,7 @@ const ReferenceTemplate = ({ img, title, link, className, text }) => {
         </div>
         <div className="ernings_wraper-content">
           <h5 className="content_title">{title}</h5>
-          <a className={`curent_sum ${className}`} href={link}>{text}</a>
+          <a target="_blank" className={`curent_sum ${className}`} href={link}>{text}</a>
         </div>
       </div>
     </div>

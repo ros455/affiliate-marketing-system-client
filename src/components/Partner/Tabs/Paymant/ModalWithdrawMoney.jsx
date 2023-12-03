@@ -147,7 +147,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
                   <label htmlFor="sum">Sum</label>
                   <input
                     id="sum"
-                    type="text"
+                    type="number"
                     placeholder="999"
                     value={sum}
                     onChange={(e) => handleSetSum(e.target.value)}
