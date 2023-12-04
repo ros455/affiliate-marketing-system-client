@@ -30,6 +30,15 @@
   .ernings_withdraw_money_wrap {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    p {
+      color: $main_color;
+      font-weight: 600;
+      font-size: 20px;
+      cursor: pointer;
+    }
   }
   .ernings_withdraw_money_icon {
     width: 25px;

@@ -19,6 +19,7 @@ const HistoryTransactions = ({reloadData, setReloadData}) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (currentPage < 1) return;
       try {
         const response = await apiInstance.get(`/get-all-paymant-request-for-user`, {
           params: { page: currentPage, limit: 5, userId: user._id},

@@ -177,7 +177,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
                   />
                   {/* <p style={{color:"red"}}>{walletErrorMessage}</p> */}
                   <ErrorMessage message={walletErrorMessage}/>
-                  <button className="button_approve" onClick={choseSavedAddress}>Chose my saved wallet</button>
+                  {/* <button className="button_approve" onClick={choseSavedAddress}>Chose my saved wallet</button> */}
                 </div>
               </div>
               <div className="withdraw_money_form_block_second">
@@ -189,8 +189,10 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
                 selectValue={selectValue}
                 handleSelect={handleSelect}/>
                 </div>
-                <button className="button_approve" onClick={sendPaymantRequest}>Send</button>
               </div>
+            </div>
+            <div className="withdraw_money_send_button_wrap">
+                <button className="button_approve" onClick={sendPaymantRequest}>Send</button>
             </div>
           </div>
         </div>

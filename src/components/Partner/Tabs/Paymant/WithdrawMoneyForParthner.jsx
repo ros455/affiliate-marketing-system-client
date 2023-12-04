@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BiDownload } from "react-icons/bi";
+import { FaWallet } from "react-icons/fa";
+import { FaMoneyCheck } from "react-icons/fa";
 import ModalWithdrawMoney from "./ModalWithdrawMoney";
 const WithdrawMoneyForParthner = ({
   img,
@@ -25,7 +27,8 @@ const WithdrawMoneyForParthner = ({
       </div>
       <div>
           <div className="ernings_withdraw_money_wrap">
-            <BiDownload
+            <p onClick={() => setIsOpenModalConfirm(!isOpenModalConfirm)}>Withdraw balance:</p>
+            <FaWallet
               className="ernings_withdraw_money_icon"
               onClick={() => setIsOpenModalConfirm(!isOpenModalConfirm)}
             />

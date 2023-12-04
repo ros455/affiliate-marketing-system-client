@@ -22,7 +22,9 @@ const ListOfPartner_List = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (currentPage < 1) return;
       try {
+        console.log('work!!!');
         const response = await apiInstance.get(`/search-users`, {
           params: { page: currentPage, limit: 5, search: searchTerm },
           headers: { authorization: AUTH_TOKEN },
@@ -47,6 +49,9 @@ const ListOfPartner_List = () => {
     };
   }, [currentPage, searchTerm]);
 
+  console.log('currentPage',currentPage);
+  console.log('searchTerm',searchTerm);
+
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     setPage(1); // Reset to the first page on search
@@ -57,26 +62,11 @@ const ListOfPartner_List = () => {
     setCurrentUser(user);
   };
 
-  // if(!allUsers.length) {
-  //   return (
-  //     <Loader/>
-  //   )
-  // }
-
   return activeUser ? (
     <UserOne setActiveUser={setActiveUser} currentUser={currentUser} />
   ) : (
     <>
       <div className="admin_panel_items derection_wraper">
-        {/* <div className="dashboard_list_header">
-        <h3 className="dashboard_list_title">Partner</h3>
-        <div className="dashboard_input_wrap">
-          <input
-            onChange={(e) => handleSearchChange(e)}
-            placeholder="Search partner"
-          />
-        </div>
-      </div> */}
         <DashboardHeader
           title="Partner"
           setToggleItem={setToggleItem}

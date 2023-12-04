@@ -15,6 +15,7 @@ const ListOfWithdrawals = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (currentPage < 1) return;
       try {
         const response = await apiInstance.get(`/get-all-paymant-request`, {
           params: { page: currentPage, limit: 5},
