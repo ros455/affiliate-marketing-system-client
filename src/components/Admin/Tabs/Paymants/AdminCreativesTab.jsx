@@ -12,18 +12,12 @@ const AdminCreativesTab = () => {
     useEffect(() => {
         apiInstance.get('/get-all-media-content')
         .then((res) => {
-          console.log('res',res.data)
           setImageText(res.data.imageText);
           setImageLink(res.data.imageLink);
           setVideoText(res.data.videoText);
           setVideoLink(res.data.videoLink);
         })
         },[reloadData])
-
-        console.log('imageText',imageText);
-        console.log('imageLink',imageLink);
-        console.log('videoText',videoText);
-        console.log('videoLink',videoLink);
     
     return (
         <div>

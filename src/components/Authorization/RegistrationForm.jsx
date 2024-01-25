@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { fetchRegister } from "../../store/auth";
 import InputPassword from "../template/InputPassword";
 import ConfirmModal from "../template/ConfirmModal";
+
 const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -22,8 +23,8 @@ const RegistrationForm = () => {
     }));
 
     if ('token' in data.payload) {
-      window.localStorage.setItem('A-M-S-token', data.payload.token);
-      navigate('/partner-panel');
+      navigate('/');
+      alert("Please check your email to activate your account. Don't forget to look in your spam folder if you can't find our email.")
       window.location.reload();
     } else {
       alert(data.payload.message);
@@ -42,7 +43,7 @@ const RegistrationForm = () => {
         <div className="input_wraper">
           <div className="input_wraper-item">
             <label htmlFor="mail">
-              Login <span>*</span>
+            Email <span>*</span>
             </label>
             <input
               id="mail"

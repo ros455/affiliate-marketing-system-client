@@ -11,7 +11,6 @@ const PaymentManagement = () => {
     apiInstance.get(`/get-all-paymants-method`)
       .then((res) => {
         setAllMethods(res.data);
-        console.log('res.data',res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -31,7 +30,6 @@ const PaymentManagement = () => {
   }
 
   const removeOneMethod = (id) => {
-    console.log('id',id);
     apiInstance.delete(`/delete-paymant-method`, {
         params: {id}
     }).then(() => {
@@ -42,7 +40,6 @@ const PaymentManagement = () => {
     })
   }
 
-  console.log('allMethods',allMethods);
   return (
     <div>
       <div>

@@ -67,6 +67,10 @@
   margin-top: 10px;
 }
 
+.not_regist p {
+  padding: 10px 0px;
+}
+
 .registration_button_wrap {
   margin: 10px 0px;
 }
@@ -83,4 +87,21 @@
 .password_input_container {
   position: relative;
   width: 100%;
+}
+
+.send_message_wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+
+  svg {
+    color: red;
+  }
+}
+
+.send_message {
+  color: red;
+  font-weight: 600;
+  font-size: 16px;
 }

@@ -21,7 +21,6 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
   useEffect(() => {
     apiInstance.get(`/get-all-paymants-method`)
       .then((res) => {
-        console.log('res.data',res.data);
         setAllMethods(res.data);
       })
       .catch((error) => {
@@ -39,7 +38,6 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
 
   const sendPaymantRequest = () => {
     let resoult = validationSendRequest({sum, wallet});
-    console.log('resoult',resoult);
     let isValid = false;
     if(resoult.length == 0) {
       isValid = true;
@@ -85,7 +83,6 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
     try {
       console.log('event',e);
       const resoult = validationSendRequest({sum: e});
-      console.log('resoult',resoult);
       if(!!resoult.length) {
         resoult.forEach((item) => {
           item.reason == 'sum' ? setSumErrorMessage(item.error) : setSumErrorMessage('');
@@ -109,9 +106,7 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
 
   const handleValidateWallet = (e) => {
     try {
-      console.log('event',e);
       const resoult = validationSendRequest({wallet: e});
-      console.log('resoult',resoult);
       if(!!resoult.length) {
         resoult.forEach((item) => {
           item.reason == 'sum' ? setWalletErrorMessage(item.error) : setWalletErrorMessage('');
@@ -123,10 +118,6 @@ const ModalWithdrawMoney = ({ isOpenModal, setIsOpen, setReloadData }) => {
         console.log(error);
     }
   }
-
-  console.log('sumErrorMessage',sumErrorMessage);
-  console.log('walletErrorMessage',walletErrorMessage);
-  console.log('allMethods',allMethods);
 
   return (
     <>

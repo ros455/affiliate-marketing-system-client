@@ -46,3 +46,19 @@
   flex-direction: column;
   gap: 20px;
 }
+
+
+.cange_password_container {
+  max-width: 150px;
+  width: 100%;
+  height: 100%;
+
+  button {
+    height: 40px;
+    width: 100%;
+    background: $purple_color;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+  }
+}

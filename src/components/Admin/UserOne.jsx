@@ -8,8 +8,10 @@ import { apiInstance } from "../../http/Api";
 
 const UserOne = ({ setActiveUser, currentUser }) => {
   const [isActiveButton, setIsActiveButton] = useState("sales_month");
+  const [isChangePassword, setIsChangePassword] = useState(false);
   const [reloadData, setReloadData] = useState(false);
   const [user, setUser] = useState(null);
+  const [newPassword, setNewPassword] = useState('');
 
   useEffect(() => {
     apiInstance.get(`/get-user-statistic/${currentUser._id}`)
@@ -21,6 +23,21 @@ const UserOne = ({ setActiveUser, currentUser }) => {
       console.log('error',error);
     })
   },[reloadData])
+
+  const handelUpdatePassword = () => {
+    apiInstance.patch(`/change-password`, {
+      password: newPassword,
+      id: currentUser._id
+    })
+    .then((res) => {
+      if(res.data) {
+        alert(`Password changed for user: ${currentUser.name}`)
+        setNewPassword('')
+      }
+    }).catch((error) => {
+      console.log('error',error);
+    })
+  }
 
   const handleActiveButton = (activeButton) => {
     setIsActiveButton(activeButton);
@@ -121,6 +138,38 @@ const UserOne = ({ setActiveUser, currentUser }) => {
             />
           </svg>
         </button>
+        {isChangePassword
+        ?
+        <div style={{maxWidth: '500px', width: '100%'}}>
+          <div className="reward_input_edit_wrapp">
+          <input
+          className="reward_input_edit_change_password"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+          type="text"
+          placeholder="Write new password"
+        />
+        <button
+          className="reward_btn_close_submit"
+          type="submit"
+          onClick={() => setIsChangePassword(!isChangePassword)}
+        >
+          X
+        </button>
+        <button
+          className="reward_btn_edit_submit"
+          type="submit"
+          onClick={handelUpdatePassword}
+        >
+          ok
+        </button>
+      </div>
+        </div>
+        :
+        <div className="cange_password_container">
+          <button onClick={() => setIsChangePassword(!isChangePassword)}>Change password</button>
+        </div>
+        }
       </div>
       <div className="user_one_erning_sales_info_wrap">
         <Ernings

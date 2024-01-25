@@ -21,7 +21,6 @@ const RewardListPartner = ({setIsShow}) => {
     const fetchData = async () => {
       if (currentPage < 1) return;
       try {
-        console.log('work!!!');
         const response = await apiInstance.get(`/search-users`, {
           params: { page: currentPage, limit: 5, search: searchTerm },
         });

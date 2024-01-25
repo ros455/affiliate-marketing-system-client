@@ -48,7 +48,6 @@ const HistoryTransactions = ({reloadData, setReloadData}) => {
     };
   }, [currentPage, searchTerm, reloadData]);
 
-  console.log('allRequest',allRequest);
   // if(!allRequest.length) {
   //   return (
   //     <Loader/>

@@ -44,7 +44,6 @@ const ListOfWithdrawals = () => {
     };
   }, [currentPage, reloadData]);
 
-  console.log('allRequest',allRequest);
   // if(!allRequest.length) {
   //   return (
   //     <Loader/>

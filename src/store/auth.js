@@ -45,11 +45,8 @@ export const fetchAuth = createAsyncThunk(
       }),
     });
     const data = await response.json();
-    if (data.message === "User not found") {
-      return { message: "User not found" };
-    }
-    if (data.message === "Password or email wrong") {
-      return { message: "Password or email wrong" };
+    if (data.message) {
+      return { message: data.message };
     }
     thunkAPI.dispatch(authSlice.actions.setData(data));
 

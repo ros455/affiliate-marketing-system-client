@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import RegistrationForm from "./components/Authorization/RegistrationForm";
 import LoginForm from "./components/Authorization/LoginForm";
+import SetNewPassword from "./components/SetNewPassword/SetNewPassword";
 import { Route, Routes } from "react-router-dom";
 import AdminPanel from "./components/Admin/AdminPanel";
 import PartnerPanel from "./components/Partner/PartnerPanel";
@@ -37,6 +38,7 @@ import './style/Alert.scss';
 import './style/ModalWithdrawMoney.scss';
 import './style/ModalDisplayRequestData.scss'
 import './style/ReferenceTemplate.scss';
+import './style/SendEmailModal.scss';
 
 function App() {
   const user = useSelector(currentUser);
@@ -61,6 +63,7 @@ function App() {
       <Route path="*" element={<Page404 />} />
         {!user && <Route path="/" element={<LoginForm />} />}
         {!user && <Route path="/registration" element={<RegistrationForm />} />}
+        {!user && <Route path="/set-new-pass/:id" element={<SetNewPassword />} />}
         {user && user.isAdmin && (
           <Route path="/admin-panel" element={<AdminPanel />} />
         )}

@@ -49,9 +49,6 @@ const ListOfPartner_List = () => {
     };
   }, [currentPage, searchTerm]);
 
-  console.log('currentPage',currentPage);
-  console.log('searchTerm',searchTerm);
-
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     setPage(1); // Reset to the first page on search
